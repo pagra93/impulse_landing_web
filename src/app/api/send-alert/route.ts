@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
         const resend = new Resend(apiKey);
 
         const { error } = await resend.emails.send({
-            from: 'Impulse <notifications@impulsecontrolapp.com>', // Assuming a generic sender or verify one
+            from: 'Impulse <notifications@send.impulsecontrolapp.com>',
             to: partnerEmail,
             subject: 'Impulse: your accountability partner uninstalled the extension',
             text: `Your accountability partner has uninstalled the Impulse extension. This is an automated notification to keep you informed.`,
