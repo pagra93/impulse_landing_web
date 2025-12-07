@@ -1,0 +1,8 @@
+# API Key for Resend (Email Service)
+# Get one at https://resend.com/api-keys
+RESEND_API_KEY=re_123456789
+
+# INSTRUCTIONS:
+# 1. Replace 're_123456789' with your actual Resend API Key.
+# 2. Rename this file to '.env.local' (with the dot at the start).
+# 3. macOS might ask if you want to use "." at the start. Say yes.
