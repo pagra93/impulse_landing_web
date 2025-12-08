@@ -2,35 +2,37 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DollarSign, Clock } from "lucide-react";
 
 export function Calculator() {
     const [hoursPerDay, setHoursPerDay] = useState(4);
-    const [hourlyRate, setHourlyRate] = useState(50);
 
-    const hoursSavedPerYear = Math.round(hoursPerDay * 0.25 * 365); // Assuming 25% reduction
-    const moneySavedPerYear = hoursSavedPerYear * hourlyRate;
+    // Logic: 25% saving assumption
+    const hoursSavedPerWeek = (hoursPerDay * 0.25 * 7).toFixed(1);
+    const daysSavedPerYear = ((hoursPerDay * 0.25 * 365) / 24).toFixed(2);
 
     return (
         <section id="calculator" className="py-20 bg-white">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
-                            How much is your distraction costing you?
-                        </h2>
-                        <p className="text-gray-600">
-                            Calculate the potential value of reclaiming your focus.
-                        </p>
-                    </div>
+                <div className="bg-black text-white rounded-3xl p-8 md:p-16 shadow-2xl overflow-hidden relative">
 
-                    <div className="grid md:grid-cols-2 gap-12 items-center bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
+                    <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                        {/* Left Col: Slider */}
                         <div className="space-y-8">
-                            <div className="space-y-4">
-                                <label className="block text-sm font-medium text-gray-700">
-                                    Hours spent on phone per day
-                                </label>
-                                <div className="flex items-center gap-4">
+                            <h2 className="text-2xl md:text-3xl font-bold font-heading">
+                                How much do you use your phone/computer every day?
+                            </h2>
+
+                            <div className="flex items-center gap-6">
+                                {/* Custom Slider Styling */}
+                                <div className="h-64 bg-gray-800 rounded-full w-4 relative">
+                                    <div
+                                        className="absolute bottom-0 w-full bg-[#FDE047] rounded-full"
+                                        style={{ height: `${(hoursPerDay / 12) * 100}%`, maxHeight: '100%' }}
+                                    />
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-6xl font-bold font-heading">{hoursPerDay} h</span>
                                     <input
                                         type="range"
                                         min="1"
@@ -38,54 +40,44 @@ export function Calculator() {
                                         step="0.5"
                                         value={hoursPerDay}
                                         onChange={(e) => setHoursPerDay(parseFloat(e.target.value))}
-                                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-black"
-                                    />
-                                    <span className="w-16 text-right font-mono font-bold text-xl">
-                                        {hoursPerDay}h
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4">
-                                <label className="block text-sm font-medium text-gray-700">
-                                    Your hourly value ($)
-                                </label>
-                                <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                                        <DollarSign size={18} />
-                                    </div>
-                                    <input
-                                        type="number"
-                                        min="0"
-                                        value={hourlyRate}
-                                        onChange={(e) => setHourlyRate(parseInt(e.target.value) || 0)}
-                                        className="block w-full pl-10 pr-3 py-3 border-gray-200 rounded-xl focus:ring-black focus:border-black transition-colors"
+                                        className="w-full accent-[#FDE047] h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="space-y-6">
-                            <motion.div
-                                key={moneySavedPerYear}
-                                initial={{ scale: 0.9, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                className="bg-black text-white p-8 rounded-2xl text-center shadow-xl"
-                            >
-                                <div className="text-sm opacity-80 uppercase tracking-widest mb-2">
-                                    Potential Yearly Value
-                                </div>
-                                <div className="text-5xl font-bold font-heading text-green-400">
-                                    ${moneySavedPerYear.toLocaleString('en-US')}
-                                </div>
-                                <div className="mt-4 pt-4 border-t border-white/20 text-sm opacity-70">
-                                    Based on reclaiming 25% of your screen time
-                                </div>
-                            </motion.div>
+                        {/* Right Col: Results */}
+                        <div className="space-y-10">
+                            <div>
+                                <div className="text-sm uppercase tracking-widest text-gray-400 mb-1">Hours saved per week</div>
+                                <motion.div
+                                    key={hoursSavedPerWeek}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className="text-5xl md:text-6xl font-bold text-[#FDE047] font-heading"
+                                >
+                                    {hoursSavedPerWeek}
+                                </motion.div>
+                                <div className="text-gray-500 text-sm mt-2">Based on reclaiming 25% of your time</div>
+                            </div>
 
-                            <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
-                                <Clock size={16} />
-                                <span>~{hoursSavedPerYear} hours reclaimed per year</span>
+                            <div>
+                                <div className="text-sm uppercase tracking-widest text-gray-400 mb-1">Days saved per year</div>
+                                <motion.div
+                                    key={daysSavedPerYear}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className="text-5xl md:text-6xl font-bold text-[#FDE047] font-heading"
+                                >
+                                    {daysSavedPerYear}
+                                </motion.div>
+                                <div className="text-gray-500 text-sm mt-2">Full days of your life reclaimed</div>
+                            </div>
+
+                            <div className="pt-4">
+                                <span className="text-[#FDE047] text-sm uppercase tracking-widest font-bold border-b border-[#FDE047] pb-1 cursor-pointer hover:opacity-80">
+                                    It&apos;s time to take back your time!
+                                </span>
                             </div>
                         </div>
                     </div>

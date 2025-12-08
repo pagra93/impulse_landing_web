@@ -1,15 +1,17 @@
-import Link from "next/link";
-
 export function Footer() {
     return (
-        <footer className="bg-white py-8 border-t border-gray-100">
-            <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-gray-500">
-                    &copy; {new Date().getFullYear()} Impulaw. All Rights Reserved.
+        <footer className="py-12 bg-white border-t border-gray-100">
+            <div className="container mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center space-y-6">
+                <div className="text-2xl font-bold font-heading text-slate-900">Impulse.</div>
+
+                <p className="text-gray-500 text-sm max-w-md">
+                    Get 1% Better Daily
+                    <br />
+                    <span className="opacity-60 font-light">Small discipline changes lead to massive results.</span>
                 </p>
-                <div className="flex gap-6">
-                    <Link href="#" className="text-sm text-gray-500 hover:text-black">Privacy Policy</Link>
-                    <Link href="#" className="text-sm text-gray-500 hover:text-black">Terms of Service</Link>
+
+                <div className="text-xs text-gray-400 pt-8">
+                    Copyright &copy; {new Date().getFullYear()} Impulse. All Rights Reserved.
                 </div>
             </div>
         </footer>

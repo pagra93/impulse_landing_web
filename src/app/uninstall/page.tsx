@@ -3,101 +3,113 @@
 import Image from 'next/image';
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import emailjs from '@emailjs/browser';
 
 function UninstallInner() {
-    const searchParams = useSearchParams();
-    const partnerEmail = searchParams.get('partner');
-    const [emailSent, setEmailSent] = useState(false);
+  const searchParams = useSearchParams();
+  const partnerEmail = searchParams.get('partner');
+  const [emailSent, setEmailSent] = useState(false);
 
-    useEffect(() => {
-        if (partnerEmail && !emailSent) {
-            fetch('/api/send-alert', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ partnerEmail }),
-            })
-                .then(() => setEmailSent(true))
-                .catch(console.error);
-        }
-    }, [partnerEmail, emailSent]);
+  useEffect(() => {
+    if (partnerEmail && !emailSent) {
+      // EmailJS configuration from screenshots
+      const serviceId = 'service_puna5en';
+      const templateId = 'template_zgcu60d';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
 
-    return (
-        <div className="page">
-            <header className="header">
-                <div className="brand">
-                    <Image
-                        src="/impulse.png"
-                        alt="Impulse Logo"
-                        width={100}
-                        height={100}
-                        className="logo-image"
-                    />
-                </div>
-                <a
-                    href="https://impulsecontrolapp.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="back-link"
-                >
-                    Back to Impulse Website
-                </a>
-            </header>
+      emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: partnerEmail,
+          message: 'Your accountability partner has uninstalled the Impulse extension. This is an automated notification to keep you informed.',
+        },
+        publicKey
+      )
+        .then(() => setEmailSent(true))
+        .catch((error) => {
+          console.error('EmailJS error:', error);
+        });
+    }
+  }, [partnerEmail, emailSent]);
 
-            <main className="main">
-                <section className="intro">
-                    <p className="eyebrow">Thanks for trying Impulse</p>
-                    <h1>Before you leave, help us improve Impulse.</h1>
+  return (
+    <div className="page">
+      <header className="header">
+        <div className="brand">
+          <Image
+            src="/impulse.png"
+            alt="Impulse Logo"
+            width={100}
+            height={100}
+            className="logo-image"
+          />
+        </div>
+        <a
+          href="https://impulsecontrolapp.com"
+          target="_blank"
+          rel="noreferrer"
+          className="back-link"
+        >
+          Back to Impulse Website
+        </a>
+      </header>
 
-                    <p className="lead">
-                        Impulse is designed to help you <strong>control your focus and block distractions</strong>.
-                        Your feedback helps us understand why the extension no longer fits your needs — and what we
-                        should improve so it truly makes a difference.
-                    </p>
+      <main className="main">
+        <section className="intro">
+          <p className="eyebrow">Thanks for trying Impulse</p>
+          <h1>Before you leave, help us improve Impulse.</h1>
 
-                    <ul className="bullets">
-                        <li>Share the reason you uninstalled in just a few seconds.</li>
-                        <li>Help us prioritize real improvements, not random features.</li>
-                        <li>
-                            Optional: leave your email if you’d like us to update you about new versions of Impulse.
-                        </li>
-                    </ul>
+          <p className="lead">
+            Impulse is designed to help you <strong>control your focus and block distractions</strong>.
+            Your feedback helps us understand why the extension no longer fits your needs — and what we
+            should improve so it truly makes a difference.
+          </p>
 
-                    {partnerEmail && (
-                        <div className="partner">
-                            <span className="partner-label">Accountability partner</span>
-                            <p className="partner-text">
-                                {emailSent
-                                    ? `We’ve sent a notification to ${partnerEmail}.`
-                                    : `We’re notifying ${partnerEmail} to let them know you’ve uninstalled the extension.`}
-                            </p>
-                        </div>
-                    )}
-                </section>
+          <ul className="bullets">
+            <li>Share the reason you uninstalled in just a few seconds.</li>
+            <li>Help us prioritize real improvements, not random features.</li>
+            <li>
+              Optional: leave your email if you’d like us to update you about new versions of Impulse.
+            </li>
+          </ul>
 
-                <section className="form-section">
-                    <div className="card">
-                        <div className="card-header">
-                            <h2>Tell us why you uninstalled Impulse</h2>
-                            <p>This takes less than 1 minute and helps us a lot.</p>
-                        </div>
-                        <div className="iframe-wrapper">
-                            <iframe
-                                src="https://tally.so/embed/3xZ2Xy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                                width="100%"
-                                height="100%"
-                                frameBorder="0"
-                                title="Impulse Feedback"
-                            />
-                        </div>
-                    </div>
-                </section>
-            </main>
+          {partnerEmail && (
+            <div className="partner">
+              <span className="partner-label">Accountability partner</span>
+              <p className="partner-text">
+                {emailSent
+                  ? `We’ve sent a notification to ${partnerEmail}.`
+                  : `We’re notifying ${partnerEmail} to let them know you’ve uninstalled the extension.`}
+              </p>
+            </div>
+          )}
+        </section>
 
-            <footer className="footer">
-                <span>© {new Date().getFullYear()} Impulse · Focus without friction.</span>
-            </footer>
+        <section className="form-section">
+          <div className="card">
+            <div className="card-header">
+              <h2>Tell us why you uninstalled Impulse</h2>
+              <p>This takes less than 1 minute and helps us a lot.</p>
+            </div>
+            <div className="iframe-wrapper">
+              <iframe
+                src="https://tally.so/embed/3xZ2Xy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Impulse Feedback"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
 
-            <style jsx>{`
+      <footer className="footer">
+        <span>© {new Date().getFullYear()} Impulse · Focus without friction.</span>
+      </footer>
+
+      <style jsx>{`
         .page {
           min-height: 100vh;
           background: #fff7e6;
@@ -273,7 +285,7 @@ function UninstallInner() {
 
         .iframe-wrapper iframe {
           width: 100%;
-          height: 100%;
+          height: 1000px;
           display: block;
           background: transparent !important;
         }
@@ -291,14 +303,14 @@ function UninstallInner() {
           object-fit: contain;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default function UninstallPage() {
-    return (
-        <Suspense fallback={<div className="page" />}>
-            <UninstallInner />
-        </Suspense>
-    );
+  return (
+    <Suspense fallback={<div className="page" />}>
+      <UninstallInner />
+    </Suspense>
+  );
 }

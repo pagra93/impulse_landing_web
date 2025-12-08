@@ -29,33 +29,27 @@ export function Hero() {
                         <span className="text-gray-500">block distractions.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                        Stop scrolling and start living. Block distracting websites and apps to
-                        regain your focus and time.
+                        Are distractions killing your productivity? Impulse is designed to help you
+                        to block specified apps/websites during time slots to maintain focus and
+                        productivity.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                         <Link
                             href="https://apps.apple.com/app/id6447600329"
                             target="_blank"
-                            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-xl hover:scale-105 transition-transform duration-200"
+                            className="flex items-center justify-center gap-2 bg-[#FDE047] text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-sm"
                         >
-                            <Apple size={24} fill="currentColor" />
-                            <div className="flex flex-col items-start leading-none">
-                                <span className="text-[10px] uppercase opacity-80">Download on the</span>
-                                <span className="text-lg font-semibold">App Store</span>
-                            </div>
+                            <span className="text-sm font-bold uppercase tracking-wide">Download for iOS</span>
                         </Link>
 
                         <Link
-                            href="https://chrome.google.com/webstore/detail/impulse-block-distractin/...</" // TODO: Add actual link
+                            href="https://chrome.google.com/webstore/detail/impulse-block-distractin/..."
                             target="_blank"
-                            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white border border-gray-200 text-slate-900 px-8 py-4 rounded-xl hover:scale-105 transition-transform duration-200 hover:shadow-lg"
+                            className="flex items-center justify-center gap-2 bg-black text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-sm"
                         >
-                            <Chrome size={24} />
-                            <div className="flex flex-col items-start leading-none">
-                                <span className="text-[10px] uppercase text-gray-500">Add to</span>
-                                <span className="text-lg font-semibold">Chrome</span>
-                            </div>
+                            <Chrome size={18} />
+                            <span className="text-sm font-bold uppercase tracking-wide">Add to Chrome</span>
                         </Link>
                     </div>
                 </motion.div>
