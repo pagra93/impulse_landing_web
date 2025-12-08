@@ -12,9 +12,8 @@ function UninstallInner() {
 
   useEffect(() => {
     if (partnerEmail && !emailSent) {
-      // EmailJS configuration from screenshots
       const serviceId = 'service_puna5en';
-      const templateId = 'template_zgcu60d';
+      const templateId = 'template_irjel7e';
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
 
       emailjs.send(
@@ -28,7 +27,7 @@ function UninstallInner() {
       )
         .then(() => setEmailSent(true))
         .catch((error) => {
-          console.error('EmailJS error:', error);
+          console.error('Failed to send email notification:', error);
         });
     }
   }, [partnerEmail, emailSent]);
