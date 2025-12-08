@@ -36,7 +36,7 @@ export function Hero() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                         <Link
-                            href="https://apps.apple.com/app/id6447600329"
+                            href="https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036"
                             target="_blank"
                             className="flex items-center justify-center gap-2 bg-[#FDE047] text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-sm"
                         >
@@ -44,7 +44,7 @@ export function Hero() {
                         </Link>
 
                         <Link
-                            href="https://chrome.google.com/webstore/detail/impulse-block-distractin/..."
+                            href="https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik"
                             target="_blank"
                             className="flex items-center justify-center gap-2 bg-black text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-200 shadow-sm"
                         >

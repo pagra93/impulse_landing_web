@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, Clock, Layout, Smartphone, Laptop } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const featuresList = [
     {
@@ -91,9 +92,13 @@ export function Features() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="bg-black text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide hover:opacity-80 transition-opacity">
+                            <Link
+                                href="https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036"
+                                target="_blank"
+                                className="bg-black text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide hover:opacity-80 transition-opacity inline-block"
+                            >
                                 Download for iOS
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -122,9 +127,13 @@ export function Features() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="bg-black text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide hover:opacity-80 transition-opacity">
+                            <Link
+                                href="https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik"
+                                target="_blank"
+                                className="bg-black text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide hover:opacity-80 transition-opacity inline-block"
+                            >
                                 Add to Chrome
-                            </button>
+                            </Link>
                         </div>
                         <div className="flex justify-center relative">
                             {/* Placeholder for Laptop Image */}

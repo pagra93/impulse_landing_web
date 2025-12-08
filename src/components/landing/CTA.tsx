@@ -18,14 +18,14 @@ export function CTA() {
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link
-                                href="https://apps.apple.com/app/id6447600329"
+                                href="https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036"
                                 target="_blank"
                                 className="flex items-center justify-center gap-2 bg-black text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-wide hover:scale-105 transition-transform"
                             >
                                 Download App
                             </Link>
                             <Link
-                                href="https://chrome.google.com/webstore/detail/impulse-block-distractin/..."
+                                href="https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik"
                                 target="_blank"
                                 className="flex items-center justify-center gap-2 bg-black text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-wide hover:scale-105 transition-transform"
                             >
