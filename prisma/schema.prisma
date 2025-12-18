@@ -1,0 +1,368 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: users
+// Base user table for authentication and identity
+// ═══════════════════════════════════════════════════════════════════════════
+model User {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  settings        UserSettings?
+  blockingPeriods BlockingPeriod[]
+  impulseControls ImpulseControl[]
+  dailyUsage      DailyUsage[]
+  siteVisits      SiteVisit[]
+
+  @@map("users")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: user_settings
+// TODAS las preferencias del usuario en un solo lugar
+// ═══════════════════════════════════════════════════════════════════════════
+model UserSettings {
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String @unique @map("user_id") @db.Uuid
+
+  // ══════════════════════════════════════════════════════════════════════
+  // TEMA Y APARIENCIA
+  // ══════════════════════════════════════════════════════════════════════
+  themePreference String @default("light") @map("theme_preference") @db.VarChar(20) // 'light', 'dark', 'system'
+
+  // ══════════════════════════════════════════════════════════════════════
+  // FOCUS PILL (el botoncito flotante en las páginas)
+  // ══════════════════════════════════════════════════════════════════════
+  focusPillEnabled Boolean @default(true) @map("focus_pill_enabled")
+
+  // ══════════════════════════════════════════════════════════════════════
+  // QUICK FOCUS
+  // ══════════════════════════════════════════════════════════════════════
+  quickFocusEnabled    Boolean @default(false) @map("quick_focus_enabled")
+  quickFocusDefaultUrl String? @map("quick_focus_default_url") @db.Text // URL por defecto cuando activa Quick Focus
+
+  // ══════════════════════════════════════════════════════════════════════
+  // PROTECCIÓN POR CONTRASEÑA
+  // ══════════════════════════════════════════════════════════════════════
+  passwordProtectionEnabled Boolean @default(false) @map("password_protection_enabled")
+  passwordHash              String? @map("password_hash") @db.VarChar(255) // Hash bcrypt de la contraseña local
+
+  // ══════════════════════════════════════════════════════════════════════
+  // NOTIFICACIÓN DE DESINSTALACIÓN (Accountability Partner)
+  // ══════════════════════════════════════════════════════════════════════
+  uninstallAlertEnabled Boolean @default(false) @map("uninstall_alert_enabled")
+  uninstallAlertEmail   String? @map("uninstall_alert_email") @db.VarChar(255) // Email del partner
+
+  // ══════════════════════════════════════════════════════════════════════
+  // IDIOMA
+  // ══════════════════════════════════════════════════════════════════════
+  language String @default("en") @db.VarChar(10) // 'en', 'es', 'fr', 'de', 'pt'
+
+  // ══════════════════════════════════════════════════════════════════════
+  // METADATA
+  // ══════════════════════════════════════════════════════════════════════
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  lastSyncedAt DateTime? @map("last_synced_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "idx_user_settings_user")
+  @@map("user_settings")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: blocking_periods
+// Periodos de bloqueo completos con TODOS los campos
+// ═══════════════════════════════════════════════════════════════════════════
+model BlockingPeriod {
+  id     String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String  @map("user_id") @db.Uuid
+
+  // ID local (el que usa la extensión)
+  localId String? @map("local_id") @db.VarChar(100)
+
+  // ══════════════════════════════════════════════════════════════════════
+  // CONFIGURACIÓN BÁSICA
+  // ══════════════════════════════════════════════════════════════════════
+  name    String?  @db.VarChar(255)
+  enabled Boolean  @default(true)
+
+  // ══════════════════════════════════════════════════════════════════════
+  // HORARIO
+  // ══════════════════════════════════════════════════════════════════════
+  timeFrom DateTime @map("time_from") @db.Time // Ej: '09:00:00'
+  timeTo   DateTime @map("time_to") @db.Time   // Ej: '17:00:00'
+  alwaysOn Boolean  @default(false) @map("always_on") // Si es TRUE, ignora horario
+
+  // ══════════════════════════════════════════════════════════════════════
+  // DIFICULTAD (afecta cómo de difícil es saltarse el bloqueo)
+  // ══════════════════════════════════════════════════════════════════════
+  difficulty String @default("medium") @db.VarChar(50) // 'easy', 'medium', 'hard'
+
+  // ══════════════════════════════════════════════════════════════════════
+  // MENSAJE PERSONALIZADO (se muestra en la pantalla de bloqueo)
+  // ══════════════════════════════════════════════════════════════════════
+  customMessage String? @map("custom_message") @db.Text
+
+  // ══════════════════════════════════════════════════════════════════════
+  // METADATA
+  // ══════════════════════════════════════════════════════════════════════
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  lastSyncedAt DateTime? @map("last_synced_at")
+  syncVersion  Int       @default(1) @map("sync_version")
+
+  // Relations
+  user  User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sites BlockingPeriodSite[]
+  days  BlockingPeriodDay[]
+  emails BlockingPeriodEmail[]
+
+  @@index([userId], map: "idx_blocking_periods_user_id")
+  @@index([userId, enabled], map: "idx_blocking_periods_enabled")
+  @@map("blocking_periods")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: blocking_period_sites
+// Sitios bloqueados (1 periodo -> N sitios)
+// ═══════════════════════════════════════════════════════════════════════════
+model BlockingPeriodSite {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  blockingPeriodId String   @map("blocking_period_id") @db.Uuid
+
+  sitePattern String   @map("site_pattern") @db.VarChar(255) // 'twitter.com', 'facebook.com', etc.
+  addedAt     DateTime @default(now()) @map("added_at")
+
+  // Relations
+  blockingPeriod BlockingPeriod @relation(fields: [blockingPeriodId], references: [id], onDelete: Cascade)
+
+  @@index([blockingPeriodId], map: "idx_bp_sites_period")
+  @@index([sitePattern], map: "idx_bp_sites_pattern")
+  @@map("blocking_period_sites")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: blocking_period_days
+// Días activos (1 periodo -> N días)
+// ═══════════════════════════════════════════════════════════════════════════
+model BlockingPeriodDay {
+  id               String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  blockingPeriodId String @map("blocking_period_id") @db.Uuid
+
+  // Nombre del día en inglés lowercase ('monday', 'tuesday', etc.)
+  dayName String @map("day_name") @db.VarChar(20)
+
+  // Relations
+  blockingPeriod BlockingPeriod @relation(fields: [blockingPeriodId], references: [id], onDelete: Cascade)
+
+  @@unique([blockingPeriodId, dayName])
+  @@index([blockingPeriodId], map: "idx_bp_days_period")
+  @@map("blocking_period_days")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: blocking_period_emails
+// Emails para verificación (1 periodo -> N emails)
+// ═══════════════════════════════════════════════════════════════════════════
+model BlockingPeriodEmail {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  blockingPeriodId String   @map("blocking_period_id") @db.Uuid
+
+  email   String   @db.VarChar(255)
+  addedAt DateTime @default(now()) @map("added_at")
+
+  // Relations
+  blockingPeriod BlockingPeriod @relation(fields: [blockingPeriodId], references: [id], onDelete: Cascade)
+
+  @@index([blockingPeriodId], map: "idx_bp_emails_period")
+  @@map("blocking_period_emails")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: impulse_controls
+// Controles de impulso con ABSOLUTAMENTE TODOS los campos
+// ═══════════════════════════════════════════════════════════════════════════
+model ImpulseControl {
+  id     String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String  @map("user_id") @db.Uuid
+
+  // ID local
+  localId String? @map("local_id") @db.VarChar(100)
+
+  // ══════════════════════════════════════════════════════════════════════
+  // CONFIGURACIÓN BÁSICA
+  // ══════════════════════════════════════════════════════════════════════
+  name    String?  @db.VarChar(255)
+  enabled Boolean  @default(true)
+
+  // ══════════════════════════════════════════════════════════════════════
+  // LÍMITES DIARIOS
+  // ══════════════════════════════════════════════════════════════════════
+  minutesLimit  Int? @map("minutes_limit")  // Límite de minutos por día (NULL = sin límite)
+  openingsLimit Int? @map("openings_limit") // Límite de aperturas por día (NULL = sin límite)
+
+  // ══════════════════════════════════════════════════════════════════════
+  // DIFICULTAD
+  // ══════════════════════════════════════════════════════════════════════
+  difficulty String @default("medium") @db.VarChar(50) // 'easy', 'medium', 'hard'
+
+  // ══════════════════════════════════════════════════════════════════════
+  // URL WARNING (pantalla de advertencia al entrar al sitio)
+  // ══════════════════════════════════════════════════════════════════════
+  urlWarningEnabled Boolean @default(false) @map("url_warning_enabled")
+
+  // ══════════════════════════════════════════════════════════════════════
+  // IMPULSE CONTROL TIMER (esperar X segundos antes de poder continuar)
+  // ══════════════════════════════════════════════════════════════════════
+  impulseControlEnabled Boolean @default(false) @map("impulse_control_enabled")
+  impulseControlTimer   Int     @default(10) @map("impulse_control_timer") // Segundos de espera
+
+  // ══════════════════════════════════════════════════════════════════════
+  // USAGE NOTICE (aviso después de X segundos de uso continuo)
+  // ══════════════════════════════════════════════════════════════════════
+  usageNoticeEnabled Boolean @default(false) @map("usage_notice_enabled")
+  usageNoticeTimer   Int     @default(30) @map("usage_notice_timer") // Segundos hasta mostrar aviso
+
+  // ══════════════════════════════════════════════════════════════════════
+  // SCROLL LIMIT (límite de scroll en píxeles)
+  // ══════════════════════════════════════════════════════════════════════
+  scrollLimitEnabled       Boolean @default(false) @map("scroll_limit_enabled")
+  scrollPixelLimit         Int     @default(5000) @map("scroll_pixel_limit")        // Píxeles máximos
+  scrollCountdownDuration  Int     @default(10) @map("scroll_countdown_duration")   // Segundos del countdown
+
+  // ══════════════════════════════════════════════════════════════════════
+  // TIME PROGRESS INDICATOR (pill flotante con tiempo restante)
+  // ══════════════════════════════════════════════════════════════════════
+  timeProgressIndicatorEnabled Boolean @default(false) @map("time_progress_indicator_enabled")
+
+  // ══════════════════════════════════════════════════════════════════════
+  // METADATA
+  // ══════════════════════════════════════════════════════════════════════
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  lastSyncedAt DateTime? @map("last_synced_at")
+  syncVersion  Int       @default(1) @map("sync_version")
+
+  // Relations
+  user   User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sites  ImpulseControlSite[]
+  emails ImpulseControlEmail[]
+
+  @@index([userId], map: "idx_impulse_controls_user_id")
+  @@index([userId, enabled], map: "idx_impulse_controls_enabled")
+  @@map("impulse_controls")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: impulse_control_sites
+// Sitios controlados (1 control -> N sitios)
+// ═══════════════════════════════════════════════════════════════════════════
+model ImpulseControlSite {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  impulseControlId String   @map("impulse_control_id") @db.Uuid
+
+  sitePattern String   @map("site_pattern") @db.VarChar(255)
+  addedAt     DateTime @default(now()) @map("added_at")
+
+  // Relations
+  impulseControl ImpulseControl @relation(fields: [impulseControlId], references: [id], onDelete: Cascade)
+
+  @@index([impulseControlId], map: "idx_ic_sites_control")
+  @@index([sitePattern], map: "idx_ic_sites_pattern")
+  @@map("impulse_control_sites")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: impulse_control_emails
+// Emails de verificación (1 control -> N emails)
+// ═══════════════════════════════════════════════════════════════════════════
+model ImpulseControlEmail {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  impulseControlId String   @map("impulse_control_id") @db.Uuid
+
+  email   String   @db.VarChar(255)
+  addedAt DateTime @default(now()) @map("added_at")
+
+  // Relations
+  impulseControl ImpulseControl @relation(fields: [impulseControlId], references: [id], onDelete: Cascade)
+
+  @@index([impulseControlId], map: "idx_ic_emails_control")
+  @@map("impulse_control_emails")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: daily_usage
+// Estadísticas agregadas por día y sitio
+// ═══════════════════════════════════════════════════════════════════════════
+model DailyUsage {
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+
+  // Fecha y sitio
+  usageDate DateTime @map("usage_date") @db.Date
+  hostname  String   @db.VarChar(255)
+
+  // Métricas
+  timeSpentSeconds Int @default(0) @map("time_spent_seconds")
+  visitCount       Int @default(0) @map("visit_count")
+  timesBlocked     Int @default(0) @map("times_blocked")
+
+  // Metadata
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, usageDate, hostname])
+  @@index([userId, usageDate], map: "idx_daily_usage_user_date")
+  @@index([hostname], map: "idx_daily_usage_hostname")
+  @@map("daily_usage")
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLA: site_visits
+// Cada visita individual (granularidad fina para analytics)
+// ═══════════════════════════════════════════════════════════════════════════
+model SiteVisit {
+  id     String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+
+  hostname String  @db.VarChar(255)
+  fullUrl  String? @map("full_url") @db.Text
+
+  startedAt       DateTime  @default(now()) @map("started_at")
+  endedAt         DateTime? @map("ended_at")
+  durationSeconds Int?      @map("duration_seconds")
+
+  // Interacciones
+  wasBlocked         Boolean @default(false) @map("was_blocked")
+  blockReason        String? @map("block_reason") @db.VarChar(100) // 'blocking_period', 'time_limit', 'opening_limit'
+  sawUrlWarning      Boolean @default(false) @map("saw_url_warning")
+  sawUsageNotice     Boolean @default(false) @map("saw_usage_notice")
+  clickedContinue    Boolean @default(false) @map("clicked_continue")
+  reachedScrollLimit Boolean @default(false) @map("reached_scroll_limit")
+  closedVoluntarily  Boolean @default(false) @map("closed_voluntarily")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "idx_site_visits_user")
+  @@index([startedAt], map: "idx_site_visits_started")
+  @@map("site_visits")
+}

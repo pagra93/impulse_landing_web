@@ -42,15 +42,18 @@ export function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-sm font-medium text-gray-600 hover:text-black transition-colors"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
+                    <Link href="/#features" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                        Features
+                    </Link>
+                    <Link href="/#how-it-works" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                        How it Works
+                    </Link>
+                    <Link href="/#pricing" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                        Pricing
+                    </Link>
+                    <Link href="/roadmap" className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
+                        Roadmap
+                    </Link>
                     <Link
                         href="#download"
                         className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
