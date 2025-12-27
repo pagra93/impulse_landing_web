@@ -201,24 +201,25 @@ export default function OnboardingSlider() {
                                 {/* Visual Part with Browser Window */}
                                 <div className="w-full md:w-1/2 flex justify-center order-2 md:order-1">
                                     <motion.div
-                                        className="relative w-full aspect-video md:aspect-square max-w-[600px] hover:scale-[1.02] transition-transform duration-500"
+                                        className="w-full max-w-[600px] hover:scale-[1.02] transition-transform duration-500"
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                     >
-                                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-black/10">
-                                            {step.image && (
-                                                <Image
-                                                    src={step.image}
-                                                    alt={step.title}
-                                                    fill
-                                                    className="object-cover"
-                                                    priority={currentStep < 2}
-                                                />
-                                            )}
+                                        <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
+                                            <div className="relative w-full aspect-video bg-slate-50">
+                                                {step.image && (
+                                                    <Image
+                                                        src={step.image}
+                                                        alt={step.title}
+                                                        fill
+                                                        className="object-cover"
+                                                        priority={currentStep < 2}
+                                                    />
+                                                )}
+                                            </div>
                                         </div>
                                     </motion.div>
                                 </div>
-
                                 {/* Text Part */}
                                 <div className="w-full md:w-1/2 flex flex-col items-start text-left order-1 md:order-2">
                                     {step.microLabel && (
