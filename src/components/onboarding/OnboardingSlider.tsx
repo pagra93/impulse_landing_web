@@ -26,8 +26,8 @@ const steps: Step[] = [
         id: 1,
         type: "welcome",
         title: "Welcome to Impulse",
-        subtitle: "Reclaim your time",
-        description: "A tool designed for deep focus moments. Let's show you how to use your three superpowers.",
+        subtitle: "Choose how much control you want.\nFrom gentle limits to no-exit blocks.",
+        description: "Three ways to stop distractions:\n\nStrict Blocks — no access\nFlexible Limits — controlled access\nSingle-tab mode — fewer tab switches\n\nMost people mix them.",
         image: "/onboarding/welcome.png",
         color: "from-amber-50 to-orange-50",
     },
@@ -244,7 +244,7 @@ export default function OnboardingSlider() {
 
                                     {step.subtitle && (
                                         <motion.h2
-                                            className="text-2xl md:text-3xl text-slate-800 font-medium mb-6"
+                                            className="text-2xl md:text-3xl text-slate-800 font-medium mb-6 whitespace-pre-wrap"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.2 }}
@@ -254,7 +254,7 @@ export default function OnboardingSlider() {
                                     )}
 
                                     <motion.p
-                                        className="text-xl text-slate-500 leading-relaxed mb-8 max-w-lg font-light"
+                                        className="text-xl text-slate-500 leading-relaxed mb-8 max-w-lg font-light whitespace-pre-wrap"
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.3 }}
@@ -318,7 +318,7 @@ export default function OnboardingSlider() {
                         onClick={handleNext}
                         className="group flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-bold hover:bg-zinc-800 transition-all shadow-xl shadow-black/20 hover:scale-[1.02] active:scale-[0.98]"
                     >
-                        {currentStep === 0 ? "See how it works" : "Next"}
+                        {currentStep === 0 ? "See the 3 control modes" : "Next"}
                         <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </button>
                 )}
