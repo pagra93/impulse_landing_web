@@ -206,17 +206,13 @@ export default function OnboardingSlider() {
                                         animate={{ y: 0, opacity: 1 }}
                                     >
                                         <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
-                                            <div className="relative w-full aspect-video bg-slate-50">
-                                                {step.image && (
-                                                    <Image
-                                                        src={step.image}
-                                                        alt={step.title}
-                                                        fill
-                                                        className="object-cover"
-                                                        priority={currentStep < 2}
-                                                    />
-                                                )}
-                                            </div>
+                                            {step.image && (
+                                                <img
+                                                    src={step.image}
+                                                    alt={step.title}
+                                                    className="w-full h-auto object-contain block"
+                                                />
+                                            )}
                                         </div>
                                     </motion.div>
                                 </div>
