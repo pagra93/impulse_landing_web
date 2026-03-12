@@ -15,7 +15,39 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Impulse - Control your focus, block distractions",
-  description: "Stop scrolling and start living. Block distracting websites and apps to regain your focus.",
+  description:
+    "Stop scrolling and start living. Impulse blocks distracting apps and websites so you can focus on what matters. Available on iOS and Chrome.",
+  keywords: [
+    "focus app",
+    "block distractions",
+    "screen time",
+    "productivity",
+    "app blocker",
+    "website blocker",
+    "digital wellbeing",
+    "focus timer",
+    "impulse control",
+  ],
+  authors: [{ name: "Impulse" }],
+  metadataBase: new URL("https://impulsecontrolapp.com"),
+  openGraph: {
+    title: "Impulse - Less scrolling, more living",
+    description:
+      "Block distracting apps and websites to regain your focus. Save 2+ hours per day. Free on iOS and Chrome.",
+    url: "https://impulsecontrolapp.com",
+    siteName: "Impulse",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Impulse - Less scrolling, more living",
+    description:
+      "Block distracting apps and websites to regain your focus. Save 2+ hours per day.",
+  },
+  alternates: {
+    canonical: "https://impulsecontrolapp.com",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="canonical" href="https://impulsecontrolapp.com" />
+      </head>
       <body
         className={cn(
           inter.variable,

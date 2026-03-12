@@ -1,35 +1,72 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+
+function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+    const ref = useRef<HTMLSpanElement>(null);
+    const isInView = useInView(ref, { once: true });
+    const [display, setDisplay] = useState(0);
+
+    useEffect(() => {
+        if (!isInView) return;
+        const duration = 1200;
+        const start = performance.now();
+        const step = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            setDisplay(Math.floor(eased * value));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }, [isInView, value]);
+
+    return <span ref={ref}>{display.toLocaleString()}{suffix}</span>;
+}
 
 const stats = [
-    { label: "users available", value: "500+" },
-    { label: "hours saved", value: "1000+" },
-    { label: "hours periods", value: "50+" },
-    { label: "apps blocked", value: "1M+" },
+    { value: 500, suffix: "+", label: "Active users" },
+    { value: 1000, suffix: "+", label: "Hours reclaimed" },
+    { value: 1, suffix: "M+", label: "Distractions blocked" },
 ];
 
 export function Stats() {
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-4 md:px-6 text-center space-y-12">
-                <h2 className="text-3xl md:text-4xl font-bold font-heading max-w-4xl mx-auto leading-tight text-slate-900">
-                    We&apos;re here because more and more people are becoming aware of the use of technology.
-                </h2>
+        <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                {/* Marquee text */}
+                <div className="overflow-hidden mb-20 -mx-6 lg:-mx-8">
+                    <div className="flex whitespace-nowrap animate-[marquee_30s_linear_infinite]">
+                        {Array.from({ length: 8 }).map((_, i) => (
+                            <span key={i} className="text-[clamp(3rem,8vw,6rem)] font-heading font-bold text-[#0a0a0a]/[0.04] mx-4 select-none">
+                                Focus more · Scroll less · Live better ·
+                            </span>
+                        ))}
+                    </div>
+                </div>
 
-                <div className="flex flex-wrap justify-center gap-4">
-                    {stats.map((stat, index) => (
-                        <motion.div
-                            key={stat.label}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            viewport={{ once: true }}
-                            className="bg-[#FEF9C3] border border-[#FDE047] px-6 py-2 rounded-full flex items-center gap-2"
-                        >
-                            <span className="font-bold text-[#CA8A04] block">{stat.value}</span>
-                            <span className="text-sm font-medium text-[#854D0E] uppercase tracking-wide">{stat.label}</span>
-                        </motion.div>
+                {/* Stats row — forced horizontal */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-0">
+                    {stats.map((stat, i) => (
+                        <div key={stat.label} className="flex items-center">
+                            {i > 0 && (
+                                <div className="hidden sm:block w-px h-16 bg-[#0a0a0a]/10 mx-10 lg:mx-16" />
+                            )}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                                viewport={{ once: true }}
+                                className="text-center"
+                            >
+                                <div className="text-[clamp(2.5rem,5vw,4.5rem)] font-heading font-bold text-[#0a0a0a] leading-none">
+                                    <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                                </div>
+                                <div className="text-sm text-[#0a0a0a]/40 font-medium uppercase tracking-widest mt-3">
+                                    {stat.label}
+                                </div>
+                            </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
