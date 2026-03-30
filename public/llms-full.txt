@@ -1,0 +1,123 @@
+# Impulse — Complete Information
+
+> Impulse is a focus control and distraction blocker app available on iOS and as a Chrome/Safari browser extension. It helps users reduce unconscious screen time by blocking distracting apps and websites.
+
+## What is Impulse?
+
+Impulse is a productivity tool that gives users control over their screen time. Instead of relying on willpower, Impulse blocks access to distracting apps and websites during focus sessions. Users report saving an average of 2+ hours per day. The app is rated 4.8 stars on the App Store with 500+ active users.
+
+## How Impulse Works
+
+1. Choose what to block: Select the apps and websites that steal your focus — Instagram, TikTok, Twitter, YouTube, Reddit, and more
+2. Set your schedule: Define when you need to focus — work hours, study sessions, bedtime, or custom time blocks
+3. Pick your strictness: Choose how hard it is to unblock — from gentle reminders to unbreakable lockdowns
+4. Live your life: Impulse handles the discipline while you reclaim your time
+
+## Complete Feature List
+
+### App & Website Blocking
+- Block any app or website instantly with one tap
+- Create custom blocklists with multiple sites
+- Pattern-based blocking (e.g., block all social media)
+
+### Blocking Schedules
+- Schedule recurring blocking periods (e.g., weekdays 9am-5pm)
+- Set different schedules for different days
+- Always-on mode for permanent blocking
+- Quick Focus for on-demand sessions
+
+### Strictness Levels
+- Easy: Gentle reminder, can be dismissed
+- Medium: Requires waiting period before unblocking
+- Hard: Cannot be bypassed or cancelled mid-session
+- Strict mode is the key differentiator — users cannot cheat it
+
+### Impulse Control Features
+- URL Warning: Shows a warning screen before entering a distracting site
+- Impulse Control Timer: Requires waiting X seconds before accessing a blocked site
+- Usage Notice: Alerts after spending X seconds on a controlled site
+- Scroll Limit: Limits scroll depth on controlled sites
+- Time Progress Indicator: Floating pill showing remaining time
+
+### Usage Statistics
+- Daily screen time tracking per site
+- Visit count and time spent metrics
+- Blocking effectiveness stats (times blocked, times continued)
+- Historical usage data
+
+### Account & Settings
+- Theme support (light/dark/system)
+- Focus Pill (floating button on pages)
+- Password protection for settings
+- Accountability partner (uninstall alert emails)
+- Multi-language support (English, Spanish, French, German, Portuguese)
+
+## Platforms
+
+### iOS App
+- Native iOS app with full app blocking capabilities
+- Block apps and websites on your phone
+- Strict mode prevents early cancellation
+- Emergency button for true emergencies
+- Download: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
+
+### Chrome Extension
+- Browser extension for Chrome
+- Block distracting websites while working
+- Detailed daily usage statistics
+- Custom blocklist management
+- Install: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
+
+### Safari Extension
+- Also available for Safari browser
+- Same features as Chrome extension
+
+## Pricing
+
+- Free to download and use
+- Core blocking features are free
+- Premium features available via subscription
+- No credit card required to start
+
+## What Makes Impulse Different
+
+1. True strict mode: Unlike other blockers, Impulse's strict mode genuinely cannot be bypassed mid-session
+2. Cross-platform: Works on both iOS and desktop browsers (Chrome & Safari)
+3. Not preachy: No guilt trips or lectures — just effective blocking
+4. Impulse control tools: Beyond simple blocking, includes timers, scroll limits, and usage notices
+5. Usage analytics: Detailed statistics to understand and improve your habits
+
+## User Testimonials
+
+- "I was spending 5+ hours on TikTok daily. After two weeks with Impulse, I'm down to 45 minutes." — Carlos M.
+- "Finally something that actually works. The strict mode is no joke — you CAN'T cheat it." — Sarah K.
+- "Installed the Chrome extension for work and my productivity went through the roof." — James R.
+- "The scheduling feature is brilliant. My phone automatically blocks social media during work hours." — David L.
+- "I tried 4 other blockers before this. Impulse is the only one with actual strict mode that you can't disable mid-session." — Emma T.
+
+## FAQ
+
+Q: Is Impulse free?
+A: Yes, Impulse is free to download and use. Core blocking features are free. Premium features are available via subscription.
+
+Q: Can I bypass strict mode?
+A: No. That's the point. Strict mode is designed to be unbypassable so you can't cheat during a focus session.
+
+Q: What platforms does Impulse support?
+A: iOS (native app), Chrome (browser extension), and Safari (browser extension).
+
+Q: Does Impulse track my browsing data?
+A: Impulse tracks usage statistics locally to show you your screen time. Data syncing is optional.
+
+Q: How is Impulse different from Screen Time?
+A: Impulse's strict mode cannot be bypassed (unlike Screen Time which can be easily dismissed). It also provides cross-platform blocking and more granular control.
+
+## Links
+
+- Website: https://impulsecontrolapp.com
+- iOS App: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
+- Chrome Extension: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
+
+## Contact
+
+For support or inquiries, visit https://impulsecontrolapp.com

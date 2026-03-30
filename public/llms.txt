@@ -1,27 +1,27 @@
-# Impulse - Focus Control & Distraction Blocker
+# Impulse
 
-> Impulse is a productivity app that helps people block distracting apps and websites to regain focus and control over their screen time. Available on iOS and as a Chrome browser extension.
+> Impulse is a focus control app that blocks distracting apps and websites to help users regain their screen time. Available on iOS and as a Chrome/Safari browser extension.
 
-## What is Impulse?
+## Overview
 
-Impulse is a focus control tool that blocks distracting apps and websites during scheduled time periods or on-demand focus sessions. It helps users reduce unconscious screen time by an average of 2+ hours per day.
+Impulse helps people reduce unconscious screen time by an average of 2+ hours per day. It blocks distracting apps and websites during scheduled time periods or on-demand focus sessions, with strict mode that prevents bypassing.
 
 ## Key Features
 
-- **App & Website Blocking**: Block distracting apps and websites instantly or on a schedule.
-- **Strict Mode**: Prevents users from canceling a blocking session early. Cannot be bypassed.
-- **Scheduled Focus Sessions**: Automate blocking during work hours, study time, or bedtime.
-- **Quick Focus**: Start an on-demand focus session with one tap.
-- **Multiple Strictness Levels**: From gentle reminders to full lockdown.
-- **Emergency Access**: An emergency button for when you truly need access to a blocked app.
-- **Cross-Platform**: Available on iOS (native app) and Chrome/Safari (browser extension).
-- **Usage Statistics**: Track daily screen time and see detailed usage stats.
-- **Blocklists**: Create and manage custom lists of apps/websites to block.
+- App & Website Blocking: Block distracting apps and websites instantly or on a schedule
+- Strict Mode: Prevents canceling a blocking session early — cannot be bypassed
+- Scheduled Focus Sessions: Automate blocking during work hours, study time, or bedtime
+- Quick Focus: Start an on-demand focus session with one tap
+- Multiple Strictness Levels: From gentle reminders to full lockdown
+- Emergency Access: An emergency button for when you truly need access
+- Cross-Platform: Available on iOS (native app) and Chrome/Safari (browser extension)
+- Usage Statistics: Track daily screen time and detailed usage analytics
+- Custom Blocklists: Create and manage lists of apps/websites to block
 
 ## Platforms
 
-- **iOS App**: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
-- **Chrome Extension**: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
+- iOS App: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
+- Chrome Extension: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
 
 ## Pricing
 
@@ -30,7 +30,7 @@ Free to download and use. Premium features available via subscription.
 ## Links
 
 - Website: https://impulsecontrolapp.com
-- Blog: https://impulsecontrolapp.com/blog
+- Full information for LLMs: https://impulsecontrolapp.com/llms-full.txt
 
 ## Contact
 

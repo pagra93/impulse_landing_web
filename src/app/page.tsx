@@ -1,9 +1,10 @@
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { SocialProof } from "@/components/landing/SocialProof";
 import { Stats } from "@/components/landing/Stats";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Features } from "@/components/landing/Features";
+import { IosSection } from "@/components/landing/IosSection";
+import { ChromeSection } from "@/components/landing/ChromeSection";
 import { Calculator } from "@/components/landing/Calculator";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Mission } from "@/components/landing/Mission";
@@ -16,10 +17,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <SocialProof />
         <Stats />
         <HowItWorks />
         <Features />
+        <IosSection />
+        <ChromeSection />
         <Calculator />
         <Testimonials />
         <Mission />
