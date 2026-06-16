@@ -18,14 +18,15 @@ Landing page for the Impulse app (iOS) and Chrome extension. Impulse helps users
 
 ## Navigation
 ### Global (installed in ~/.claude/)
-- Agents: 14 specialized agents (10 specialists + 4 supervisors)
+- Agents: 16 specialized agents (11 specialists + 5 supervisors + 4 supervisors)
 - Skills: 7 (PRD builder, competitive analysis, plan mode, doc updater, unknown unknowns, project docs, impeccable guide)
 - Rules: 6 (definition of done/ready, antipatterns, scoring, naming, git branching)
-- Knowledge: 3 (JTBD framework, Mom Test, story splitting)
-- Commands: 13 slash commands
+- Knowledge: 6 (JTBD framework, Mom Test, story splitting, testing strategy, story ticket template, strategic thinking)
+- Commands: 15 slash commands
 
 ### Project (this project)
 - Project docs: docs/PROJECT_KNOWLEDGE.md — READ THIS FIRST when returning
+- Project registry: docs/project-registry.md — technical asset inventory (DB, APIs, components)
 - Working docs: docs/working-docs/[feature]/ — artifacts per feature
 - Current tasks: tasks/todo.md — sprint plan and progress
 - Lessons learned: tasks/lessons.md — patterns and mistakes
@@ -42,9 +43,11 @@ Landing page for the Impulse app (iOS) and Chrome extension. Impulse helps users
 7. Save artifacts to docs/working-docs/[feature]/ organized by feature
 
 ## Available Commands
+/challenge          Challenge premises, debate, force evidence
 /analyze            Evaluate problem/PRD (Quality Guard + Research)
 /define             Create JTBDs + stories (with quality review)
 /plan               Architecture + sprint plan
+/story              Build story from idea (autonomous)
 /build              Implement stories (Claude Code directly)
 /save               Commit + push to GitHub (validates branch, detects secrets)
 /review             QA pipeline + feature docs (ALWAYS asks about documentation)
@@ -82,6 +85,21 @@ prisma/
   schema.prisma           # Full database schema (users, settings, blocking, analytics)
 ```
 
+## Testing
+
+### Framework
+[Fill in: e.g., Jest, Vitest, Pytest, Playwright]
+
+### Test File Location
+[Fill in: e.g., __tests__/ co-located, tests/ mirrored, e2e/ at root]
+
+### Test Commands
+- Unit/Integration: [e.g., npm test, pytest]
+- E2E: [e.g., npx playwright test]
+- Coverage: [e.g., npm test -- --coverage]
+
+### Test Data
+[Fill in: e.g., factories in tests/factories/, MSW handlers in tests/mocks/]
 ## Coding Standards
 - Use functional components with TypeScript
 - Use Tailwind CSS for all styling (no CSS modules, no styled-components)

@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  engineType = "library"
 }
 
 datasource db {
@@ -26,6 +27,7 @@ model User {
   impulseControls ImpulseControl[]
   dailyUsage      DailyUsage[]
   siteVisits      SiteVisit[]
+
 
   @@map("users")
 }
@@ -366,3 +368,5 @@ model SiteVisit {
   @@index([startedAt], map: "idx_site_visits_started")
   @@map("site_visits")
 }
+
+

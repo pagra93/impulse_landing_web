@@ -1,11 +1,38 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Catamaran, Mulish, Rubik, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Display headings + big numerals
+const catamaran = Catamaran({
+  variable: "--font-catamaran",
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
+
+// Body copy, paragraphs, buttons
+const mulish = Mulish({
+  variable: "--font-mulish",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+// UI labels, eyebrows, nav links
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+// Step numbers, slider tick labels
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -126,8 +153,11 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          inter.variable,
-          "antialiased font-sans bg-bg-primary text-text-primary"
+          catamaran.variable,
+          mulish.variable,
+          rubik.variable,
+          spaceMono.variable,
+          "antialiased font-body bg-white text-body"
         )}
       >
         {children}
