@@ -1,110 +1,177 @@
-"use client";
+import {
+  Check,
+  Calendar,
+  Users,
+  BarChart3,
+  Smartphone,
+  type LucideIcon,
+} from "lucide-react";
+import { Eyebrow } from "./primitives";
+import { Reveal } from "./Reveal";
+import { WidgetMockup, PhoneMockup } from "./mockups";
 
-import { motion } from "framer-motion";
-import { Zap, Timer, Gauge, MonitorSmartphone } from "lucide-react";
-import Image from "next/image";
+function Bullet({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-start gap-2.5">
+      <span className="mt-px flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-easy-bg text-easy">
+        <Check size={13} strokeWidth={3} />
+      </span>
+      <span className="font-body text-[15px] leading-normal text-body">
+        {children}
+      </span>
+    </div>
+  );
+}
 
-const features = [
+function ShowcaseText({
+  eyebrow,
+  title,
+  accent,
+  body,
+  bullets = [],
+}: {
+  eyebrow: string;
+  title: string;
+  accent: string;
+  body: string;
+  bullets?: string[];
+}) {
+  return (
+    <div className="flex flex-col gap-5">
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h3 className="m-0 font-display text-[clamp(28px,4vw,38px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-navy">
+        {title} <span className="text-blue">{accent}</span>
+      </h3>
+      <p className="m-0 font-body text-[17px] leading-relaxed text-muted">
+        {body}
+      </p>
+      {bullets.length > 0 && (
+        <div className="mt-1 flex flex-col gap-3">
+          {bullets.map((b) => (
+            <Bullet key={b}>{b}</Bullet>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const GRID: { Icon: LucideIcon; title: string; desc: string }[] = [
   {
-    icon: Zap,
-    title: "BLOCK INSTANTLY",
-    desc: "One tap to block distracting apps and websites. No complex setup, just instant focus.",
+    Icon: Calendar,
+    title: "Scheduled focus",
+    desc: "Set blocking periods by time and weekday. Set it once — focus runs on autopilot.",
   },
   {
-    icon: Timer,
-    title: "SCHEDULE FOCUS",
-    desc: "Automate your blocking sessions. Set it once and forget it — focus on autopilot.",
+    Icon: Users,
+    title: "Focus Groups",
+    desc: "Stay accountable with friends. Shared rules, streaks and a leaderboard keep you honest.",
   },
   {
-    icon: Gauge,
-    title: "STRICT LEVELS",
-    desc: "Customize unlock difficulty. From gentle nudges to unbreakable lockdowns you can't cheat.",
+    Icon: BarChart3,
+    title: "Screen Time insights",
+    desc: "See where your hours actually go, with weekly insights that celebrate your progress.",
   },
   {
-    icon: MonitorSmartphone,
-    title: "CROSS-PLATFORM",
-    desc: "Works on iOS, Chrome, and Safari. Block distractions everywhere you go.",
+    Icon: Smartphone,
+    title: "Everywhere you scroll",
+    desc: "iOS, Chrome and Safari. Your blocks follow you across every device.",
   },
+];
+
+const STRICTNESS = [
+  { l: "Easy", d: "Type a phrase", bg: "bg-easy-bg", c: "text-easy" },
+  { l: "Medium", d: "Wait a countdown", bg: "bg-medium-bg", c: "text-medium" },
+  { l: "Hard", d: "Partner code", bg: "bg-hard-bg", c: "text-hard" },
 ];
 
 export function Features() {
   return (
-    <section id="features" className="bg-bg-secondary py-20 px-6 md:px-20">
-      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center gap-16">
-        {/* Phone mockup */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full max-w-[400px] shrink-0"
-        >
-          <div className="relative h-[572px]">
-            <div className="absolute left-[60px] top-0 w-[280px] h-[572px] bg-bg-card rounded-[36px] border-2 border-border-subtle overflow-hidden shadow-2xl p-2">
-              <div className="w-full h-full bg-bg-primary rounded-[28px] overflow-hidden relative">
-                <Image
-                  src="/onboarding/strict.png"
-                  alt="Impulse app features"
-                  fill
-                  className="object-cover object-top"
-                />
+    <section id="features" className="bg-white px-6 py-20 md:py-[104px]">
+      <div className="mx-auto max-w-[1160px]">
+        <Reveal className="mb-16 flex flex-col items-center gap-4 text-center md:mb-[72px]">
+          <Eyebrow center>Features</Eyebrow>
+          <h2 className="m-0 max-w-[680px] font-display text-[clamp(30px,4.6vw,44px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-navy">
+            Everything you need to
+            <br />
+            take back <span className="text-blue">control.</span>
+          </h2>
+        </Reveal>
+
+        {/* Showcase 1 — text left / widget right */}
+        <div className="mb-24 grid items-center gap-12 md:grid-cols-2 md:gap-14">
+          <Reveal>
+            <ShowcaseText
+              eyebrow="Block & Quick Focus"
+              title="Block anything in"
+              accent="one tap."
+              body="Blocking Periods shut down distracting sites on a schedule. Need to lock in right now? Quick Focus pins you to a single tab and blocks everything else."
+              bullets={[
+                "Block apps and sites instantly",
+                "Quick Focus for on-demand deep work",
+                "No complex setup — focus in seconds",
+              ]}
+            />
+          </Reveal>
+          <Reveal delay={0.1} className="flex justify-center">
+            <div className="relative">
+              <div className="absolute -inset-10 bg-[radial-gradient(circle,rgba(55,110,153,0.12),transparent_70%)]" />
+              <div className="relative">
+                <WidgetMockup scale={0.82} />
               </div>
             </div>
-          </div>
-        </motion.div>
+          </Reveal>
+        </div>
 
-        {/* Content */}
-        <div className="flex flex-col gap-8 flex-1">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-accent text-sm font-bold tracking-[4px]">
-              FEATURES
-            </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex flex-col"
-          >
-            <h2 className="text-3xl md:text-[44px] font-black tracking-[-1px] leading-[1.1]">
-              EVERYTHING YOU NEED TO
-            </h2>
-            <h2 className="text-3xl md:text-[44px] font-black tracking-[-1px] leading-[1.1] text-accent italic">
-              TAKE BACK CONTROL.
-            </h2>
-          </motion.div>
-
-          <div className="flex flex-col gap-5">
-            {features.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.title}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                  className="flex gap-4"
+        {/* Showcase 2 — phone left / text right */}
+        <div className="mb-24 grid items-center gap-12 md:grid-cols-2 md:gap-14">
+          <Reveal className="flex justify-center md:order-1">
+            <PhoneMockup scale={0.78} />
+          </Reveal>
+          <Reveal delay={0.1} className="md:order-2">
+            <ShowcaseText
+              eyebrow="Strict mode"
+              title="Strictness you"
+              accent="can't cheat."
+              body="Choose how hard it is to unblock — because the moment of weakness is the whole problem. Three levels turn a quick override into a real decision."
+            />
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              {STRICTNESS.map((d) => (
+                <div
+                  key={d.l}
+                  className={`min-w-[130px] flex-1 rounded-[14px] px-4 py-3.5 ${d.bg}`}
                 >
-                  <Icon size={24} className="text-accent shrink-0 mt-0.5" />
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-text-primary text-base font-bold">
-                      {f.title}
-                    </h3>
-                    <p className="text-text-secondary text-sm leading-[1.5]">
-                      {f.desc}
-                    </p>
+                  <div className={`font-display text-base font-bold ${d.c}`}>
+                    {d.l}
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  <div className="mt-0.5 font-body text-[13px] text-muted">
+                    {d.d}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Feature grid */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {GRID.map((f, i) => (
+            <Reveal
+              key={f.title}
+              delay={i * 0.08}
+              className="flex h-full flex-col gap-3 rounded-2xl bg-bg-subtle p-6"
+            >
+              <div className="flex h-[46px] w-[46px] items-center justify-center rounded-xl border border-border-default bg-white text-blue">
+                <f.Icon size={22} />
+              </div>
+              <h4 className="m-0 font-display text-[17px] font-bold text-heading">
+                {f.title}
+              </h4>
+              <p className="m-0 font-body text-sm leading-normal text-muted">
+                {f.desc}
+              </p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

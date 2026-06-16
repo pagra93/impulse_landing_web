@@ -41,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Design handoff references & local captures (not shipped)
+/design_handoff_landing/
+/Capturas/
+/landing-Impulse.pen

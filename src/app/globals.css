@@ -1,92 +1,126 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Impulse marketing — design tokens (light theme)
+   Mapped from design_handoff_landing/tokens/* into the Tailwind v4 theme.
+   Brand runs on a deep-blue → ink gradient, a sunny-yellow accent and cool
+   slate neutrals. Light is the default.
+   ========================================================================== */
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* ---- Font families (wired from next/font in layout.tsx) ---- */
+  --font-display: var(--font-catamaran), "Catamaran", system-ui, sans-serif;
+  --font-body: var(--font-mulish), "Mulish", system-ui, sans-serif;
+  --font-sans: var(--font-rubik), "Rubik", system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, "SF Mono", monospace;
 
-  --color-primary: #0a0a0a;
-  --color-primary-foreground: #fafafa;
+  /* ---- Brand core ---- */
+  --color-blue: #376e99;
+  --color-blue-deep: #2d5a7b;
+  --color-navy: #203b50;
+  --color-ink: #162a39;
+  --color-slate: #36688e;
+  --color-yellow: #ffdb4c;
+  --color-yellow-soft: #fdf6e3;
 
-  --color-bg-primary: #0A0A0A;
-  --color-bg-secondary: #141414;
-  --color-bg-card: #1A1A1A;
-  --color-bg-card-elevated: #222222;
+  /* ---- Neutrals / surfaces ---- */
+  --color-bg-subtle: #f2f5f9;
+  --color-surface-muted: #f5f5f5;
+  --color-border-default: #c6d3df;
+  --color-border-subtle: #e6eaee;
+  --color-border-strong: #9a9a9a;
 
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A0A0A0;
-  --color-text-tertiary: #666666;
+  /* ---- Text ---- */
+  --color-heading: #203b50;
+  --color-body: #3a3a3c;
+  --color-muted: #687076;
 
-  --color-accent: #FFDB4C;
-  --color-accent-dark: #E6C544;
-  --color-text-on-accent: #0A0A0A;
+  /* ---- Difficulty system ---- */
+  --color-easy: #4caf50;
+  --color-easy-bg: #f0faf0;
+  --color-medium: #ff9800;
+  --color-medium-bg: #fff8f0;
+  --color-hard: #f44336;
+  --color-hard-bg: #fff0f0;
 
-  --color-border-subtle: #2A2A2A;
-  --color-border-accent: #FFDB4C33;
+  /* ---- Shadows (cool, soft — never heavy) ---- */
+  --shadow-card: 0 2px 8px rgba(54, 104, 142, 0.08);
+  --shadow-soft-md: 0 4px 12px rgba(22, 42, 57, 0.1);
+  --shadow-soft-lg: 0 12px 28px rgba(22, 42, 57, 0.14);
+  --shadow-mockup: 0 30px 70px rgba(22, 42, 57, 0.28);
 
-  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slide-up: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { transform: translateY(24px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Range slider custom styling */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-track {
-  height: 6px;
-  border-radius: 3px;
-  background: #2A2A2A;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #FFDB4C;
-  margin-top: -9px;
-  box-shadow: 0 0 0 4px rgba(255, 219, 76, 0.2);
-  transition: box-shadow 0.2s;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 0 8px rgba(255, 219, 76, 0.3);
-}
-
-/* Smooth scroll */
+/* ---- Base ---- */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection */
+body {
+  background: #ffffff;
+  color: var(--color-body);
+}
+
 ::selection {
-  background: #FFDB4C;
-  color: #0a0a0a;
+  background: #ffdb4c;
+  color: #203b50;
+}
+
+/* ==========================================================================
+   Brand gradients (used as utility classes)
+   ========================================================================== */
+.gradient-brand {
+  background: linear-gradient(to right, #36688e, #162a39);
+}
+.gradient-brand-diagonal {
+  background: linear-gradient(to bottom right, #36688e, #162a39);
+}
+.gradient-sidebar {
+  background: linear-gradient(to bottom, #122330, #203b50);
+}
+.gradient-splash {
+  background: linear-gradient(to bottom right, #b5c3ce, #09406b);
+}
+
+/* ==========================================================================
+   Calculator range slider (yellow thumb on translucent track)
+   ========================================================================== */
+.mk-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 24px;
+}
+.mk-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.mk-range::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.mk-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffdb4c;
+  margin-top: -9px;
+  box-shadow: 0 0 0 4px rgba(255, 219, 76, 0.25);
+  transition: box-shadow 0.2s;
+}
+.mk-range::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: #ffdb4c;
+  box-shadow: 0 0 0 4px rgba(255, 219, 76, 0.25);
+}
+.mk-range:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 0 8px rgba(255, 219, 76, 0.32);
 }

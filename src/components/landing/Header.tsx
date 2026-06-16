@@ -2,56 +2,59 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Apple } from "lucide-react";
+import { CtaButton, IOS_URL } from "./primitives";
 
 const navLinks = [
-  { label: "FEATURES", href: "#features" },
-  { label: "HOW IT WORKS", href: "#how-it-works" },
-  { label: "CALCULATOR", href: "#calculator" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Features", href: "#features" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border-subtle">
-      <div className="flex items-center justify-between px-6 md:px-12 py-4 max-w-[1440px] mx-auto">
-        <a href="#" className="text-accent font-black text-xl tracking-[2px]">
-          IMPULSE
+    <header className="sticky top-0 z-[100] border-b border-border-subtle bg-white/[0.82] backdrop-blur-[14px]">
+      <div className="mx-auto flex max-w-[1160px] items-center justify-between px-6 py-4">
+        <a
+          href="#"
+          className="font-display text-2xl font-bold text-navy"
+          aria-label="Impulse home"
+        >
+          impulse<span className="text-yellow">.</span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-text-secondary text-[13px] font-semibold tracking-[1px] hover:text-text-primary transition-colors"
+              className="font-body text-sm font-semibold text-body transition-colors hover:text-navy"
             >
               {link.label}
             </a>
           ))}
-          <a
-            href="https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-accent text-text-on-accent text-[13px] font-bold tracking-[1px] px-7 py-3.5 rounded-lg hover:bg-accent-dark transition-colors"
-          >
-            GET IMPULSE
-          </a>
         </nav>
+
+        <div className="hidden md:block">
+          <CtaButton variant="primary" size="md" href={IOS_URL} icon={Apple}>
+            Get Impulse — Free
+          </CtaButton>
+        </div>
 
         {/* Mobile toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-text-primary"
+          onClick={() => setMobileOpen((v) => !v)}
+          className="text-navy md:hidden"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
@@ -59,7 +62,7 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-bg-primary border-b border-border-subtle"
+            className="overflow-hidden border-b border-border-subtle bg-white md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -67,19 +70,20 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-text-secondary text-[13px] font-semibold tracking-[1px] hover:text-text-primary transition-colors"
+                  className="font-body text-sm font-semibold text-body transition-colors hover:text-navy"
                 >
                   {link.label}
                 </a>
               ))}
-              <a
-                href="https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent text-text-on-accent text-[13px] font-bold tracking-[1px] px-7 py-3.5 rounded-lg text-center hover:bg-accent-dark transition-colors"
+              <CtaButton
+                variant="primary"
+                size="md"
+                href={IOS_URL}
+                icon={Apple}
+                className="w-full"
               >
-                GET IMPULSE
-              </a>
+                Get Impulse — Free
+              </CtaButton>
             </div>
           </motion.nav>
         )}
