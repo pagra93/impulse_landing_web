@@ -9,8 +9,8 @@ export function PhysicalChapter() {
   return (
     <div id="physical">
       <PhysicalHero />
-      <PhysicalHowItWorks />
       <StrictnessLadder />
+      <PhysicalHowItWorks />
       <ComparisonTable />
       <GetTheDisc />
     </div>
