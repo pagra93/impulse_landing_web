@@ -15,16 +15,16 @@ type CtaVariant = "primary" | "gradient" | "outline" | "yellow" | "ghost";
 type CtaSize = "lg" | "md";
 
 const variantClasses: Record<CtaVariant, string> = {
-  primary: "bg-navy text-white border border-navy",
-  gradient: "gradient-brand text-white border-0",
-  outline: "bg-transparent text-navy border-[1.5px] border-navy",
+  primary: "bg-navy text-white border border-navy shadow-soft-md",
+  gradient: "gradient-brand text-white border-0 shadow-soft-md",
+  outline: "bg-white text-blue border border-blue",
   yellow: "bg-yellow text-navy border border-yellow",
-  ghost: "bg-white/[0.08] text-white border border-white/25",
+  ghost: "bg-white/[0.1] text-white border border-white/25",
 };
 
 const sizeClasses: Record<CtaSize, string> = {
-  lg: "h-14 px-7 text-base",
-  md: "h-[46px] px-[22px] text-sm",
+  lg: "h-[50px] px-[26px] text-base rounded-[25px]",
+  md: "h-10 px-5 text-sm rounded-[20px]",
 };
 
 export function CtaButton({
@@ -72,28 +72,24 @@ export function Eyebrow({
   children,
   dark = false,
   center = false,
+  className,
 }: {
   children: ReactNode;
   dark?: boolean;
   center?: boolean;
+  className?: string;
 }) {
   return (
-    <div
+    <span
       className={cn(
-        "flex items-center gap-2",
-        center ? "justify-center" : "justify-start"
+        "font-body text-[13px] font-bold uppercase tracking-[0.14em]",
+        center ? "text-center" : "",
+        dark ? "text-yellow" : "text-blue",
+        className
       )}
     >
-      <span className="inline-block h-[7px] w-[7px] rounded-full bg-yellow" />
-      <span
-        className={cn(
-          "font-sans text-xs font-bold uppercase tracking-[0.16em] whitespace-nowrap",
-          dark ? "text-yellow" : "text-blue"
-        )}
-      >
-        {children}
-      </span>
-    </div>
+      {children}
+    </span>
   );
 }
 

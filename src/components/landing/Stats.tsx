@@ -1,5 +1,5 @@
 const STATS = [
-  { v: "500+", l: "Active users", accent: false },
+  { v: "1,000+", l: "Daily users", accent: false },
   { v: "10K+", l: "Hours reclaimed", accent: true },
   { v: "1M+", l: "Distractions blocked", accent: false },
   { v: "4.8★", l: "App Store rating", accent: false },

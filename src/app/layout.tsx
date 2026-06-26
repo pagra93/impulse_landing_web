@@ -36,9 +36,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Impulse - Control your focus, block distractions",
+  title: "Impulse - Focus blocker with physical NFC unlock",
   description:
-    "Stop scrolling and start living. Impulse blocks distracting apps and websites so you can focus on what matters. Save 2+ hours per day. Available on iOS and Chrome.",
+    "Stop scrolling and start living. Impulse blocks distracting apps and websites — with a physical unlock level that ends a session only when you tap the Impulse Disc or any NFC tag. Save 2+ hours per day on iOS, Chrome and Safari.",
   keywords: [
     "focus app",
     "block distractions",
@@ -53,13 +53,20 @@ export const metadata: Metadata = {
     "distraction blocker",
     "website blocker chrome extension",
     "app blocker ios",
+    "physical unlock",
+    "NFC app blocker",
+    "NFC focus blocker",
+    "Impulse Disc",
+    "block apps with NFC",
+    "strict mode app blocker",
+    "desktop website blocker",
   ],
   authors: [{ name: "Impulse" }],
   metadataBase: new URL("https://impulsecontrolapp.com"),
   openGraph: {
     title: "Impulse - Less scrolling, more living",
     description:
-      "Block distracting apps and websites to regain your focus. Save 2+ hours per day. Free on iOS and Chrome.",
+      "Block distracting apps and websites — now with physical NFC unlock. Tap the Impulse Disc or any NFC tag to end a focus session. Free on iOS, Chrome and Safari.",
     url: "https://impulsecontrolapp.com",
     siteName: "Impulse",
     locale: "en_US",
@@ -120,11 +127,14 @@ const jsonLd = {
       featureList: [
         "App and website blocking",
         "Strict mode (unbypassable)",
+        "Physical unlock with NFC (Impulse Disc or any NFC tag)",
         "Scheduled focus sessions",
         "Quick focus mode",
-        "Multiple strictness levels",
+        "Multiple strictness levels (easy, medium, hard, physical)",
         "Emergency access button",
+        "Independent desktop blocking (Chrome & Safari extension)",
         "Cross-platform (iOS, Chrome, Safari)",
+        "Focus Groups",
         "Daily usage statistics",
         "Custom blocklists",
       ],
@@ -133,6 +143,43 @@ const jsonLd = {
       "@type": "WebSite",
       name: "Impulse",
       url: "https://impulsecontrolapp.com",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is Impulse free?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — the core blocker is 100% free on iOS and Chrome, with no account and no credit card. Impulse Pro adds unlimited rules, strict mode and Focus Groups, but you can take back hours every day without paying a cent.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do I need to buy a device for physical unlock?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Physical unlock works free with any NFC sticker you own — even a $1 tag. The designed Impulse Disc is optional and ships free with an annual plan (coming soon), so there's never a separate gadget to buy.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What if I have a real emergency?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Impulse is strict, not cruel. Emergency unlocks let you reach what you genuinely need — but they're intentionally inconvenient, and blocks reactivate automatically afterwards.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is my data private?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Completely. Your usage stats and block lists stay on your device — not on our servers. No tracking, no ads, no analytics, no selling your data to anyone.",
+          },
+        },
+      ],
     },
   ],
 };

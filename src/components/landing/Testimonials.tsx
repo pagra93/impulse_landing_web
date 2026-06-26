@@ -36,23 +36,21 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="bg-bg-subtle px-6 py-20 md:py-[104px]">
-      <div className="mx-auto max-w-[1160px]">
-        <Reveal className="mb-14 flex flex-col items-center gap-4 text-center">
+    <section id="reviews" className="border-y border-border-subtle bg-bg-subtle px-6 py-20 md:py-[88px]">
+      <div className="mx-auto max-w-[1180px]">
+        <Reveal className="mx-auto mb-[52px] flex max-w-[620px] flex-col items-center gap-3.5 text-center">
           <Eyebrow center>Reviews</Eyebrow>
-          <h2 className="m-0 max-w-[640px] font-display text-[clamp(30px,4.6vw,44px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-navy">
+          <h2 className="m-0 font-display text-[clamp(30px,3.4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-navy">
             People love Impulse.
-            <br />
-            Here&apos;s <span className="text-blue">why.</span>
           </h2>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-[22px] md:grid-cols-2 lg:grid-cols-3">
           {REVIEWS.map((r, i) => (
             <Reveal
               key={r.a}
               delay={(i % 3) * 0.08}
-              className="flex h-full flex-col gap-4 rounded-2xl border border-border-default bg-white p-[26px] shadow-card"
+              className="flex h-full flex-col gap-3.5 rounded-[20px] border border-border-default bg-white p-7 shadow-card"
             >
               <Stars size={15} />
               <p className="m-0 flex-1 font-body text-[15px] leading-relaxed text-body">

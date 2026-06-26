@@ -34,6 +34,12 @@
   --color-body: #3a3a3c;
   --color-muted: #687076;
 
+  /* ---- Extra surfaces / state ---- */
+  --color-surface-accent: #ebf2f9;
+  --color-success: #46bd84;
+  --color-gray-50: #f6f8fa;
+  --color-gray-500: #9a9a9a;
+
   /* ---- Difficulty system ---- */
   --color-easy: #4caf50;
   --color-easy-bg: #f0faf0;
@@ -81,6 +87,32 @@ body {
 }
 .gradient-splash {
   background: linear-gradient(to bottom right, #b5c3ce, #09406b);
+}
+.gradient-dark-premium {
+  background: linear-gradient(165deg, #1d3a4f 0%, #122330 58%, #0d1a24 100%);
+}
+
+/* ==========================================================================
+   NFC ripple — looping ring behind the Disc / "tap to unlock" hints
+   ========================================================================== */
+@keyframes imp-ripple {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.imp-ripple {
+  animation: imp-ripple 3.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imp-ripple {
+    animation: none;
+  }
 }
 
 /* ==========================================================================
