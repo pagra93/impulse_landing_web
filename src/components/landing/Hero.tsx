@@ -1,6 +1,7 @@
 import { Apple, Chrome } from "lucide-react";
 import { CtaButton, Stars, IOS_URL, CHROME_URL } from "./primitives";
 import { WidgetMockup, PhoneMockup } from "./mockups";
+import { Disc } from "./Disc";
 
 const avatars = ["#36688e", "#46bd84", "#ff9800", "#f44336"];
 
@@ -17,14 +18,10 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="m-0 font-display text-[clamp(42px,8vw,66px)] font-extrabold leading-[1.04] tracking-[-0.02em] text-navy">
+          <h1 className="m-0 font-display text-[clamp(44px,5vw,64px)] font-extrabold leading-[1.04] tracking-[-0.02em] text-navy">
             Less scrolling.
             <br />
-            More{" "}
-            <span className="relative">
-              living<span className="text-yellow">.</span>
-              <span className="absolute bottom-1.5 left-0 right-2 -z-10 h-3.5 rounded bg-yellow opacity-45" />
-            </span>
+            More living<span className="text-yellow">.</span>
           </h1>
 
           <p className="m-0 max-w-[480px] font-body text-lg leading-relaxed text-muted md:text-[19px]">
@@ -54,8 +51,8 @@ export function Hero() {
               ))}
             </div>
             <span className="font-body text-sm text-muted">
-              Join <strong className="font-bold text-heading">500+</strong>{" "}
-              people taking back their time
+              Join <strong className="font-bold text-heading">1,000+</strong>{" "}
+              people taking back their time daily · 4.8★
             </span>
           </div>
         </div>
@@ -91,6 +88,10 @@ export function Hero() {
               <div style={{ transform: "scale(0.62)", transformOrigin: "top left" }}>
                 <PhoneMockup />
               </div>
+            </div>
+            {/* Physical nod: the Disc, tucked in front lower-left */}
+            <div className="absolute bottom-[-16px] left-[-18px] z-[3]">
+              <Disc size={118} ripple />
             </div>
           </div>
         </div>

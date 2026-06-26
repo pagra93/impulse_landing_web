@@ -46,3 +46,6 @@ next-env.d.ts
 /design_handoff_landing/
 /Capturas/
 /landing-Impulse.pen
+
+# Physical unlock design handoff (reference, not shipped)
+/design_handoff_physical_unlock/

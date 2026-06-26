@@ -5,6 +5,8 @@ import { Problem } from "@/components/landing/Problem";
 import { Mission } from "@/components/landing/Mission";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Features } from "@/components/landing/Features";
+import { DesktopWidget } from "@/components/landing/DesktopWidget";
+import { PhysicalChapter } from "@/components/landing/physical/PhysicalChapter";
 import { Calculator } from "@/components/landing/Calculator";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Trust } from "@/components/landing/Trust";
@@ -23,6 +25,8 @@ export default function Home() {
         <Mission />
         <HowItWorks />
         <Features />
+        <DesktopWidget />
+        <PhysicalChapter />
         <Calculator />
         <Testimonials />
         <Trust />

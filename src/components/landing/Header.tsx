@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Apple } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { CtaButton, IOS_URL } from "./primitives";
+import { AnnouncementBar } from "./AnnouncementBar";
 
 const navLinks = [
-  { label: "How it works", href: "#how-it-works" },
+  { label: "How it works", href: "#how" },
+  { label: "Physical unlock", href: "#physical" },
   { label: "Features", href: "#features" },
-  { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -16,18 +17,20 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-[100] border-b border-border-subtle bg-white/[0.82] backdrop-blur-[14px]">
-      <div className="mx-auto flex max-w-[1160px] items-center justify-between px-6 py-4">
+    <>
+      <AnnouncementBar />
+      <header className="sticky top-0 z-[100] border-b border-border-subtle bg-white/[0.82] backdrop-blur-[14px]">
+      <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-[15px]">
         <a
           href="#"
-          className="font-display text-2xl font-bold text-navy"
+          className="font-display text-[23px] font-bold text-navy"
           aria-label="Impulse home"
         >
           impulse<span className="text-yellow">.</span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -40,7 +43,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <CtaButton variant="primary" size="md" href={IOS_URL} icon={Apple}>
+          <CtaButton variant="gradient" size="md" href={IOS_URL}>
             Get Impulse — Free
           </CtaButton>
         </div>
@@ -76,10 +79,9 @@ export function Header() {
                 </a>
               ))}
               <CtaButton
-                variant="primary"
+                variant="gradient"
                 size="md"
                 href={IOS_URL}
-                icon={Apple}
                 className="w-full"
               >
                 Get Impulse — Free
@@ -88,6 +90,7 @@ export function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }
