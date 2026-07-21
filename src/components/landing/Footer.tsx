@@ -1,5 +1,7 @@
 const links = [
   { l: "Support", href: "mailto:hello@impulsecontrolapp.com" },
+  { l: "Privacy", href: "/privacy" },
+  { l: "Delete account", href: "/delete-account" },
   { l: "Uninstall", href: "/uninstall" },
 ];
 
