@@ -158,7 +158,6 @@ const css = `
 export default function DeleteAccountPage() {
   return (
     <div className="da-page">
-      {/* eslint-disable-next-line react/no-danger */}
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <header className="da-header">
@@ -171,12 +170,7 @@ export default function DeleteAccountPage() {
             className="da-logo"
           />
         </div>
-        <a
-          href="https://impulsecontrolapp.com"
-          target="_blank"
-          rel="noreferrer"
-          className="da-back-link"
-        >
+        <a href="https://impulsecontrolapp.com" className="da-back-link">
           Back to Impulse Website
         </a>
       </header>
@@ -188,9 +182,12 @@ export default function DeleteAccountPage() {
           This page explains how to request the deletion of your{" "}
           <strong>Impulse</strong> account and the data associated with it, and
           how to delete <strong>specific data without deleting your account</strong>.
-          Impulse (developed by Impulse) is a focus app that blocks distracting
-          apps and websites and tracks screen-time usage. You are in control of
-          your data and can ask us to remove it at any time.
+          Impulse is a focus app &mdash; available as
+          an iOS app and a browser extension &mdash; that blocks distracting apps
+          and websites and tracks screen-time usage. Impulse is local-first, so
+          most of your data stays on your device; you only have a server-side
+          account if you signed in or joined a group/challenge. You are in control
+          of your data and can ask us to remove it at any time.
         </p>
 
         <section className="da-section">
@@ -210,9 +207,8 @@ export default function DeleteAccountPage() {
                 account</strong> so we can locate and verify it.
               </li>
               <li>
-                We will confirm your identity and process the deletion. Your
-                account and associated data will be permanently deleted within{" "}
-                <strong>30 days</strong>, and we&rsquo;ll email you once it&rsquo;s done.
+                We will confirm your identity and permanently delete your account
+                and its server-side data. We&rsquo;ll email you once it&rsquo;s done.
               </li>
             </ol>
             <p style={{ marginTop: 20 }}>
@@ -221,10 +217,10 @@ export default function DeleteAccountPage() {
               </a>
             </p>
             <p className="da-note">
-              Prefer to do it yourself? If you are signed in, you can also open
-              the Impulse app or extension, go to{" "}
-              <strong>Settings &rarr; Account &rarr; Delete account</strong>, and
-              confirm. This removes your account and associated data directly.
+              Note: all the data stored locally on your device is removed
+              immediately when you <strong>uninstall the app or extension</strong>.
+              The steps above are for deleting the optional server-side account and
+              data you created by signing in or joining a group/challenge.
             </p>
           </div>
         </section>
@@ -254,9 +250,9 @@ export default function DeleteAccountPage() {
                 deleted (e.g. usage history, blocking rules, or accountability-partner email).
               </li>
               <li>
-                We will verify your identity and delete the requested data within{" "}
-                <strong>30 days</strong>, keeping your account and everything else
-                intact. We&rsquo;ll email you once it&rsquo;s done.
+                We will verify your identity and delete the requested data,
+                keeping your account and everything else intact. We&rsquo;ll email
+                you once it&rsquo;s done.
               </li>
             </ol>
             <p style={{ marginTop: 20 }}>
@@ -268,8 +264,9 @@ export default function DeleteAccountPage() {
               You can also manage or delete much of this data yourself inside the
               Impulse app or extension &mdash; for example by removing blocking
               periods, impulse controls or blocked sites from{" "}
-              <strong>Settings</strong>. The retention periods below also apply to
-              partial data-deletion requests.
+              <strong>Settings</strong>, or by exporting your data as JSON from the
+              extension. The retention details below also apply to partial
+              data-deletion requests.
             </p>
           </div>
         </section>
@@ -278,7 +275,8 @@ export default function DeleteAccountPage() {
           <h2>What data is deleted or retained</h2>
           <p className="da-lead">
             When your deletion request is completed, the following data tied to
-            your account is permanently removed from our systems:
+            your account is permanently removed from our backend (Supabase, hosted
+            in the EU):
           </p>
           <div className="da-table-wrap">
             <table className="da-table">
@@ -286,79 +284,84 @@ export default function DeleteAccountPage() {
                 <tr>
                   <th>Data type</th>
                   <th>Action</th>
-                  <th>Details &amp; retention period</th>
+                  <th>Details &amp; retention</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Account details</td>
+                  <td>Account &amp; profile</td>
                   <td>
                     <span className="da-pill da-pill-del">Deleted</span>
                   </td>
                   <td>
-                    Email address and name. Permanently deleted within 30 days
-                    of the request.
+                    Email, encrypted password, optional display name and your
+                    user/device identifier. Removed from the server when your
+                    request is verified.
                   </td>
                 </tr>
                 <tr>
-                  <td>App settings</td>
+                  <td>Synced rules &amp; settings</td>
                   <td>
                     <span className="da-pill da-pill-del">Deleted</span>
                   </td>
                   <td>
-                    Preferences such as theme, language, quick-focus defaults and
-                    accountability-partner email. Deleted with your account.
+                    Blocking periods, impulse controls and the site
+                    hostnames/rule names you synced. Removed with your account.
                   </td>
                 </tr>
                 <tr>
-                  <td>Blocking &amp; impulse-control rules</td>
+                  <td>Statistics backup</td>
                   <td>
                     <span className="da-pill da-pill-del">Deleted</span>
                   </td>
                   <td>
-                    Your blocking periods, blocked sites, schedules and impulse
-                    controls. Deleted with your account.
+                    The daily aggregated per-site statistics backed up to your
+                    account. Removed with your account.
                   </td>
                 </tr>
                 <tr>
-                  <td>Usage &amp; analytics</td>
+                  <td>Group / squad data</td>
                   <td>
                     <span className="da-pill da-pill-del">Deleted</span>
                   </td>
                   <td>
-                    Daily usage records and site-visit history linked to your
-                    account. Deleted with your account.
+                    Nickname, role, streaks, verification status, group rules you
+                    created and your violation log. Removed with your account.
                   </td>
                 </tr>
                 <tr>
-                  <td>Support emails</td>
+                  <td>Local data on your device</td>
+                  <td>
+                    <span className="da-pill da-pill-keep">On device</span>
+                  </td>
+                  <td>
+                    Your rules, limits and statistics stored locally (and, on iOS,
+                    the opaque app/website tokens) never reach our servers. This is
+                    removed when you <strong>uninstall</strong> the app or
+                    extension. Some local extension metrics are also auto-pruned
+                    after about 14 days.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Analytics (Mixpanel)</td>
                   <td>
                     <span className="da-pill da-pill-keep">Retained</span>
                   </td>
                   <td>
-                    Correspondence you send to support may be kept for up to 12
-                    months to handle follow-up questions, then deleted.
+                    Anonymous/pseudonymous usage events tied to a random
+                    installation ID (not your name). Retained per Mixpanel&rsquo;s
+                    policy and our configuration; contact us to have events for
+                    your installation ID removed.
                   </td>
                 </tr>
                 <tr>
-                  <td>Legal / transactional records</td>
+                  <td>Verification codes</td>
                   <td>
-                    <span className="da-pill da-pill-keep">Retained</span>
+                    <span className="da-pill da-pill-keep">Short-lived</span>
                   </td>
                   <td>
-                    Where required by law (e.g. tax or fraud-prevention
-                    obligations), a minimal record may be retained for the legally
-                    mandated period. It is not used for any other purpose.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Backups</td>
-                  <td>
-                    <span className="da-pill da-pill-keep">Retained</span>
-                  </td>
-                  <td>
-                    Residual copies may persist in encrypted backups and are
-                    automatically purged within 90 days.
+                    Supervisor/unlock codes are stored only as a hash and expire
+                    server-side after ~5 minutes; they are single-use.
                   </td>
                 </tr>
               </tbody>
@@ -366,9 +369,10 @@ export default function DeleteAccountPage() {
           </div>
           <p className="da-note">
             Deletion is permanent and cannot be undone. Once your account is
-            deleted you will need to create a new one to use Impulse again. Data
-            stored only on your own device (e.g. local settings) is removed when
-            you uninstall the app or extension.
+            deleted you will need to create a new one to use the account-based
+            features again. Because Impulse is local-first, if you never signed in
+            you may have no server-side data at all &mdash; uninstalling removes
+            everything.
           </p>
         </section>
 
