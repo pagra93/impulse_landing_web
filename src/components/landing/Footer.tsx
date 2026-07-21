@@ -34,7 +34,7 @@ export function Footer() {
         </div>
 
         <span className="font-body text-[13px] text-muted">
-          © 2026 Impulse. All rights reserved.
+          © {new Date().getFullYear()} Impulse. All rights reserved.
         </span>
       </div>
     </footer>
