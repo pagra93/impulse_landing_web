@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import emailjs from '@emailjs/browser';
 
 function UninstallInner() {
   const searchParams = useSearchParams();
@@ -12,19 +11,11 @@ function UninstallInner() {
 
   useEffect(() => {
     if (partnerEmail && !emailSent) {
-      const serviceId = 'service_puna5en';
-      const templateId = 'template_irjel7e';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
-
-      emailjs.send(
-        serviceId,
-        templateId,
-        {
-          to_email: partnerEmail,
-          message: 'Your accountability partner has uninstalled the Impulse extension. This is an automated notification to keep you informed.',
-        },
-        publicKey
-      )
+      fetch('/api/uninstall-notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ partner: partnerEmail }),
+      })
         .then(() => setEmailSent(true))
         .catch((error) => {
           console.error('Failed to send email notification:', error);
