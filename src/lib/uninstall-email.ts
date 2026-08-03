@@ -1,8 +1,10 @@
+import { createHash } from "node:crypto";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM = process.env.UNINSTALL_FROM || "Impulse <noreply@impulsecontrolapp.com>";
+// Debe usar el subdominio verificado en Resend (send.impulsecontrolapp.com).
+const FROM = process.env.UNINSTALL_FROM || "Impulse <noreply@send.impulsecontrolapp.com>";
 const REPLY_TO = process.env.UNINSTALL_REPLY_TO || "support@impulsecontrolapp.com";
 const YELLOW = "#ffdb4c";
 
@@ -91,15 +93,25 @@ export async function notifyPartnerUninstall(
 
   const copy = COPY[pickLocale(acceptLanguage)];
 
+  // Evita duplicados (refresh/prefetch/doble navegación): misma clave => Resend
+  // no reenvía. Granularidad por día y destinatario, sin almacén externo.
+  const day = new Date().toISOString().slice(0, 10);
+  const idempotencyKey = `uninstall:${createHash("sha256")
+    .update(partner)
+    .digest("hex")}:${day}`;
+
   try {
-    await resend.emails.send({
-      from: FROM,
-      to: [partner],
-      replyTo: REPLY_TO,
-      subject: copy.subject,
-      text: renderText(copy),
-      html: renderHtml(copy),
-    });
+    await resend.emails.send(
+      {
+        from: FROM,
+        to: [partner],
+        replyTo: REPLY_TO,
+        subject: copy.subject,
+        text: renderText(copy),
+        html: renderHtml(copy),
+      },
+      { idempotencyKey }
+    );
   } catch (err) {
     console.error("[uninstall] resend failed", err);
   }
