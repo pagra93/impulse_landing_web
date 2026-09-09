@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/links";
+import { siteSchema } from "@/lib/schema";
 import { Figtree } from "next/font/google";
 import "../globals.css";
 import { cn } from "@/lib/utils";
@@ -103,6 +104,11 @@ export async function generateMetadata({
         "x-default": SITE_URL,
       },
     },
+    twitter: {
+      ...BASE_METADATA.twitter,
+      title: t("title"),
+      description: t("description"),
+    },
     openGraph: {
       ...BASE_METADATA.openGraph,
       title: t("title"),
@@ -114,94 +120,6 @@ export async function generateMetadata({
   };
 }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      name: "Impulse",
-      url: "https://impulsecontrolapp.com",
-      logo: "https://impulsecontrolapp.com/impulse.png",
-      sameAs: [],
-    },
-    {
-      "@type": "SoftwareApplication",
-      name: "Impulse",
-      description:
-        "Focus control tool that blocks distracting apps and websites. Features strict mode, scheduled blocking, usage statistics, and cross-platform support on iOS and Chrome.",
-      url: "https://impulsecontrolapp.com",
-      applicationCategory: "ProductivityApplication",
-      operatingSystem: "iOS, Chrome, Safari",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "500",
-        bestRating: "5",
-      },
-      featureList: [
-        "App and website blocking",
-        "Strict mode (unbypassable)",
-        "Physical unlock with NFC (Impulse Disc or any NFC tag)",
-        "Scheduled focus sessions",
-        "Quick focus mode",
-        "Multiple strictness levels (easy, medium, hard, physical)",
-        "Emergency access button",
-        "Independent desktop blocking (Chrome & Safari extension)",
-        "Cross-platform (iOS, Chrome, Safari)",
-        "Focus Groups",
-        "Daily usage statistics",
-        "Custom blocklists",
-      ],
-    },
-    {
-      "@type": "WebSite",
-      name: "Impulse",
-      url: "https://impulsecontrolapp.com",
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Is Impulse free?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes — the core blocker is 100% free on iOS and Chrome, with no account and no credit card. Impulse Pro adds unlimited rules, strict mode and Focus Groups, but you can take back hours every day without paying a cent.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do I need to buy a device for physical unlock?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Physical unlock works free with any NFC sticker you own — even a $1 tag. The designed Impulse Disc is optional and ships free with an annual plan (coming soon), so there's never a separate gadget to buy.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What if I have a real emergency?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Impulse is strict, not cruel. Emergency unlocks let you reach what you genuinely need — but they're intentionally inconvenient, and blocks reactivate automatically afterwards.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is my data private?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Completely. Your usage stats and block lists stay on your device — not on our servers. No tracking, no ads, no analytics, no selling your data to anyone.",
-          },
-        },
-      ],
-    },
-  ],
-};
 
 export default async function RootLayout({
   children,
@@ -227,7 +145,7 @@ export default async function RootLayout({
             through the metadata API; each page declares its own. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema(locale)) }}
         />
         {/* Framer Motion serialises its `initial` state into the SSR markup, so
             every <Reveal> ships with opacity:0 inline. Without JS nothing ever

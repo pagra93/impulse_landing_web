@@ -1,6 +1,6 @@
-import { Nfc } from "../Nfc";
+import { Nfc } from "@/components/landing/Nfc";
 import { LINKS } from "@/lib/links";
-import { Reveal } from "../Reveal";
+import { Reveal } from "@/components/landing/Reveal";
 
 
 const LEVELS = [

@@ -1,29 +1,45 @@
-import { Apple, Chrome } from "lucide-react";
-import { CtaButton, IOS_URL, CHROME_URL } from "./primitives";
+import { useTranslations } from "next-intl";
+import { MarkField } from "@/components/brand/Mark";
+import { CtaButton } from "./primitives";
 import { Reveal } from "./Reveal";
+import { LINKS } from "@/lib/links";
 
 export function FinalCTA() {
+  const t = useTranslations("finalCta");
+  const tc = useTranslations("common");
+
   return (
-    <section className="gradient-brand-diagonal text-white">
-      <Reveal className="mx-auto flex max-w-[820px] flex-col items-center gap-[22px] px-6 py-24 text-center">
-        <h2 className="m-0 font-display text-[clamp(34px,4.4vw,52px)] font-extrabold leading-[1.06] tracking-[-0.02em] text-white">
-          Less scrolling.
-          <br />
-          More living<span className="text-yellow">.</span>
-        </h2>
-        <p className="m-0 max-w-[520px] font-body text-lg leading-relaxed text-[#c8d6e1] md:text-[19px]">
-          Join 1,000+ people reclaiming 2+ hours a day. Free on iOS and Chrome —
-          start in under a minute.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3.5">
-          <CtaButton variant="yellow" href={IOS_URL} icon={Apple} className="h-[52px]">
-            Download for iOS
-          </CtaButton>
-          <CtaButton variant="ghost" href={CHROME_URL} icon={Chrome} className="h-[52px]">
-            Add to Chrome
-          </CtaButton>
-        </div>
-      </Reveal>
+    <section className="relative overflow-hidden bg-yellow px-6 py-20 text-ink-deep md:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-40%] top-1/2 aspect-square w-[min(110vw,700px)] -translate-y-1/2 text-ink-deep opacity-45 md:right-[-14%] md:w-[min(52vw,620px)] md:opacity-100"
+      >
+        <MarkField />
+      </div>
+
+      <div className="relative mx-auto max-w-shell">
+        <Reveal>
+          <h2 className="font-display text-display font-black text-ink-deep">
+            {t("titleLine1")}
+            <br />
+            {t("titleLine2")}
+          </h2>
+          <p className="mt-6 max-w-[40ch] text-[19px] text-ink-deep/75">
+            {t("lede")}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <CtaButton variant="primary" className="!bg-ink-deep !border-ink-deep" href={LINKS.ios}>
+              {tc("downloadIos")}
+            </CtaButton>
+            <CtaButton variant="outline" className="!bg-transparent !text-ink-deep !border-ink-deep/30" href={LINKS.play}>
+              {tc("downloadAndroid")}
+            </CtaButton>
+            <CtaButton variant="outline" className="!bg-transparent !text-ink-deep !border-ink-deep/30" href={LINKS.chrome}>
+              {tc("downloadChrome")}
+            </CtaButton>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

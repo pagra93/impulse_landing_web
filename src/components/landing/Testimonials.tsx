@@ -1,73 +1,64 @@
-import { Eyebrow, Stars } from "./primitives";
+import { useTranslations } from "next-intl";
+import { Section, SectionLabel, Stars } from "./primitives";
 import { Reveal } from "./Reveal";
+import { cn } from "@/lib/utils";
 
-const REVIEWS = [
-  {
-    q: "I was spending 5+ hours on TikTok daily. After two weeks with Impulse, I'm down to 45 minutes. This app literally changed my life.",
-    a: "Carlos M.",
-    s: "App Store",
-  },
-  {
-    q: "Finally something that actually works. The strict mode is no joke — you CAN'T cheat it. Exactly what I needed.",
-    a: "Sarah K.",
-    s: "App Store",
-  },
-  {
-    q: "Installed the Chrome extension for work and my productivity went through the roof. No more 'just checking Twitter' at 2pm.",
-    a: "James R.",
-    s: "Chrome Web Store",
-  },
-  {
-    q: "I love that it's not preachy. It doesn't guilt-trip you. It just… blocks stuff. Simple and effective. Best $0 I ever spent.",
-    a: "Ana P.",
-    s: "App Store",
-  },
-  {
-    q: "The scheduling feature is brilliant. My phone automatically blocks social media during work hours. Set it once and forget it.",
-    a: "David L.",
-    s: "App Store",
-  },
-  {
-    q: "I tried 4 other blockers before this. Impulse is the only one with strict mode you can't disable mid-session. THAT'S the difference.",
-    a: "Emma T.",
-    s: "Chrome Web Store",
-  },
-];
+type Review = { quote: string; author: string; source: string };
+type TrustItem = { title: string; body: string };
 
+/**
+ * A quote wall with varying type sizes and hairline separators, rather than six
+ * identical padded boxes in a 2x3 grid.
+ */
 export function Testimonials() {
-  return (
-    <section id="reviews" className="border-y border-border-subtle bg-bg-subtle px-6 py-20 md:py-[88px]">
-      <div className="mx-auto max-w-[1180px]">
-        <Reveal className="mx-auto mb-[52px] flex max-w-[620px] flex-col items-center gap-3.5 text-center">
-          <Eyebrow center>Reviews</Eyebrow>
-          <h2 className="m-0 font-display text-[clamp(30px,3.4vw,42px)] font-extrabold leading-[1.1] tracking-[-0.02em] text-navy">
-            People love Impulse.
-          </h2>
-        </Reveal>
+  const t = useTranslations("testimonials");
+  const tt = useTranslations("trust");
+  const reviews = t.raw("items") as Review[];
+  const trust = tt.raw("items") as TrustItem[];
 
-        <div className="grid gap-[22px] md:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.map((r, i) => (
-            <Reveal
-              key={r.a}
-              delay={(i % 3) * 0.08}
-              className="flex h-full flex-col gap-3.5 rounded-[20px] border border-border-default bg-white p-7 shadow-card"
+  return (
+    <Section id="opiniones" tone="bone" width="shell">
+      <Reveal>
+        <SectionLabel>{t("label")}</SectionLabel>
+        <h2 className="mb-11 max-w-[14ch] font-display text-h2 font-black text-ink-deep">
+          {t("title")}
+        </h2>
+      </Reveal>
+
+      <div className="gap-11 sm:columns-2 lg:columns-3">
+        {reviews.map((review, i) => (
+          <figure
+            key={review.author}
+            className="mb-9 break-inside-avoid border-b border-hair-light pb-9"
+          >
+            <Stars size={13} className="mb-3 text-yellow-deep" />
+            <blockquote
+              className={cn(
+                "m-0 text-ink-deep",
+                i % 3 === 0
+                  ? "text-[22px] font-bold leading-[1.35] tracking-[-0.018em]"
+                  : "text-[17px] font-medium leading-[1.55]"
+              )}
             >
-              <Stars size={15} />
-              <p className="m-0 flex-1 font-body text-[15px] leading-relaxed text-body">
-                {r.q}
-              </p>
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="whitespace-nowrap font-display text-sm font-bold text-heading">
-                  {r.a}
-                </span>
-                <span className="whitespace-nowrap font-body text-xs text-muted">
-                  · {r.s}
-                </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+              {review.quote}
+            </blockquote>
+            <figcaption className="mt-3.5 text-[13px] font-extrabold uppercase tracking-[0.1em] text-muted">
+              {review.author} · {review.source}
+            </figcaption>
+          </figure>
+        ))}
       </div>
-    </section>
+
+      <div className="grid gap-7 border-t border-hair-light pt-10 md:grid-cols-3 md:gap-12">
+        {trust.map((item, i) => (
+          <Reveal key={item.title} delay={i * 0.06}>
+            <h3 className="mb-2 font-display text-[17px] font-extrabold text-ink-deep">
+              {item.title}
+            </h3>
+            <p className="text-[15px] leading-[1.55] text-muted">{item.body}</p>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
   );
 }

@@ -1,6 +1,6 @@
-import { CtaButton, IOS_URL } from "../primitives";
+import { CtaButton, IOS_URL } from "@/components/landing/primitives";
 import { LINKS } from "@/lib/links";
-import { Reveal } from "../Reveal";
+import { Reveal } from "@/components/landing/Reveal";
 
 const WAITLIST_MAILTO =
   "mailto:hello@impulsecontrolapp.com?subject=Impulse%20Disc%20waitlist";

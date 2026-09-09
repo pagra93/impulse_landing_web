@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { Disc } from "../Disc";
-import { Nfc } from "../Nfc";
-import { Reveal } from "../Reveal";
+import { Disc } from "@/components/landing/Disc";
+import { Nfc } from "@/components/landing/Nfc";
+import { Reveal } from "@/components/landing/Reveal";
 
 /* ---- shared phone frame (≈252px) ---- */
 function PhoneFrame({ children }: { children: ReactNode }) {

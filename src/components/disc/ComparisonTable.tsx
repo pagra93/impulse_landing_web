@@ -1,4 +1,4 @@
-import { Reveal } from "../Reveal";
+import { Reveal } from "@/components/landing/Reveal";
 
 const COMPETITORS = ["Brick", "Unpluq", "PauseBox"];
 

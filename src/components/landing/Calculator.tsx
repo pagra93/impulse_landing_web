@@ -1,71 +1,70 @@
 "use client";
 
 import { useState } from "react";
-import { Eyebrow } from "./primitives";
+import { useLocale, useTranslations } from "next-intl";
+import { SectionLabel } from "./primitives";
 
 export function Calculator() {
+  const t = useTranslations("calculator");
+  const locale = useLocale();
   const [hours, setHours] = useState(4);
-  const weekly = (hours * 7 * 0.25).toFixed(1);
+
+  const weekly = (hours * 7 * 0.25).toLocaleString(locale, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
   const days = Math.round((hours * 365 * 0.25) / 24);
 
   return (
-    <section className="gradient-brand-diagonal text-white">
-      <div className="mx-auto grid max-w-[1180px] items-center gap-12 px-6 py-20 md:grid-cols-2">
-        {/* Left — controls */}
-        <div className="flex flex-col gap-4">
-          <Eyebrow dark>Time calculator</Eyebrow>
-          <h2 className="m-0 font-display text-[clamp(28px,3.2vw,40px)] font-extrabold leading-[1.12] tracking-[-0.02em] text-white">
-            How much time are you losing to your screen?
+    <section className="bg-void-sunken px-6 py-16 text-on-dark-mid md:py-[88px]">
+      <div className="mx-auto grid max-w-shell items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,.9fr)] md:gap-20">
+        <div>
+          <SectionLabel tone="dark">{t("label")}</SectionLabel>
+          <h2 className="max-w-[16ch] font-display text-h2 font-black text-on-dark">
+            {t("title")}
           </h2>
-          <div className="mt-1.5 flex flex-col gap-2.5">
-            <div className="flex items-baseline gap-2.5">
-              <span className="font-display text-[38px] font-extrabold leading-none text-white">
-                {hours}
-              </span>
-              <span className="font-body text-base text-[#c8d6e1]">
-                hours / day
-              </span>
-            </div>
-            <input
-              type="range"
-              min={1}
-              max={12}
-              step={1}
-              value={hours}
-              onChange={(e) => setHours(Number(e.target.value))}
-              className="mk-range w-full"
-              aria-label="Hours per day on screen"
-            />
-            <div className="flex justify-between font-body text-xs text-[#9fb4c4]">
-              <span>1h</span>
-              <span>6h</span>
-              <span>12h</span>
-            </div>
+
+          <div className="mb-1 mt-7 flex items-baseline gap-3">
+            <span className="font-display text-[56px] font-black leading-none tracking-[-0.05em] text-on-dark tabular-nums">
+              {hours}
+            </span>
+            <span className="text-[17px] text-on-dark-mid">
+              {t("hoursPerDay")}
+            </span>
           </div>
-          <p className="m-0 mt-1 font-body text-[13px] text-[#9fb4c4]">
-            Based on reclaiming 25% of unproductive screen time.
-          </p>
+
+          <input
+            type="range"
+            min={1}
+            max={12}
+            step={1}
+            value={hours}
+            onChange={(e) => setHours(Number(e.target.value))}
+            aria-label={t("sliderLabel")}
+            className="mk-range w-full"
+          />
+          <div className="mt-0.5 flex justify-between text-[12.5px] text-on-dark-low">
+            <span>1 h</span>
+            <span>6 h</span>
+            <span>12 h</span>
+          </div>
+
+          <p className="mt-5 text-[13px] text-on-dark-low">{t("disclaimer")}</p>
         </div>
 
-        {/* Right — results */}
-        <div className="flex gap-[18px]">
-          <div className="flex-1 rounded-[20px] border border-white/[0.14] bg-white/[0.08] p-7 text-center">
-            <div className="font-display text-[clamp(40px,7vw,46px)] font-extrabold leading-none text-yellow">
-              {weekly}
+        <dl className="m-0 grid gap-6">
+          {[
+            { value: weekly, label: t("weekly") },
+            { value: String(days), label: t("yearly") },
+          ].map((row) => (
+            <div key={row.label} className="border-t border-border-on-dark pt-5">
+              <dd className="m-0 font-display text-[clamp(40px,4.2vw,58px)] font-black leading-none tracking-[-0.05em] text-yellow tabular-nums">
+                {row.value}
+              </dd>
+              <dt className="mt-2.5 text-[15px] text-on-dark-mid">{row.label}</dt>
             </div>
-            <div className="mt-2 font-body text-sm text-[#c8d6e1]">
-              hours / week saved with Impulse
-            </div>
-          </div>
-          <div className="flex-1 rounded-[20px] border border-white/[0.14] bg-white/[0.08] p-7 text-center">
-            <div className="font-display text-[clamp(40px,7vw,46px)] font-extrabold leading-none text-white">
-              {days}
-            </div>
-            <div className="mt-2 font-body text-sm text-[#c8d6e1]">
-              days / year fully reclaimed
-            </div>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

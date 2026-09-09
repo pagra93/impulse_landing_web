@@ -3,7 +3,7 @@ import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/links";
 
-type Href = "/" | "/onboarding" | "/uninstall" | "/delete-account" | "/privacy";
+type Href = "/" | "/desbloqueo-fisico" | "/onboarding" | "/uninstall" | "/delete-account" | "/privacy";
 
 const ROUTES: {
   href: Href;
@@ -11,6 +11,7 @@ const ROUTES: {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
 }[] = [
   { href: "/", priority: 1, changeFrequency: "weekly" },
+  { href: "/desbloqueo-fisico", priority: 0.7, changeFrequency: "monthly" },
   { href: "/onboarding", priority: 0.6, changeFrequency: "monthly" },
   { href: "/uninstall", priority: 0.3, changeFrequency: "monthly" },
   { href: "/delete-account", priority: 0.3, changeFrequency: "yearly" },

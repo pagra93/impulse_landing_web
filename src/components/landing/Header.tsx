@@ -1,96 +1,105 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { CtaButton, IOS_URL } from "./primitives";
-import { AnnouncementBar } from "./AnnouncementBar";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { Lockup } from "@/components/brand/Mark";
+import { CtaButton } from "./primitives";
+import { LocaleSwitcher } from "./LocaleSwitcher";
+import { LINKS } from "@/lib/links";
 
-const navLinks = [
-  { label: "How it works", href: "#how" },
-  { label: "Physical unlock", href: "#physical" },
-  { label: "Features", href: "#features" },
-  { label: "FAQ", href: "#faq" },
-];
+const NAV = [
+  { key: "howItWorks", href: "#como" },
+  { key: "features", href: "#funciones" },
+  { key: "desktop", href: "#ordenador" },
+  { key: "friction", href: "#friccion" },
+  { key: "faq", href: "#faq" },
+] as const;
 
+/**
+ * Floating pill navigation over the dark opening — the pattern Opal, Brick and
+ * Jomo all use. Replaces a full-width sticky bar plus an announcement strip
+ * that pushed a not-yet-shipped accessory above the product itself.
+ */
 export function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const t = useTranslations("nav");
+  const reduce = useReducedMotion();
 
   return (
-    <>
-      <AnnouncementBar />
-      <header className="sticky top-0 z-[100] border-b border-border-subtle bg-white/[0.82] backdrop-blur-[14px]">
-      <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-[15px]">
-        <a
-          href="#"
-          className="font-display text-[23px] font-bold text-navy"
-          aria-label="Impulse home"
+    <div className="sticky top-0 z-[100] px-6 pt-4">
+      <nav className="mx-auto flex max-w-shell items-center gap-4 rounded-full border border-border-on-dark bg-void/80 py-2 pl-4 pr-2 backdrop-blur-[18px] sm:gap-7 sm:pl-6">
+        <Link
+          href="/"
+          aria-label={t("home")}
+          className="rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
         >
-          impulse<span className="text-yellow">.</span>
-        </a>
+          <Lockup size={28} />
+        </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex">
-          {navLinks.map((link) => (
+        <div className="ml-1 hidden items-center gap-7 lg:flex">
+          {NAV.map((item) => (
             <a
-              key={link.href}
-              href={link.href}
-              className="font-body text-sm font-semibold text-body transition-colors hover:text-navy"
+              key={item.key}
+              href={item.href}
+              className="rounded text-[14.5px] font-medium text-on-dark-mid transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
             >
-              {link.label}
+              {t(item.key)}
             </a>
           ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <CtaButton variant="gradient" size="md" href={IOS_URL}>
-            Get Impulse — Free
-          </CtaButton>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen((v) => !v)}
-          className="text-navy md:hidden"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden border-b border-border-subtle bg-white md:hidden"
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <LocaleSwitcher className="hidden sm:flex" />
+          <CtaButton
+            variant="yellow"
+            size="md"
+            href={LINKS.ios}
+            className="!px-4 !text-[13px] sm:!px-5 sm:!text-sm"
           >
-            <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
+            {t("cta")}
+          </CtaButton>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="nav-mobile"
+            aria-label={open ? t("closeMenu") : t("openMenu")}
+            className="grid size-9 shrink-0 place-items-center rounded-full text-on-dark-mid sm:size-10 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id="nav-mobile"
+            initial={reduce ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.2 }}
+            className="mx-auto mt-2 max-w-shell overflow-hidden rounded-3xl border border-border-on-dark bg-void/95 backdrop-blur-[18px] lg:hidden"
+          >
+            <div className="flex flex-col gap-1 p-4">
+              {NAV.map((item) => (
                 <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-body text-sm font-semibold text-body transition-colors hover:text-navy"
+                  key={item.key}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-3 py-2.5 text-[15px] font-medium text-on-dark-mid hover:bg-surface-on-dark hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
                 >
-                  {link.label}
+                  {t(item.key)}
                 </a>
               ))}
-              <CtaButton
-                variant="gradient"
-                size="md"
-                href={IOS_URL}
-                className="w-full"
-              >
-                Get Impulse — Free
-              </CtaButton>
+              <LocaleSwitcher className="px-3 pt-2 sm:hidden" />
             </div>
-          </motion.nav>
+          </motion.div>
         )}
       </AnimatePresence>
-      </header>
-    </>
+    </div>
   );
 }

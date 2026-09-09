@@ -1,35 +1,56 @@
+import { setRequestLocale } from "next-intl/server";
+import { homeSchema } from "@/lib/schema";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { Stats } from "@/components/landing/Stats";
 import { Problem } from "@/components/landing/Problem";
-import { Mission } from "@/components/landing/Mission";
+import { Manifesto } from "@/components/landing/Manifesto";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Features } from "@/components/landing/Features";
-import { DesktopWidget } from "@/components/landing/DesktopWidget";
-import { PhysicalChapter } from "@/components/landing/physical/PhysicalChapter";
+import { Bridge } from "@/components/landing/Bridge";
+import { Platforms } from "@/components/landing/Platforms";
+import { Strictness } from "@/components/landing/Strictness";
 import { Calculator } from "@/components/landing/Calculator";
 import { Testimonials } from "@/components/landing/Testimonials";
-import { Trust } from "@/components/landing/Trust";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
 
-export default function Home() {
+/**
+ * Chapter rhythm: a dark opening, six light chapters alternating bone and
+ * white with one dark island in the middle, then a yellow close. Deliberately
+ * not a dark/light zigzag on every section — that is what makes long landing
+ * pages feel exhausting.
+ */
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  // SoftwareApplication + FAQPage live here, not in the layout: /privacy has no
+  // business advertising a FAQ it does not contain.
+  const schema = await homeSchema(locale);
+
   return (
     <div className="min-h-screen font-body">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <Header />
       <main>
         <Hero />
-        <Stats />
         <Problem />
-        <Mission />
+        <Manifesto />
         <HowItWorks />
         <Features />
-        <DesktopWidget />
-        <PhysicalChapter />
+        <Bridge />
+        <Platforms />
+        <Strictness />
         <Calculator />
         <Testimonials />
-        <Trust />
         <FAQ />
         <FinalCTA />
       </main>

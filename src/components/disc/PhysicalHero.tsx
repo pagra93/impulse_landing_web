@@ -1,6 +1,6 @@
-import { CtaButton } from "../primitives";
-import { Disc } from "../Disc";
-import { Reveal } from "../Reveal";
+import { CtaButton } from "@/components/landing/primitives";
+import { Disc } from "@/components/landing/Disc";
+import { Reveal } from "@/components/landing/Reveal";
 
 export function PhysicalHero() {
   return (
@@ -13,9 +13,9 @@ export function PhysicalHero() {
           New · Physical unlock
         </span>
 
-        <h2 className="m-0 max-w-[800px] font-display text-[clamp(34px,6vw,56px)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
+        <h1 className="m-0 max-w-[800px] font-display text-[clamp(34px,6vw,56px)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
           The hardest level of focus is now physical.
-        </h2>
+        </h1>
 
         <p className="m-0 max-w-[600px] font-body text-lg leading-relaxed text-[#b9cad6] md:text-[19px]">
           Add one more rung to strict mode — a block that ends only when you
