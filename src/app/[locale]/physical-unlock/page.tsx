@@ -54,8 +54,9 @@ export default async function PhysicalUnlockPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Dark ground behind the floating header pill — see the note on the home page.
   return (
-    <div className="min-h-screen font-body">
+    <div className="min-h-screen bg-void font-body">
       <Header />
       <main>
         <PhysicalHero />

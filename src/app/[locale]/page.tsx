@@ -33,8 +33,12 @@ export default async function Home({
   // business advertising a FAQ it does not contain.
   const schema = await homeSchema(locale);
 
+  // The header is a floating pill over a transparent wrapper, so the page needs
+  // a dark ground of its own: otherwise the body's white shows through above and
+  // beside the pill until the hero starts. Every section paints its own
+  // background, so this only ever shows behind the header.
   return (
-    <div className="min-h-screen font-body">
+    <div className="min-h-screen bg-void font-body">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
