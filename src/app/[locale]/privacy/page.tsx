@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -503,7 +504,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p>
             You can request deletion of your account or of specific data at any time
-            on our <a href="/delete-account">account &amp; data deletion page</a>.
+            on our <Link href="/delete-account">account &amp; data deletion page</Link>.
           </p>
         </div>
 
@@ -519,7 +520,7 @@ export default function PrivacyPolicyPage() {
             <li><strong>View your data</strong> &mdash; your rules, limits and statistics are visible in the app/extension interface.</li>
             <li><WidgetBadge /> <strong>Export your data</strong> as a JSON file from Settings.</li>
             <li><strong>Delete local data</strong> by uninstalling the app or extension.</li>
-            <li><strong>Delete account data</strong> or specific data via our <a href="/delete-account">deletion page</a>.</li>
+            <li><strong>Delete account data</strong> or specific data via our <Link href="/delete-account">deletion page</Link>.</li>
             <li><strong>Contact us</strong> at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> to exercise any of these rights.</li>
           </ul>
         </div>
