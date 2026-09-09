@@ -50,3 +50,6 @@ next-env.d.ts
 
 # Physical unlock design handoff (reference, not shipped)
 /design_handoff_physical_unlock/
+
+# Capturas en crudo: pesan y solo sirven para generar los webp
+/design/

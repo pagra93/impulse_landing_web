@@ -10,7 +10,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "node scripts/copy-standalone-assets.mjs"
+    "postbuild": "node scripts/copy-standalone-assets.mjs",
+    "screenshots": "node scripts/import-screenshots.mjs"
   },
   "dependencies": {
     "@prisma/client": "^7.2.0",
