@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { PhysicalHero } from "@/components/disc/PhysicalHero";
-import { StrictnessLadder } from "@/components/disc/StrictnessLadder";
-import { PhysicalHowItWorks } from "@/components/disc/PhysicalHowItWorks";
-import { ComparisonTable } from "@/components/disc/ComparisonTable";
+import { DiscHero } from "@/components/disc/DiscHero";
+import { DiscLadder } from "@/components/disc/DiscLadder";
+import { DiscHowItWorks } from "@/components/disc/DiscHowItWorks";
+import { DiscComparison } from "@/components/disc/DiscComparison";
 import { GetTheDisc } from "@/components/disc/GetTheDisc";
 import { SITE_URL } from "@/lib/links";
 import { getPathname } from "@/i18n/navigation";
@@ -59,10 +59,10 @@ export default async function PhysicalUnlockPage({
     <div className="min-h-screen bg-void font-body">
       <Header />
       <main>
-        <PhysicalHero />
-        <StrictnessLadder />
-        <PhysicalHowItWorks />
-        <ComparisonTable />
+        <DiscHero />
+        <DiscLadder />
+        <DiscHowItWorks />
+        <DiscComparison />
         <GetTheDisc />
       </main>
       <Footer />

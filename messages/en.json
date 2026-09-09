@@ -9,7 +9,6 @@
       "description": "The hardest level of focus is physical: a block that ends only when you tap a real object. Use the Impulse Disc, or any NFC tag you already own."
     }
   },
-
   "nav": {
     "howItWorks": "How it works",
     "features": "Features",
@@ -25,7 +24,6 @@
     "spanish": "Spanish",
     "english": "English"
   },
-
   "hero": {
     "badge": "New",
     "badgeText": "Now on Android",
@@ -35,14 +33,12 @@
     "lede": "Impulse blocks the apps and websites that steal your focus — so you reclaim 2+ hours every day. No willpower required.",
     "macosSoon": "macOS app coming soon"
   },
-
   "stats": {
     "users": "Daily users",
     "hours": "Hours reclaimed",
     "blocks": "Distractions blocked",
     "rating": "App Store rating"
   },
-
   "problem": {
     "label": "The problem",
     "title": "Your attention is being sold.",
@@ -52,7 +48,6 @@
     "hoursValue": "4+ hrs",
     "hoursLabel": "a day lost to apps"
   },
-
   "manifesto": {
     "label": "Why we built this",
     "quoteBefore": "We don’t think all screen time is bad. We think",
@@ -60,7 +55,6 @@
     "body": "Impulse helps you be intentional — not through guilt or rules, but by giving you control over the impulse, not the dopamine.",
     "signature": "The Impulse team"
   },
-
   "howItWorks": {
     "label": "How it works",
     "title": "Simple by design. Powerful by nature.",
@@ -83,7 +77,6 @@
       }
     ]
   },
-
   "features": {
     "label": "Features",
     "title": "Everything you need to take back control.",
@@ -115,7 +108,6 @@
       "check2": "The number no other app shows you."
     }
   },
-
   "bridge": {
     "label": "Desktop and mobile",
     "title": "Most blockers stop at your phone. Ours doesn’t.",
@@ -132,7 +124,6 @@
     "ctaChrome": "Add to Chrome",
     "ctaNfc": "How NFC unlock works"
   },
-
   "platforms": {
     "label": "Platforms",
     "title": "Everywhere you scroll.",
@@ -158,7 +149,6 @@
       "body": "A native desktop app is on the way."
     }
   },
-
   "strictness": {
     "label": "Four levels of friction",
     "title": "Physical is the new top rung.",
@@ -187,7 +177,6 @@
       }
     ]
   },
-
   "calculator": {
     "label": "Time calculator",
     "title": "How much time are you losing to your screen?",
@@ -197,7 +186,6 @@
     "weekly": "hours a week you get back with Impulse",
     "yearly": "full days a year, reclaimed"
   },
-
   "testimonials": {
     "label": "Reviews",
     "title": "People love Impulse.",
@@ -234,7 +222,6 @@
       }
     ]
   },
-
   "trust": {
     "items": [
       {
@@ -251,7 +238,6 @@
       }
     ]
   },
-
   "faq": {
     "label": "FAQ",
     "title": "Answers.",
@@ -282,13 +268,11 @@
       }
     ]
   },
-
   "finalCta": {
     "titleLine1": "Less scrolling.",
     "titleLine2": "More living.",
     "lede": "Join 1,000+ people reclaiming 2 hours a day. Free on iPhone, Android and your browser — start in under a minute."
   },
-
   "footer": {
     "tagline": "Control the impulse, not the dopamine.",
     "support": "Support",
@@ -297,14 +281,12 @@
     "deleteAccount": "Delete account",
     "rights": "All rights reserved."
   },
-
   "common": {
     "downloadIos": "Download for iPhone",
     "downloadAndroid": "Google Play",
     "downloadChrome": "Chrome and Safari",
     "free": "Free"
   },
-
   "devices": {
     "iosInterrupt": "Impulse interruption screen on iPhone: it asks whether you want to continue, and shows 1h 28min of use today and 70 opening attempts, with the option to close the app.",
     "extensionDashboard": "The Impulse extension dashboard: single-tab mode, buttons for strict block, time limit and open limits, and the block list showing ‘Morning Work’ Monday to Friday, 09:00 to 13:00.",
@@ -312,5 +294,73 @@
     "extensionStrict": "Unlock difficulty picker in Impulse, with Easy, Medium and Hard options.",
     "extensionBlocked": "Impulse block screen in the browser, asking you to type a phrase before you can continue to instagram.com.",
     "browserBar": "impulse — extension"
+  },
+  "disc": {
+    "hero": {
+      "badge": "New",
+      "badgeText": "Physical unlock",
+      "title": "The hardest level of focus is now physical.",
+      "lede": "Add one more rung to strict mode: a block that ends only when you physically tap a real object. Use the Impulse Disc, or pair any NFC sticker you already own.",
+      "ctaPrimary": "Make it physical",
+      "ctaSecondary": "See how it works",
+      "discName": "The Impulse Disc",
+      "discAlt": "or any NFC tag — from $1"
+    },
+    "ladder": {
+      "label": "Four levels of friction",
+      "title": "Physical is the new top rung.",
+      "lede": "Dial in exactly how hard it is to unblock. Physical is the one you genuinely can’t cheat in a weak moment."
+    },
+    "how": {
+      "label": "How it works",
+      "title": "A physical barrier between you and the scroll.",
+      "steps": [
+        {
+          "title": "Pick what to block, and how hard",
+          "body": "Create profiles like Work, Study or Bedtime, each with its own apps, schedule and unlock level. Set the level to Physical and your Disc becomes the only key."
+        },
+        {
+          "title": "Tap your Disc to start",
+          "body": "One tap and the focus session begins. Not nearby? Start it straight from the app instead."
+        },
+        {
+          "title": "Put distance between you and the Disc",
+          "body": "Leave it in another room, a drawer, by the front door. That physical separation turns unblocking into a conscious choice, and quietly breaks the habit loop."
+        },
+        {
+          "title": "Come back with purpose",
+          "body": "When you’re truly done, tap again to unblock. Need an unexpected exception? Emergency unlocks live in the app, but they’re intentionally inconvenient."
+        }
+      ]
+    },
+    "compare": {
+      "label": "How we compare",
+      "title": "Open by design.",
+      "lede": "Most physical blockers sell you a gadget and lock you in. We give you the friction either way — and it already works on your phone and your browser.",
+      "footnote": "Based on publicly listed product details, 2026. Comparison reflects each product’s standard offering."
+    },
+    "get": {
+      "label": "Get the Disc",
+      "title": "You don’t buy the Disc. You get it.",
+      "lede": "No gadget to check out. The Disc comes with Impulse — and physical unlock already works today with any NFC tag, for nothing.",
+      "annualBadge": "Coming soon",
+      "annualPlan": "Impulse Annual",
+      "annualTitle": "The Impulse Disc, included.",
+      "annualBody": "Go annual and the Disc is included. One plan covers the Chrome extension, the iPhone and Android app, and your Disc. No separate hardware to ever buy.",
+      "annualCta": "Join the waitlist",
+      "freeBadge": "Free today",
+      "freeTitle": "Don’t want to wait? Use any NFC tag.",
+      "freeBody": "Physical unlock already works free with any NFC sticker you own, even one from a pack of a few dollars. Start now; your Disc arrives when the annual plan launches.",
+      "freeCta": "Download the free app",
+      "freeLink": "Buy NFC tags"
+    },
+    "compareRows": {
+      "price": "Starting price",
+      "anyTag": "Works with any $1 NFC tag",
+      "noHardware": "No extra hardware required",
+      "crossPlatform": "iPhone, Android and browser",
+      "freeTier": "Full free software tier",
+      "schedules": "Schedules, limits and focus groups"
+    }
   }
 }

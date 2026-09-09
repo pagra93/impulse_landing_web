@@ -12,7 +12,6 @@ declare const messages: {
       "description": "El nivel de foco más alto es físico: un bloqueo que solo termina cuando acercas el móvil a un objeto real. Usa el disco de Impulse o cualquier etiqueta NFC."
     }
   },
-
   "nav": {
     "howItWorks": "Cómo funciona",
     "features": "Funciones",
@@ -28,7 +27,6 @@ declare const messages: {
     "spanish": "español",
     "english": "inglés"
   },
-
   "hero": {
     "badge": "Nuevo",
     "badgeText": "Ya disponible en Android",
@@ -38,14 +36,12 @@ declare const messages: {
     "lede": "Impulse bloquea las apps y las webs que te roban el foco, para que recuperes más de 2 horas cada día. Sin fuerza de voluntad.",
     "macosSoon": "App para macOS, próximamente"
   },
-
   "stats": {
     "users": "Usuarios diarios",
     "hours": "Horas recuperadas",
     "blocks": "Distracciones bloqueadas",
     "rating": "Valoración en App Store"
   },
-
   "problem": {
     "label": "El problema",
     "title": "Tu atención está en venta.",
@@ -55,7 +51,6 @@ declare const messages: {
     "hoursValue": "4+ h",
     "hoursLabel": "al día perdidas en apps"
   },
-
   "manifesto": {
     "label": "Por qué lo hicimos",
     "quoteBefore": "No creemos que todo el tiempo de pantalla sea malo. Creemos que lo es el tiempo de pantalla",
@@ -63,7 +58,6 @@ declare const messages: {
     "body": "Impulse te ayuda a ser intencional. No a base de culpa ni de normas, sino dándote el control sobre el impulso, no sobre la dopamina.",
     "signature": "El equipo de Impulse"
   },
-
   "howItWorks": {
     "label": "Cómo funciona",
     "title": "Simple por diseño. Potente por naturaleza.",
@@ -86,7 +80,6 @@ declare const messages: {
       }
     ]
   },
-
   "features": {
     "label": "Funciones",
     "title": "Todo lo que necesitas para recuperar el control.",
@@ -118,7 +111,6 @@ declare const messages: {
       "check2": "El número que ninguna otra app te enseña."
     }
   },
-
   "bridge": {
     "label": "Ordenador y móvil",
     "title": "Casi todos los bloqueadores se quedan en el móvil. El nuestro no.",
@@ -135,7 +127,6 @@ declare const messages: {
     "ctaChrome": "Añadir a Chrome",
     "ctaNfc": "Cómo funciona el NFC"
   },
-
   "platforms": {
     "label": "Plataformas",
     "title": "Allá donde hagas scroll.",
@@ -161,7 +152,6 @@ declare const messages: {
       "body": "App nativa para el escritorio, en camino."
     }
   },
-
   "strictness": {
     "label": "Cuatro niveles de fricción",
     "title": "Lo físico es el nuevo escalón más alto.",
@@ -190,7 +180,6 @@ declare const messages: {
       }
     ]
   },
-
   "calculator": {
     "label": "Calculadora de tiempo",
     "title": "¿Cuánto tiempo estás perdiendo delante de la pantalla?",
@@ -200,7 +189,6 @@ declare const messages: {
     "weekly": "horas a la semana que recuperas con Impulse",
     "yearly": "días al año enteros, de vuelta"
   },
-
   "testimonials": {
     "label": "Opiniones",
     "title": "La gente quiere a Impulse.",
@@ -237,7 +225,6 @@ declare const messages: {
       }
     ]
   },
-
   "trust": {
     "items": [
       {
@@ -254,7 +241,6 @@ declare const messages: {
       }
     ]
   },
-
   "faq": {
     "label": "Preguntas",
     "title": "Respuestas.",
@@ -285,13 +271,11 @@ declare const messages: {
       }
     ]
   },
-
   "finalCta": {
     "titleLine1": "Menos scroll.",
     "titleLine2": "Más vida.",
     "lede": "Únete a más de 1.000 personas que recuperan 2 horas al día. Gratis en iPhone, Android y navegador, en menos de un minuto."
   },
-
   "footer": {
     "tagline": "Controla el impulso, no la dopamina.",
     "support": "Soporte",
@@ -300,14 +284,12 @@ declare const messages: {
     "deleteAccount": "Borrar cuenta",
     "rights": "Todos los derechos reservados."
   },
-
   "common": {
     "downloadIos": "Descargar para iPhone",
     "downloadAndroid": "Google Play",
     "downloadChrome": "Chrome y Safari",
     "free": "Gratis"
   },
-
   "devices": {
     "iosInterrupt": "Pantalla de interrupción de Impulse en iPhone: pregunta «¿Quieres continuar?» y muestra 1 h 28 min de uso hoy y 70 intentos de apertura, con la opción de cerrar la app.",
     "extensionDashboard": "Panel de la extensión de Impulse: modo una sola pestaña, botones de bloqueo estricto, límite de tiempo y límite de aperturas, y la lista de bloqueos con «Morning Work» de lunes a viernes de 09:00 a 13:00.",
@@ -315,6 +297,74 @@ declare const messages: {
     "extensionStrict": "Selector de dificultad de desbloqueo en Impulse, con las opciones Fácil, Medio y Difícil.",
     "extensionBlocked": "Pantalla de bloqueo de Impulse en el navegador, pidiendo escribir una frase antes de poder continuar en instagram.com.",
     "browserBar": "impulse — extensión"
+  },
+  "disc": {
+    "hero": {
+      "badge": "Nuevo",
+      "badgeText": "Desbloqueo físico",
+      "title": "El nivel de foco más alto ya es físico.",
+      "lede": "Añade un escalón más al modo estricto: un bloqueo que solo termina cuando acercas el móvil a un objeto real. Usa el disco de Impulse, o cualquier pegatina NFC que ya tengas.",
+      "ctaPrimary": "Hazlo físico",
+      "ctaSecondary": "Cómo funciona",
+      "discName": "El disco de Impulse",
+      "discAlt": "o cualquier etiqueta NFC, desde 1 €"
+    },
+    "ladder": {
+      "label": "Cuatro niveles de fricción",
+      "title": "Lo físico es el nuevo escalón más alto.",
+      "lede": "Ajusta exactamente cuánto cuesta desbloquear. El físico es el único que no puedes hacer trampa en un momento de debilidad."
+    },
+    "how": {
+      "label": "Cómo funciona",
+      "title": "Una barrera física entre tú y el scroll.",
+      "steps": [
+        {
+          "title": "Elige qué bloquear y con cuánta dureza",
+          "body": "Crea perfiles como Trabajo, Estudio o Dormir, cada uno con sus apps, su horario y su nivel de desbloqueo. Pon el nivel en Físico y tu disco pasa a ser la única llave."
+        },
+        {
+          "title": "Acerca el móvil al disco para empezar",
+          "body": "Un toque y la sesión de foco arranca. ¿No lo tienes cerca? También puedes empezarla desde la app."
+        },
+        {
+          "title": "Pon distancia entre el disco y tú",
+          "body": "Déjalo en otra habitación, en un cajón, junto a la puerta. Esa separación física convierte el desbloquear en una decisión consciente, y rompe el bucle sin que te des cuenta."
+        },
+        {
+          "title": "Vuelve cuando de verdad toque",
+          "body": "Cuando hayas terminado, otro toque y se desbloquea. ¿Un imprevisto? El desbloqueo de emergencia vive en la app, pero es incómodo a propósito."
+        }
+      ]
+    },
+    "compare": {
+      "label": "Cómo nos comparamos",
+      "title": "Abierto por diseño.",
+      "lede": "Casi todos los bloqueadores físicos te venden un aparato y te atan a él. Nosotros te damos la fricción igual, y ya funciona en tu móvil y en tu navegador.",
+      "footnote": "Según la información pública de cada producto, 2026. La comparación refleja la oferta estándar de cada uno."
+    },
+    "get": {
+      "label": "Consigue el disco",
+      "title": "El disco no se compra. Se incluye.",
+      "lede": "No hay aparato que pasar por caja. El disco viene con Impulse, y el desbloqueo físico ya funciona hoy con cualquier etiqueta NFC, gratis.",
+      "annualBadge": "Próximamente",
+      "annualPlan": "Impulse Anual",
+      "annualTitle": "El disco de Impulse, incluido.",
+      "annualBody": "Pásate al plan anual y el disco va incluido. Un solo plan cubre la extensión de Chrome, la app de iPhone y Android, y tu disco. Sin hardware que comprar aparte.",
+      "annualCta": "Apúntate a la lista",
+      "freeBadge": "Gratis hoy",
+      "freeTitle": "¿No quieres esperar? Usa cualquier NFC.",
+      "freeBody": "El desbloqueo físico ya funciona gratis con cualquier pegatina NFC que tengas, incluso una de un pack de pocos euros. Empieza hoy; tu disco llega cuando salga el plan anual.",
+      "freeCta": "Descargar la app gratis",
+      "freeLink": "Comprar etiquetas NFC"
+    },
+    "compareRows": {
+      "price": "Precio de partida",
+      "anyTag": "Funciona con cualquier etiqueta NFC de 1 €",
+      "noHardware": "No hace falta comprar hardware",
+      "crossPlatform": "iPhone, Android y navegador",
+      "freeTier": "Plan de software gratuito completo",
+      "schedules": "Horarios, límites y grupos de foco"
+    }
   }
 };
 export default messages;
