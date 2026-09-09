@@ -33,7 +33,7 @@ export function Footer() {
             {t("privacy")}
           </Link>
           <Link
-            href="/desbloqueo-fisico"
+            href="/physical-unlock"
             className="rounded text-on-dark-mid hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
           >
             {t("disc")}

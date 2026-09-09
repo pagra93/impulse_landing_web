@@ -3,8 +3,8 @@
 > Impulse is a focus control and distraction blocker available on iPhone, on
 > Android, and as a Chrome and Safari extension. A native macOS app is on the
 > way. It helps people cut unconscious screen time by blocking the apps and
-> websites that pull them in. The website is published in Spanish at the root
-> and in English under /en.
+> websites that pull them in. The website is published in English at the root
+> and in Spanish under /es.
 
 ## What is Impulse?
 
@@ -91,9 +91,9 @@ Pro is an optional upgrade adding unlimited rules, strict mode and Focus Groups.
 
 ## Pages
 
-- Home, Spanish: https://impulsecontrolapp.com
-- Home, English: https://impulsecontrolapp.com/en
-- Physical unlock: https://impulsecontrolapp.com/desbloqueo-fisico
+- Home, English: https://impulsecontrolapp.com
+- Home, Spanish: https://impulsecontrolapp.com/es
+- Physical unlock: https://impulsecontrolapp.com/physical-unlock (Spanish: /es/desbloqueo-fisico)
 - Onboarding: https://impulsecontrolapp.com/onboarding
 - Privacy policy: https://impulsecontrolapp.com/privacy
 - Account and data deletion: https://impulsecontrolapp.com/delete-account

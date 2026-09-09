@@ -11,7 +11,7 @@ import type { FaqItem } from "@/components/landing/FAQ";
  */
 
 export function siteSchema(locale: string) {
-  const home = locale === "es" ? SITE_URL : `${SITE_URL}/${locale}`;
+  const home = locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`;
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -50,7 +50,7 @@ export async function homeSchema(locale: string) {
         "@type": "SoftwareApplication",
         name: "Impulse",
         description: tMeta("description"),
-        url: locale === "es" ? SITE_URL : `${SITE_URL}/${locale}`,
+        url: locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`,
         applicationCategory: "ProductivityApplication",
         // Android was missing entirely, on a site that also had no link to it.
         operatingSystem: "iOS, Android, Chrome, Safari",

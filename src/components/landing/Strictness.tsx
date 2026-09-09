@@ -100,7 +100,7 @@ export function Strictness() {
 
                 {isPhysical && (
                   <Link
-                    href="/desbloqueo-fisico"
+                    href="/physical-unlock"
                     className="mt-3.5 inline-flex items-center gap-1.5 rounded text-[14.5px] font-extrabold text-yellow hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow"
                   >
                     {t("discLink")}

@@ -8,8 +8,10 @@ import { PhysicalHowItWorks } from "@/components/disc/PhysicalHowItWorks";
 import { ComparisonTable } from "@/components/disc/ComparisonTable";
 import { GetTheDisc } from "@/components/disc/GetTheDisc";
 import { SITE_URL } from "@/lib/links";
+import { getPathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
-const PATH = "/desbloqueo-fisico";
+const HREF = "/physical-unlock" as const;
 
 export async function generateMetadata({
   params,
@@ -18,18 +20,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.disc" });
-  const canonical =
-    locale === "es" ? `${SITE_URL}${PATH}` : `${SITE_URL}/en${PATH}`;
+
+  const url = (l: (typeof routing.locales)[number]) =>
+    `${SITE_URL}${getPathname({ href: HREF, locale: l })}`;
 
   return {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical,
+      canonical: url(locale as (typeof routing.locales)[number]),
       languages: {
-        es: `${SITE_URL}${PATH}`,
-        en: `${SITE_URL}/en${PATH}`,
-        "x-default": `${SITE_URL}${PATH}`,
+        en: url("en"),
+        es: url("es"),
+        "x-default": url(routing.defaultLocale),
       },
     },
   };

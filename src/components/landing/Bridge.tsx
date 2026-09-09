@@ -52,7 +52,7 @@ export function Bridge() {
             <CtaButton variant="yellow" href={LINKS.chrome}>
               {t("ctaChrome")}
             </CtaButton>
-            <CtaButton variant="onDark" href="/desbloqueo-fisico">
+            <CtaButton variant="onDark" href="/physical-unlock">
               {t("ctaNfc")}
             </CtaButton>
           </div>

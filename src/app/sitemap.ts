@@ -3,7 +3,7 @@ import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/links";
 
-type Href = "/" | "/desbloqueo-fisico" | "/delete-account" | "/privacy";
+type Href = "/" | "/physical-unlock" | "/delete-account" | "/privacy";
 
 type Entry = {
   href: Href;
@@ -23,7 +23,7 @@ type Entry = {
 const ROUTES: Entry[] = [
   { href: "/", priority: 1, changeFrequency: "weekly", localized: true },
   {
-    href: "/desbloqueo-fisico",
+    href: "/physical-unlock",
     priority: 0.7,
     changeFrequency: "monthly",
     localized: true,

@@ -87,12 +87,12 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: locale === "es" ? SITE_URL : `${SITE_URL}/en`,
+      canonical: locale === routing.defaultLocale ? SITE_URL : `${SITE_URL}/${locale}`,
       languages: {
-        es: SITE_URL,
-        en: `${SITE_URL}/en`,
-        // x-default points at Spanish: it is the market with actual traction
-        // and the URL that already holds the ranking.
+        en: SITE_URL,
+        es: `${SITE_URL}/es`,
+        // x-default is English: the default locale, and the URL that already
+        // holds the ranking.
         "x-default": SITE_URL,
       },
     },
@@ -105,7 +105,7 @@ export async function generateMetadata({
       ...BASE_METADATA.openGraph,
       title: t("title"),
       description: t("description"),
-      url: locale === "es" ? SITE_URL : `${SITE_URL}/en`,
+      url: locale === routing.defaultLocale ? SITE_URL : `${SITE_URL}/${locale}`,
       locale: locale === "es" ? "es_ES" : "en_US",
       alternateLocale: locale === "es" ? "en_US" : "es_ES",
     },

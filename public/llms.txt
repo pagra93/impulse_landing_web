@@ -2,7 +2,7 @@
 
 > Impulse blocks the apps and websites that steal your focus, so you take back
 > 2+ hours a day. Free on iPhone, Android, and as a Chrome and Safari extension.
-> A native macOS app is on the way. Website in Spanish (/) and English (/en).
+> A native macOS app is on the way. Website in English (/) and Spanish (/es).
 
 ## Overview
 
@@ -54,9 +54,9 @@ optional upgrade for unlimited rules, strict mode and Focus Groups.
 
 ## Pages
 
-- Home (Spanish): https://impulsecontrolapp.com
-- Home (English): https://impulsecontrolapp.com/en
-- Physical unlock: https://impulsecontrolapp.com/desbloqueo-fisico
+- Home (English): https://impulsecontrolapp.com
+- Home (Spanish): https://impulsecontrolapp.com/es
+- Physical unlock: https://impulsecontrolapp.com/physical-unlock (Spanish: /es/desbloqueo-fisico)
 - Privacy policy: https://impulsecontrolapp.com/privacy
 - Account and data deletion: https://impulsecontrolapp.com/delete-account
 - Full information for LLMs: https://impulsecontrolapp.com/llms-full.txt
