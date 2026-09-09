@@ -1,8 +1,7 @@
 import { CtaButton, IOS_URL } from "../primitives";
+import { LINKS } from "@/lib/links";
 import { Reveal } from "../Reveal";
 
-const AMAZON_URL =
-  "https://www.amazon.es/NFC-Programable-Inteligentes-Dispositivos-NFC%EF%BC%88Timeskey%EF%BC%89/dp/B0CSD8B6LF/";
 const WAITLIST_MAILTO =
   "mailto:hello@impulsecontrolapp.com?subject=Impulse%20Disc%20waitlist";
 
@@ -58,7 +57,6 @@ export function GetTheDisc() {
               <CtaButton
                 variant="yellow"
                 href={WAITLIST_MAILTO}
-                external={false}
                 className="shadow-[0_8px_22px_rgba(255,219,76,0.3)]"
               >
                 Join the waitlist
@@ -97,7 +95,7 @@ export function GetTheDisc() {
               <CtaButton variant="gradient" href={IOS_URL}>
                 Download the free app
               </CtaButton>
-              <CtaButton variant="outline" href={AMAZON_URL}>
+              <CtaButton variant="outline" href={LINKS.amazonNfc}>
                 Get an NFC tag →
               </CtaButton>
             </div>

@@ -1,37 +1,14 @@
 import type { Metadata } from "next";
-import { Catamaran, Mulish, Rubik, Space_Mono } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-// Display headings + big numerals
-const catamaran = Catamaran({
-  variable: "--font-catamaran",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap",
-});
-
-// Body copy, paragraphs, buttons
-const mulish = Mulish({
-  variable: "--font-mulish",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-// UI labels, eyebrows, nav links
-const rubik = Rubik({
-  variable: "--font-rubik",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
-
-// Step numbers, slider tick labels
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+// One family for the whole site. Variable, so the full 300–900 range ships in a
+// single file — hierarchy comes from the type scale in globals.css, not from
+// juggling separate families.
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
@@ -192,18 +169,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://impulsecontrolapp.com" />
+        {/* No hand-written <link rel="canonical"> here. One used to live at this
+            spot alongside metadata.alternates.canonical, so every subpage
+            emitted two contradictory canonicals — /privacy and /delete-account
+            were both claiming to be the site root. App Router owns canonicals
+            through the metadata API; each page declares its own. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Framer Motion serialises its `initial` state into the SSR markup, so
+            every <Reveal> ships with opacity:0 inline. Without JS nothing ever
+            animates it back to 1 and the page reads as empty. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<style>[data-reveal]{opacity:1!important;transform:none!important}</style>`,
+          }}
+        />
       </head>
       <body
         className={cn(
-          catamaran.variable,
-          mulish.variable,
-          rubik.variable,
-          spaceMono.variable,
+          figtree.variable,
           "antialiased font-body bg-white text-body"
         )}
       >

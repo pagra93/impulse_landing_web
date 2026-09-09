@@ -1,8 +1,7 @@
 import { Nfc } from "../Nfc";
+import { LINKS } from "@/lib/links";
 import { Reveal } from "../Reveal";
 
-const AMAZON_URL =
-  "https://www.amazon.es/NFC-Programable-Inteligentes-Dispositivos-NFC%EF%BC%88Timeskey%EF%BC%89/dp/B0CSD8B6LF/";
 
 const LEVELS = [
   {
@@ -122,7 +121,7 @@ export function StrictnessLadder() {
                   friction, your rules.
                 </span>
                 <a
-                  href={AMAZON_URL}
+                  href={LINKS.amazonNfc}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-1 inline-flex items-center gap-1.5 self-start font-body text-[13px] font-bold text-blue no-underline"

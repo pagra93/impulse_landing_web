@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { headers } from "next/headers";
-import { notifyPartnerUninstall } from "@/lib/uninstall-email";
+import { NotifyPartner } from "@/components/uninstall/NotifyPartner";
 
-// Depende de searchParams + headers y envía email: nunca cachear.
+// Depende de searchParams: nunca cachear.
 export const dynamic = "force-dynamic";
 
 const css = `
@@ -141,18 +140,17 @@ export default async function UninstallPage({
   searchParams: Promise<{ partner?: string }>;
 }) {
   const { partner } = await searchParams;
-  const headersList = await headers();
-  const acceptLanguage = headersList.get("accept-language");
-
-  // Envío server-side: se completa antes de responder, aunque el usuario
-  // cierre la pestaña justo tras desinstalar. Es silencioso (no lanza).
-  await notifyPartnerUninstall(partner, acceptLanguage);
 
   const partnerNotified = typeof partner === "string" && isLikelyEmail(partner.trim());
 
   return (
     <div className="page">
       <style dangerouslySetInnerHTML={{ __html: css }} />
+
+      {/* El aviso se dispara desde el navegador contra /api/uninstall-notify.
+          Antes se enviaba durante el render de este GET público, así que
+          cualquiera podía provocar correos a la dirección que quisiera. */}
+      {partnerNotified && <NotifyPartner partner={partner!.trim()} />}
 
       <header className="header">
         <div className="brand">

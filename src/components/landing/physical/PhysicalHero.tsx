@@ -40,10 +40,10 @@ export function PhysicalHero() {
         </div>
 
         <div className="mt-2 flex flex-wrap justify-center gap-3.5">
-          <CtaButton variant="yellow" href="#get-the-disc" external={false}>
+          <CtaButton variant="yellow" href="#get-the-disc">
             Make it physical
           </CtaButton>
-          <CtaButton variant="ghost" href="#physical-how" external={false}>
+          <CtaButton variant="ghost" href="#physical-how">
             See how it works
           </CtaButton>
         </div>

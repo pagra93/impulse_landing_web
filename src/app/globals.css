@@ -7,11 +7,16 @@
    slate neutrals. Light is the default.
    ========================================================================== */
 @theme {
-  /* ---- Font families (wired from next/font in layout.tsx) ---- */
-  --font-display: var(--font-catamaran), "Catamaran", system-ui, sans-serif;
-  --font-body: var(--font-mulish), "Mulish", system-ui, sans-serif;
-  --font-sans: var(--font-rubik), "Rubik", system-ui, sans-serif;
-  --font-mono: var(--font-space-mono), ui-monospace, "SF Mono", monospace;
+  /* ---- Font families (wired from next/font in layout.tsx) ----
+     One family, Figtree. It replaces Catamaran + Mulish + Rubik + Space Mono:
+     four families and twelve weights in the critical path of a hero whose LCP
+     is an image. Hierarchy comes from the scale, not from the family count.
+     --font-display / --font-body / --font-sans stay as separate names so the
+     existing components keep compiling while they are migrated. ---- */
+  --font-display: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --font-body: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --font-sans: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   /* ---- Brand core ---- */
   --color-blue: #376e99;
@@ -56,11 +61,79 @@
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ==========================================================================
+     Redesign 2026 — chapter surfaces, on-dark text, type scale, containers.
+     Everything above is kept as-is so existing sections keep compiling.
+     ========================================================================== */
+
+  /* ---- Dark chapter surfaces (hero, friction, calculator, close) ---- */
+  --color-void: #0b1116;
+  --color-void-raised: #131c24;
+  --color-void-sunken: #070c10;
+
+  /* ---- Light chapter surfaces ---- */
+  --color-bone: #f5f2ea;
+
+  /* ---- Text and borders ON dark. These replace six hardcoded hex greys
+         (#b9cad6, #c8d6e1, #9fb4c4, #8aa0b1, #c4d2dd, #dce6ee) that were
+         spread across six components doing the same job. ---- */
+  --color-on-dark: #ffffff;
+  --color-on-dark-mid: #9fb2c0;
+  /* on-dark-low is ~4.0:1 on --color-void: large text only (>=24px, or
+     >=18.66px bold). Never body copy. */
+  --color-on-dark-low: #5e7484;
+  --color-border-on-dark: rgba(255, 255, 255, 0.13);
+  --color-border-on-dark-strong: rgba(255, 255, 255, 0.24);
+  --color-surface-on-dark: rgba(255, 255, 255, 0.055);
+  --color-surface-on-dark-raised: rgba(255, 255, 255, 0.1);
+
+  /* ---- Ink / hairlines on light ---- */
+  --color-ink-deep: #111820;
+  --color-hair-light: #ddd8cc;
+
+  /* ---- The brand yellow, and its derivatives ---- */
+  --color-yellow-deep: #e4c219;
+  --color-yellow-glow: rgba(248, 215, 62, 0.26);
+  --color-yellow-tint: rgba(248, 215, 62, 0.12);
+
+  /* ---- Type scale. Replaces eleven distinct clamp() declarations that were
+         covering four real hierarchy levels. ---- */
+  --text-display: clamp(46px, 6.4vw, 88px);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.045em;
+
+  --text-h2: clamp(32px, 4.4vw, 58px);
+  --text-h2--line-height: 1.04;
+  --text-h2--letter-spacing: -0.038em;
+
+  --text-h3: clamp(21px, 1.7vw, 25px);
+  --text-h3--line-height: 1.22;
+  --text-h3--letter-spacing: -0.02em;
+
+  --text-lede: clamp(17px, 1.35vw, 20px);
+  --text-lede--line-height: 1.6;
+
+  /* ---- Containers. Previously 1160, 1180, 1080, 820 and 760 all coexisted;
+         the 20px gap between nav (1180) and hero (1160) read as a
+         misalignment between the logo and the H1. ---- */
+  --container-shell: 77.5rem; /* 1240px — header + footer */
+  --container-content: 73.75rem; /* 1180px — every section */
+  --container-prose: 51.25rem; /* 820px — long-form copy */
+  --container-narrow: 47.5rem; /* 760px */
+
+  /* ---- Device shadows ---- */
+  --shadow-device: 0 34px 64px -20px rgba(22, 42, 57, 0.45),
+    0 10px 20px -9px rgba(22, 42, 57, 0.28);
+  --shadow-device-dark: 0 38px 72px -18px rgba(0, 0, 0, 0.72),
+    0 10px 22px -8px rgba(0, 0, 0, 0.55);
 }
 
 /* ---- Base ---- */
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -155,4 +228,38 @@ body {
 }
 .mk-range:hover::-webkit-slider-thumb {
   box-shadow: 0 0 0 8px rgba(255, 219, 76, 0.32);
+}
+
+/* ==========================================================================
+   Device tilt — perspective without JavaScript.
+   The custom properties stay at 0deg below 768px, so phones render upright
+   with no matchMedia, no hydration flash and no layout shift. The screenshot
+   inside is an <img>, which resamples as a texture under a 3D transform and
+   therefore stays sharp; DOM text never gets rotated.
+   ========================================================================== */
+.imp-tilt {
+  --tilt-p: 1600px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-z: 0deg;
+  transform: perspective(var(--tilt-p)) rotateX(var(--tilt-x))
+    rotateY(var(--tilt-y)) rotateZ(var(--tilt-z));
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .imp-tilt {
+    --tilt-x: var(--tx, 0deg);
+    --tilt-y: var(--ty, 0deg);
+    --tilt-z: var(--tz, 0deg);
+  }
+}
+
+/* A static tilt is composition, not animation — it stays. Only the transition
+   between breakpoints is motion, so only that is removed. */
+@media (prefers-reduced-motion: reduce) {
+  .imp-tilt {
+    transition: none;
+  }
 }
