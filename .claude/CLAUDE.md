@@ -9,10 +9,10 @@ Landing page for the Impulse app (iOS) and Chrome extension. Impulse helps users
 - **Styling**: Tailwind CSS 4 + tailwind-merge + clsx
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **i18n**: next-intl
-- **Email**: EmailJS (@emailjs/browser)
+- **i18n**: next-intl, bilingüe ES/EN. `/` es español, `/en` inglés
+- **Email**: Resend (EmailJS no está instalado)
 - **Database**: PostgreSQL + Prisma 7
-- **Fonts**: Inter (body) + Outfit (headings) via next/font/google
+- **Fonts**: Figtree, una sola familia variable via next/font/google
 - **Domain**: impulsecontrolapp.com
 - **Node**: >=22.12.0
 
@@ -60,30 +60,45 @@ Landing page for the Impulse app (iOS) and Chrome extension. Impulse helps users
 
 ## Project Structure
 ```
+messages/
+  es.json, en.json        # Todo el copy. Un namespace por sección
 src/
+  i18n/
+    routing.ts            # locales, defaultLocale es, localePrefix as-needed
+    navigation.ts         # Link / usePathname / getPathname localizados
+    request.ts
+  proxy.ts                # OJO: Next 16 renombró `middleware` a `proxy`.
+                          # Si existen los dos ficheros, el build FALLA.
   app/
-    page.tsx              # Landing page (main)
-    layout.tsx            # Root layout (Inter + Outfit fonts, SEO metadata)
-    onboarding/page.tsx   # Chrome extension onboarding
-    uninstall/page.tsx    # Uninstall feedback page
-    robots.ts             # SEO robots config
-    sitemap.ts            # SEO sitemap config
+    [locale]/
+      page.tsx            # Landing
+      layout.tsx          # Root layout (Figtree, metadata por locale)
+      desbloqueo-fisico/  # Capítulo del Disc/NFC, fuera de la home
+      onboarding/ privacy/ delete-account/ uninstall/
+    api/uninstall-notify/ # POST con mismo origen + rate limit
+    robots.ts sitemap.ts  # sin prefijo de idioma
   components/
-    landing/              # Landing page sections
-      Header.tsx, Hero.tsx, SocialProof.tsx, Stats.tsx,
-      HowItWorks.tsx, Features.tsx, Calculator.tsx,
-      Testimonials.tsx, Mission.tsx, CTA.tsx, Footer.tsx
-    onboarding/
-      OnboardingSlider.tsx
-    ui/
-      BrowserWindow.tsx
-  data/
-    features.ts           # Feature data for landing
+    brand/Mark.tsx        # Mark, MarkField y Lockup
+    devices/              # PhoneFrame, BrowserFrame, Tilt3D, screens.ts
+    landing/              # Secciones de la home
+    disc/                 # Secciones de /desbloqueo-fisico
   lib/
-    utils.ts              # Utility functions (cn helper)
+    links.ts              # TODAS las URLs de tienda y contacto
+    schema.ts             # JSON-LD derivado de los messages
+public/
+  devices/                # Capturas de producto (webp)
+  brand/                  # SVG de marca
 prisma/
-  schema.prisma           # Full database schema (users, settings, blocking, analytics)
+  schema.prisma           # Esquema del backend de la app, no lo usa la web
 ```
+
+## Reglas del rediseño
+- El copy nunca va hardcodeado en un componente: va a `messages/{es,en}.json`.
+- Las URLs de tienda salen siempre de `src/lib/links.ts`.
+- Las capturas se registran en `devices/screens.ts` con import estático, para
+  que una que falte rompa el build en vez de dar un 404.
+- El FAQ del JSON-LD se genera del mismo array que pinta el acordeón.
+- Comillas tipográficas (’) en el copy: en ICU el apóstrofo recto escapa.
 
 ## Testing
 
