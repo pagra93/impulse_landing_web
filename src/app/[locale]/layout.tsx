@@ -58,21 +58,13 @@ const BASE_METADATA = {
     siteName: "Impulse",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/impulse.png",
-        width: 1200,
-        height: 630,
-        alt: "Impulse - Focus Control & Distraction Blocker",
-      },
-    ],
+    // Sin `images`: opengraph-image.png y twitter-image.png en este mismo
+    // segmento los generan por convención de fichero, con sus dimensiones y su
+    // content-type reales. La entrada manual apuntaba a /impulse.png, el logo
+    // de 12,7 KB, declarado mintiendo como 1200x630.
   },
   twitter: {
     card: "summary_large_image",
-    title: "Impulse - Less scrolling, more living",
-    description:
-      "Block distracting apps and websites to regain your focus. Save 2+ hours per day.",
-    images: ["/impulse.png"],
   },
   alternates: {
     canonical: "https://impulsecontrolapp.com",

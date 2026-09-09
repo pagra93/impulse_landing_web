@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   description:
     "How to request deletion of your Impulse account and associated data, which data is deleted or retained, and retention periods.",
   alternates: {
+    // Las páginas legales solo existen en inglés. Ambos prefijos de idioma
+    // sirven exactamente el mismo texto, así que no son traducciones: en vez
+    // de declarar hreflang entre ellas —que sería falso y generaría contenido
+    // duplicado— se consolidan en una única canónica.
     canonical: "https://impulsecontrolapp.com/delete-account",
   },
 };

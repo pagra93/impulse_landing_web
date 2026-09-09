@@ -3,44 +3,67 @@ import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/links";
 
-type Href = "/" | "/desbloqueo-fisico" | "/onboarding" | "/uninstall" | "/delete-account" | "/privacy";
+type Href = "/" | "/desbloqueo-fisico" | "/delete-account" | "/privacy";
 
-const ROUTES: {
+type Entry = {
   href: Href;
   priority: number;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
-}[] = [
-  { href: "/", priority: 1, changeFrequency: "weekly" },
-  { href: "/desbloqueo-fisico", priority: 0.7, changeFrequency: "monthly" },
-  { href: "/onboarding", priority: 0.6, changeFrequency: "monthly" },
-  { href: "/uninstall", priority: 0.3, changeFrequency: "monthly" },
-  { href: "/delete-account", priority: 0.3, changeFrequency: "yearly" },
-  { href: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+  /**
+   * False for pages that only exist in English and serve identical text under
+   * both prefixes. They are not translations of one another, so they
+   * consolidate onto a single canonical — and listing both while pointing the
+   * canonical at one of them would contradict itself.
+   */
+  localized: boolean;
+};
+
+// /onboarding and /uninstall are deliberately absent: post-install and
+// post-uninstall screens rather than landing pages, and both are noindex.
+const ROUTES: Entry[] = [
+  { href: "/", priority: 1, changeFrequency: "weekly", localized: true },
+  {
+    href: "/desbloqueo-fisico",
+    priority: 0.7,
+    changeFrequency: "monthly",
+    localized: true,
+  },
+  { href: "/privacy", priority: 0.3, changeFrequency: "yearly", localized: false },
+  {
+    href: "/delete-account",
+    priority: 0.3,
+    changeFrequency: "yearly",
+    localized: false,
+  },
 ];
 
 function absolute(href: Href, locale: (typeof routing.locales)[number]) {
-  return `${SITE_URL}${getPathname({ href, locale })}`.replace(/\/$/, "") || SITE_URL;
+  const path = getPathname({ href, locale });
+  return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
 }
 
 /**
- * One entry per route per locale, each declaring the full set of alternates.
  * Previously this emitted five English-only URLs with no hreflang at all, which
- * left Google no way to connect `/` and `/en` as translations of one another.
+ * gave Google no way to connect `/` and `/en` as translations of each other.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return ROUTES.flatMap(({ href, priority, changeFrequency }) =>
-    routing.locales.map((locale) => ({
-      url: absolute(href, locale),
+  return ROUTES.flatMap((route) => {
+    const locales = route.localized ? routing.locales : [routing.defaultLocale];
+
+    return locales.map((locale) => ({
+      url: absolute(route.href, locale),
       lastModified,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((l) => [l, absolute(href, l)])
-        ),
-      },
-    }))
-  );
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+      ...(route.localized && {
+        alternates: {
+          languages: Object.fromEntries(
+            routing.locales.map((l) => [l, absolute(route.href, l)])
+          ),
+        },
+      }),
+    }));
+  });
 }

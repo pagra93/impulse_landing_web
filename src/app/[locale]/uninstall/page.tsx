@@ -4,6 +4,12 @@ import { NotifyPartner } from "@/components/uninstall/NotifyPartner";
 // Depende de searchParams: nunca cachear.
 export const dynamic = "force-dynamic";
 
+// Se sirve al desinstalar la extensión, con un email en la query. No debe
+// aparecer en resultados de búsqueda.
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 const css = `
   .page {
     min-height: 100vh;

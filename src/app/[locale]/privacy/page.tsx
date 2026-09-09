@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description:
     "Privacy Policy for the Impulse app (iOS) and the Impulse browser extension: what data stays on your device, what is sent to external services (Supabase, Mixpanel, EmailJS), and your rights.",
   alternates: {
+    // Las páginas legales solo existen en inglés. Ambos prefijos de idioma
+    // sirven exactamente el mismo texto, así que no son traducciones: en vez
+    // de declarar hreflang entre ellas —que sería falso y generaría contenido
+    // duplicado— se consolidan en una única canónica.
     canonical: "https://impulsecontrolapp.com/privacy",
   },
 };

@@ -1,37 +1,66 @@
 # Impulse
 
-> Impulse is a focus control app that blocks distracting apps and websites to help users regain their screen time. Available on iOS and as a Chrome/Safari browser extension.
+> Impulse blocks the apps and websites that steal your focus, so you take back
+> 2+ hours a day. Free on iPhone, Android, and as a Chrome and Safari extension.
+> A native macOS app is on the way. Website in Spanish (/) and English (/en).
 
 ## Overview
 
-Impulse helps people reduce unconscious screen time by an average of 2+ hours per day. It blocks distracting apps and websites during scheduled time periods or on-demand focus sessions, with strict mode that prevents bypassing.
+Impulse helps people cut unconscious screen time. You choose what to block, when
+it is blocked, and how hard it is to get back in. It runs on the phone and on the
+computer, and the two are connected: an NFC tap with your phone can end a block
+that is running on the desktop.
 
-## Key Features
+## Key features
 
-- App & Website Blocking: Block distracting apps and websites instantly or on a schedule
-- Strict Mode: Prevents canceling a blocking session early — cannot be bypassed
-- Scheduled Focus Sessions: Automate blocking during work hours, study time, or bedtime
-- Quick Focus: Start an on-demand focus session with one tap
-- Multiple Strictness Levels: From gentle reminders to full lockdown
-- Emergency Access: An emergency button for when you truly need access
-- Cross-Platform: Available on iOS (native app) and Chrome/Safari (browser extension)
-- Usage Statistics: Track daily screen time and detailed usage analytics
-- Custom Blocklists: Create and manage lists of apps/websites to block
+- App and website blocking, instantly or on a schedule (days and time slots)
+- Strict blocks that cannot be paused or bypassed until they end
+- Time limits per day, in minutes, per site or per app
+- Daily opening limits: cap how many times you can open an app, not just for how
+  long. Capping openings cuts the automatic reach far earlier than capping
+  minutes, and few competing blockers offer it
+- Four levels of unlock friction: Easy (type a phrase), Medium (wait out a
+  countdown), Hard (an accountability partner holds the code), Physical (tap
+  your phone against an NFC tag or the Impulse Disc)
+- Physical unlock works with any NFC tag; no proprietary hardware required
+- Single-tab mode in the browser: locks you to the current tab
+- Quick Focus: start an on-demand focus session with one tap
+- Focus Groups: shared rules, streaks and a leaderboard with friends
+- Screen time statistics, kept on the device
+- Emergency access, deliberately inconvenient, with blocks reactivating after
+
+## The interruption screen
+
+Before letting you into a blocked app, Impulse shows how long you have used it
+today and how many times you have already tried to open it. Seeing the opening
+count is usually enough to stop the reach.
 
 ## Platforms
 
-- iOS App: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
-- Chrome Extension: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
+- iOS app: https://apps.apple.com/us/app/impulse-focus-control-blocker/id6736623036
+- Android app: https://play.google.com/store/apps/details?id=com.impulse.es
+- Chrome and Safari extension: https://chromewebstore.google.com/detail/impulse-focus-control-and/ihhgdadeplnooijnccogligfccjpahik
+- macOS: native desktop app, coming soon
+
+## Privacy
+
+Usage statistics and block lists stay on the device, not on Impulse servers. No
+tracking, no ads, no selling data. On iOS, blocking uses Apple's Screen Time API.
 
 ## Pricing
 
-Free to download and use. Premium features available via subscription.
+Free to download and use, with no account and no credit card. Impulse Pro is an
+optional upgrade for unlimited rules, strict mode and Focus Groups.
 
-## Links
+## Pages
 
-- Website: https://impulsecontrolapp.com
+- Home (Spanish): https://impulsecontrolapp.com
+- Home (English): https://impulsecontrolapp.com/en
+- Physical unlock: https://impulsecontrolapp.com/desbloqueo-fisico
+- Privacy policy: https://impulsecontrolapp.com/privacy
+- Account and data deletion: https://impulsecontrolapp.com/delete-account
 - Full information for LLMs: https://impulsecontrolapp.com/llms-full.txt
 
 ## Contact
 
-For support or inquiries, visit https://impulsecontrolapp.com
+hello@impulsecontrolapp.com
