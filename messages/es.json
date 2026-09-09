@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "home": {
+      "title": "Impulse — Bloquea apps y webs y recupera tu tiempo",
+      "description": "Impulse bloquea las apps y las webs que te roban el foco, para que recuperes más de 2 horas cada día. Gratis en iPhone, Android, Chrome y Safari."
+    },
+    "disc": {
+      "title": "Desbloqueo físico — Impulse",
+      "description": "El nivel de foco más alto es físico: un bloqueo que solo termina cuando acercas el móvil a un objeto real. Usa el disco de Impulse o cualquier etiqueta NFC."
+    }
+  },
+
+  "nav": {
+    "howItWorks": "Cómo funciona",
+    "features": "Funciones",
+    "desktop": "Ordenador",
+    "friction": "Fricción",
+    "reviews": "Opiniones",
+    "faq": "Preguntas",
+    "cta": "Descargar gratis",
+    "home": "Impulse, inicio",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú",
+    "switchTo": "Cambiar a {language}",
+    "spanish": "español",
+    "english": "inglés"
+  },
+
+  "hero": {
+    "badge": "Nuevo",
+    "badgeText": "Ya disponible en Android",
+    "titleLine1": "Menos scroll.",
+    "titleLine2": "Más",
+    "titleAccent": "vida",
+    "lede": "Impulse bloquea las apps y las webs que te roban el foco, para que recuperes más de 2 horas cada día. Sin fuerza de voluntad.",
+    "macosSoon": "App para macOS, próximamente"
+  },
+
+  "stats": {
+    "users": "Usuarios diarios",
+    "hours": "Horas recuperadas",
+    "blocks": "Distracciones bloqueadas",
+    "rating": "Valoración en App Store"
+  },
+
+  "problem": {
+    "label": "El problema",
+    "title": "Tu atención está en venta.",
+    "body": "Cada feed es una máquina tragaperras. El scroll no se acaba nunca porque nunca se diseñó para acabarse. No estás luchando contra un hábito: estás luchando contra una industria de diseñadores a los que pagan por retenerte.",
+    "checksValue": "96×",
+    "checksLabel": "veces que miras el móvil al día",
+    "hoursValue": "4+ h",
+    "hoursLabel": "al día perdidas en apps"
+  },
+
+  "manifesto": {
+    "label": "Por qué lo hicimos",
+    "quoteBefore": "No creemos que todo el tiempo de pantalla sea malo. Creemos que lo es el tiempo de pantalla",
+    "quoteEmphasis": "inconsciente",
+    "body": "Impulse te ayuda a ser intencional. No a base de culpa ni de normas, sino dándote el control sobre el impulso, no sobre la dopamina.",
+    "signature": "El equipo de Impulse"
+  },
+
+  "howItWorks": {
+    "label": "Cómo funciona",
+    "title": "Simple por diseño. Potente por naturaleza.",
+    "steps": [
+      {
+        "title": "Elige qué bloquear",
+        "body": "Escoge las apps y las webs que te roban el foco: Instagram, TikTok, X."
+      },
+      {
+        "title": "Pon tu horario",
+        "body": "Horas de trabajo, estudio, hora de dormir. Bloqueo en piloto automático, o Quick Focus cuando lo necesites."
+      },
+      {
+        "title": "Elige cuánta fricción quieres",
+        "body": "Desde un empujón suave hasta un bloqueo físico que no puedes hacer trampa."
+      },
+      {
+        "title": "Vive tu vida",
+        "body": "Mira cómo baja tu tiempo de pantalla y cómo vuelven tus horas."
+      }
+    ]
+  },
+
+  "features": {
+    "label": "Funciones",
+    "title": "Todo lo que necesitas para recuperar el control.",
+    "blocks": {
+      "kicker": "Bloqueos estrictos",
+      "title": "Bloqueos que no se pueden pausar.",
+      "body": "Crea perfiles como Trabajo, Estudio o Dormir, cada uno con sus webs y su horario. Los bloqueos estrictos no se saltan ni se pausan: se acaban cuando toca.",
+      "check1Strong": "Por días y franjas.",
+      "check1": "Lunes a viernes, de 09:00 a 13:00, en automático.",
+      "check2Strong": "Lo configuras una vez",
+      "check2": "y el foco va solo, sin volver a tocarlo."
+    },
+    "limits": {
+      "kicker": "Límites de tiempo y de aperturas",
+      "title": "No solo cuánto tiempo. También cuántas veces.",
+      "body": "Ponle a YouTube 30 minutos al día. Y a Instagram, 5 aperturas. Limitar las veces que abres una app corta el gesto automático mucho antes que limitar los minutos.",
+      "check1Strong": "Tiempo total por día",
+      "check1": "en minutos, por web o por app.",
+      "check2Strong": "Máximo de aperturas al día,",
+      "check2": "el límite que casi nadie más tiene."
+    },
+    "mobile": {
+      "kicker": "En el móvil",
+      "title": "Te paramos justo antes del scroll.",
+      "body": "Antes de dejarte entrar en una app te enseñamos cuánto llevas hoy y cuántas veces lo has intentado ya. Casi siempre, verlo basta para cerrar.",
+      "check1Strong": "El tiempo de uso de hoy,",
+      "check1": "delante, en el momento exacto en que importa.",
+      "check2Strong": "Los intentos de apertura contados.",
+      "check2": "El número que ninguna otra app te enseña."
+    }
+  },
+
+  "bridge": {
+    "label": "Ordenador y móvil",
+    "title": "Casi todos los bloqueadores se quedan en el móvil. El nuestro no.",
+    "body1": "La distracción salta al portátil. Por eso Impulse es también una extensión de Chrome y Safari, con su propio bloqueador para el ordenador, que funciona sin el móvil delante.",
+    "body2": "¿Y el puente entre los dos? Tu móvil. Acerca el teléfono a tu disco o a cualquier etiqueta NFC y se levanta el bloqueo del ordenador. El interruptor deja de estar en la misma pantalla que la tentación.",
+    "check1Strong": "Bloqueo independiente en el escritorio.",
+    "check1": "Se configura en el ordenador; no hace falta el móvil.",
+    "check2Strong": "Modo una sola pestaña.",
+    "check2": "Te quedas en la que estás y lo demás se calla.",
+    "check3Strong": "Desbloqueas el ordenador con el móvil.",
+    "check3": "Un toque NFC termina el bloqueo del escritorio.",
+    "check4Strong": "Y pronto, app nativa de macOS,",
+    "check4": "con el mismo puente.",
+    "ctaChrome": "Añadir a Chrome",
+    "ctaNfc": "Cómo funciona el NFC"
+  },
+
+  "platforms": {
+    "label": "Plataformas",
+    "title": "Allá donde hagas scroll.",
+    "lede": "La distracción salta del móvil al portátil. Impulse también.",
+    "soon": "Próximamente",
+    "ios": {
+      "name": "iPhone",
+      "body": "Bloquea apps y webs con la API de Tiempo de Uso de Apple.",
+      "cta": "App Store"
+    },
+    "android": {
+      "name": "Android",
+      "body": "La misma app y los mismos bloqueos, en Google Play.",
+      "cta": "Google Play"
+    },
+    "chrome": {
+      "name": "Chrome y Safari",
+      "body": "Su propio bloqueador para el ordenador. No hace falta el móvil.",
+      "cta": "Añadir al navegador"
+    },
+    "macos": {
+      "name": "macOS",
+      "body": "App nativa para el escritorio, en camino."
+    }
+  },
+
+  "strictness": {
+    "label": "Cuatro niveles de fricción",
+    "title": "Lo físico es el nuevo escalón más alto.",
+    "lede": "Ajusta exactamente cuánto cuesta desbloquear. El físico es el único que no puedes hacer trampa en un momento de debilidad.",
+    "discLink": "Cómo funciona el desbloqueo físico",
+    "levels": [
+      {
+        "level": "Fácil",
+        "title": "Escribe una frase",
+        "body": "Un empujón suave, suficiente para hacerte parar."
+      },
+      {
+        "level": "Medio",
+        "title": "Espera una cuenta atrás",
+        "body": "Las ganas suelen pasarse antes que el temporizador."
+      },
+      {
+        "level": "Difícil",
+        "title": "Código de un compañero",
+        "body": "Alguien que te hace rendir cuentas guarda la llave."
+      },
+      {
+        "level": "Físico",
+        "title": "Acerca el móvil a tu disco",
+        "body": "El interruptor vive en otra habitación. No hay atajo posible."
+      }
+    ]
+  },
+
+  "calculator": {
+    "label": "Calculadora de tiempo",
+    "title": "¿Cuánto tiempo estás perdiendo delante de la pantalla?",
+    "hoursPerDay": "horas / día",
+    "sliderLabel": "Horas al día delante de la pantalla",
+    "disclaimer": "Calculado sobre recuperar el 25 % del tiempo de pantalla improductivo.",
+    "weekly": "horas a la semana que recuperas con Impulse",
+    "yearly": "días al año enteros, de vuelta"
+  },
+
+  "testimonials": {
+    "label": "Opiniones",
+    "title": "La gente quiere a Impulse.",
+    "items": [
+      {
+        "quote": "Me pasaba más de 5 horas al día en TikTok. Dos semanas con Impulse y estoy en 45 minutos. Esta app me ha cambiado la vida, literalmente.",
+        "author": "Carlos M.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Por fin algo que funciona de verdad. El modo estricto no es broma: no puedes hacer trampa. Justo lo que necesitaba.",
+        "author": "Sarah K.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Instalé la extensión de Chrome para el trabajo y mi productividad se disparó. Se acabó el «solo voy a mirar Twitter» de las 2 de la tarde.",
+        "author": "James R.",
+        "source": "Chrome Web Store"
+      },
+      {
+        "quote": "Me encanta que no te sermonee. No te hace sentir culpable. Simplemente… bloquea cosas. Simple y eficaz.",
+        "author": "Ana P.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Lo de programar bloqueos es brillante. El móvil me bloquea las redes solo durante las horas de trabajo. Lo configuras una vez y te olvidas.",
+        "author": "David L.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Probé otros 4 bloqueadores antes de este. Impulse es el único con un modo estricto que no puedes desactivar a mitad de sesión. ESA es la diferencia.",
+        "author": "Emma T.",
+        "source": "Chrome Web Store"
+      }
+    ]
+  },
+
+  "trust": {
+    "items": [
+      {
+        "title": "Tus datos se quedan en tu dispositivo",
+        "body": "Las estadísticas de uso viven en tu móvil o en tu navegador. Ni se venden, ni se rastrean."
+      },
+      {
+        "title": "Gratis para empezar, sin cuenta",
+        "body": "Descarga y empieza a bloquear en segundos. Sin muro de registro y sin tarjeta."
+      },
+      {
+        "title": "Pensado para la vida real",
+        "body": "Acceso de emergencia, modos suaves y grupos. Estricto, pero nunca cruel."
+      }
+    ]
+  },
+
+  "faq": {
+    "label": "Preguntas",
+    "title": "Respuestas.",
+    "items": [
+      {
+        "q": "¿Impulse es gratis?",
+        "a": "Sí. El bloqueador básico es 100 % gratuito en iPhone, Android y Chrome, sin cuenta y sin tarjeta. Los bloqueos programados, Quick Focus y las estadísticas de uso no cuestan nada. Impulse Pro añade reglas ilimitadas, modo estricto y Grupos de foco para quien quiera más, pero puedes recuperar horas cada día sin pagar un céntimo."
+      },
+      {
+        "q": "¿En qué se diferencia de otras apps de foco?",
+        "a": "En tres cosas. Funciona en el móvil y en el navegador, así que la distracción no puede saltar al portátil. Tiene niveles de dureza que de verdad no puedes saltarte en un momento de debilidad, hasta llegar al toque físico. Y nunca te sermonea: bloquea lo que tú eliges, cuando tú eliges, y se aparta."
+      },
+      {
+        "q": "¿Cómo bloquea apps y webs en el iPhone?",
+        "a": "En iOS, Impulse usa la API de Tiempo de Uso de Apple, el mismo marco seguro que Apple creó para esto. En el ordenador funciona como extensión de Chrome y Safari. Creas perfiles, eliges qué bloquear y lo activas por horario, al vuelo con Quick Focus, o bajo un desbloqueo estricto."
+      },
+      {
+        "q": "¿Y si tengo una emergencia de verdad?",
+        "a": "Impulse es estricto, no cruel. Los desbloqueos de emergencia te dejan llegar a lo que necesitas de verdad, pero son incómodos a propósito, y los bloqueos se reactivan solos después. Así una excepción no se convierte en una recaída."
+      },
+      {
+        "q": "¿Mis datos son privados?",
+        "a": "Completamente. Tus estadísticas de uso y tus listas de bloqueo se quedan en tu dispositivo, no en nuestros servidores. Sin rastreo, sin anuncios, sin vender tus datos a nadie. Tu atención es el producto que todos los demás intentan vender. Aquí no."
+      },
+      {
+        "q": "¿Funciona en Android y en el ordenador?",
+        "a": "Sí. Impulse está en iPhone y en Android, además de Chrome y Safari en el escritorio. La app nativa de macOS está en camino."
+      }
+    ]
+  },
+
+  "finalCta": {
+    "titleLine1": "Menos scroll.",
+    "titleLine2": "Más vida.",
+    "lede": "Únete a más de 1.000 personas que recuperan 2 horas al día. Gratis en iPhone, Android y navegador, en menos de un minuto."
+  },
+
+  "footer": {
+    "tagline": "Controla el impulso, no la dopamina.",
+    "support": "Soporte",
+    "privacy": "Privacidad",
+    "disc": "Desbloqueo físico",
+    "deleteAccount": "Borrar cuenta",
+    "rights": "Todos los derechos reservados."
+  },
+
+  "common": {
+    "downloadIos": "Descargar para iPhone",
+    "downloadAndroid": "Google Play",
+    "downloadChrome": "Chrome y Safari",
+    "free": "Gratis"
+  },
+
+  "devices": {
+    "iosInterrupt": "Pantalla de interrupción de Impulse en iPhone: pregunta «¿Quieres continuar?» y muestra 1 h 28 min de uso hoy y 70 intentos de apertura, con la opción de cerrar la app.",
+    "extensionDashboard": "Panel de la extensión de Impulse: modo una sola pestaña, botones de bloqueo estricto, límite de tiempo y límite de aperturas, y la lista de bloqueos con «Morning Work» de lunes a viernes de 09:00 a 13:00.",
+    "extensionLimits": "Formulario de límite nuevo en Impulse: webs bloqueadas, dificultad de desbloqueo Fácil, Medio o Difícil, y límites diarios de tiempo total y de aperturas máximas.",
+    "extensionStrict": "Selector de dificultad de desbloqueo en Impulse, con las opciones Fácil, Medio y Difícil.",
+    "extensionBlocked": "Pantalla de bloqueo de Impulse en el navegador, pidiendo escribir una frase antes de poder continuar en instagram.com.",
+    "browserBar": "impulse — extensión"
+  }
+}

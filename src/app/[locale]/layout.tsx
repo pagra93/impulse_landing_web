@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/links";
 import { Figtree } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { cn } from "@/lib/utils";
 
 // One family for the whole site. Variable, so the full 300–900 range ships in a
@@ -12,7 +17,11 @@ const figtree = Figtree({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+const BASE_METADATA = {
   title: "Impulse - Focus blocker with physical NFC unlock",
   description:
     "Stop scrolling and start living. Impulse blocks distracting apps and websites — with a physical unlock level that ends a session only when you tap the Impulse Disc or any NFC tag. Save 2+ hours per day on iOS, Chrome and Safari.",
@@ -70,7 +79,40 @@ export const metadata: Metadata = {
   other: {
     "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   },
-};
+} satisfies Metadata;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.home" });
+
+  return {
+    ...BASE_METADATA,
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: locale === "es" ? SITE_URL : `${SITE_URL}/en`,
+      languages: {
+        es: SITE_URL,
+        en: `${SITE_URL}/en`,
+        // x-default points at Spanish: it is the market with actual traction
+        // and the URL that already holds the ranking.
+        "x-default": SITE_URL,
+      },
+    },
+    openGraph: {
+      ...BASE_METADATA.openGraph,
+      title: t("title"),
+      description: t("description"),
+      url: locale === "es" ? SITE_URL : `${SITE_URL}/en`,
+      locale: locale === "es" ? "es_ES" : "en_US",
+      alternateLocale: locale === "es" ? "en_US" : "es_ES",
+    },
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -161,13 +203,22 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+
+  // Opts the tree into static rendering; without it every page under [locale]
+  // is forced dynamic.
+  setRequestLocale(locale);
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         {/* No hand-written <link rel="canonical"> here. One used to live at this
             spot alongside metadata.alternates.canonical, so every subpage
@@ -193,7 +244,7 @@ export default function RootLayout({
           "antialiased font-body bg-white text-body"
         )}
       >
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "home": {
+      "title": "Impulse — Block apps and websites, take your time back",
+      "description": "Impulse blocks the apps and websites that steal your focus, so you reclaim 2+ hours every day. Free on iPhone, Android, Chrome and Safari."
+    },
+    "disc": {
+      "title": "Physical unlock — Impulse",
+      "description": "The hardest level of focus is physical: a block that ends only when you tap a real object. Use the Impulse Disc, or any NFC tag you already own."
+    }
+  },
+
+  "nav": {
+    "howItWorks": "How it works",
+    "features": "Features",
+    "desktop": "Desktop",
+    "friction": "Friction",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "cta": "Get it free",
+    "home": "Impulse, home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchTo": "Switch to {language}",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+
+  "hero": {
+    "badge": "New",
+    "badgeText": "Now on Android",
+    "titleLine1": "Less scrolling.",
+    "titleLine2": "More",
+    "titleAccent": "living",
+    "lede": "Impulse blocks the apps and websites that steal your focus — so you reclaim 2+ hours every day. No willpower required.",
+    "macosSoon": "macOS app coming soon"
+  },
+
+  "stats": {
+    "users": "Daily users",
+    "hours": "Hours reclaimed",
+    "blocks": "Distractions blocked",
+    "rating": "App Store rating"
+  },
+
+  "problem": {
+    "label": "The problem",
+    "title": "Your attention is being sold.",
+    "body": "Every feed is a slot machine. The scroll never ends because it was never meant to. You’re not fighting a habit — you’re fighting an industry of designers paid to keep you there.",
+    "checksValue": "96×",
+    "checksLabel": "phone checks a day",
+    "hoursValue": "4+ hrs",
+    "hoursLabel": "a day lost to apps"
+  },
+
+  "manifesto": {
+    "label": "Why we built this",
+    "quoteBefore": "We don’t think all screen time is bad. We think",
+    "quoteEmphasis": "unconscious",
+    "body": "Impulse helps you be intentional — not through guilt or rules, but by giving you control over the impulse, not the dopamine.",
+    "signature": "The Impulse team"
+  },
+
+  "howItWorks": {
+    "label": "How it works",
+    "title": "Simple by design. Powerful by nature.",
+    "steps": [
+      {
+        "title": "Choose what to block",
+        "body": "Pick the apps and sites that steal your focus — Instagram, TikTok, X."
+      },
+      {
+        "title": "Set your schedule",
+        "body": "Work hours, study, bedtime. Block on autopilot, or trigger Quick Focus when you need it."
+      },
+      {
+        "title": "Pick your strictness",
+        "body": "From a gentle nudge to a physical lock you genuinely can’t cheat."
+      },
+      {
+        "title": "Live your life",
+        "body": "Watch your screen time fall and your hours come back."
+      }
+    ]
+  },
+
+  "features": {
+    "label": "Features",
+    "title": "Everything you need to take back control.",
+    "blocks": {
+      "kicker": "Strict blocks",
+      "title": "Blocks that can’t be paused.",
+      "body": "Create profiles like Work, Study or Bedtime, each with its own sites and schedule. Strict blocks can’t be bypassed or paused: they end when they end.",
+      "check1Strong": "By day and time slot.",
+      "check1": "Monday to Friday, 09:00 to 13:00, automatically.",
+      "check2Strong": "Set it once",
+      "check2": "and focus runs on its own, with nothing left to touch."
+    },
+    "limits": {
+      "kicker": "Time and opening limits",
+      "title": "Not just how long. How many times.",
+      "body": "Give YouTube 30 minutes a day. Give Instagram 5 openings. Capping how often you open an app cuts the automatic reach far earlier than capping the minutes does.",
+      "check1Strong": "Total time per day",
+      "check1": "in minutes, per site or per app.",
+      "check2Strong": "Maximum openings per day,",
+      "check2": "the limit almost nobody else offers."
+    },
+    "mobile": {
+      "kicker": "On your phone",
+      "title": "We stop you right before the scroll.",
+      "body": "Before letting you into an app we show you how long you’ve been on it today and how many times you’ve already tried. Usually, seeing it is enough to close it.",
+      "check1Strong": "Today’s screen time,",
+      "check1": "in front of you, at the exact moment it matters.",
+      "check2Strong": "Your opening attempts, counted.",
+      "check2": "The number no other app shows you."
+    }
+  },
+
+  "bridge": {
+    "label": "Desktop and mobile",
+    "title": "Most blockers stop at your phone. Ours doesn’t.",
+    "body1": "Distraction just hops to the laptop. So Impulse is also a Chrome and Safari extension, with its own blocker for the computer that works without your phone in front of you.",
+    "body2": "And the bridge between them? Your phone. Tap it against your Disc or any NFC tag and the desktop block lifts. The off-switch stops living on the same screen as the temptation.",
+    "check1Strong": "Independent desktop blocking.",
+    "check1": "Set it up on the computer; no phone required.",
+    "check2Strong": "Single-tab mode.",
+    "check2": "You stay on the tab you’re on and everything else goes quiet.",
+    "check3Strong": "Unlock the computer with your phone.",
+    "check3": "One NFC tap ends a desktop blocking period.",
+    "check4Strong": "And soon, a native macOS app,",
+    "check4": "with the same bridge.",
+    "ctaChrome": "Add to Chrome",
+    "ctaNfc": "How NFC unlock works"
+  },
+
+  "platforms": {
+    "label": "Platforms",
+    "title": "Everywhere you scroll.",
+    "lede": "Distraction hops from your phone to your laptop. So does Impulse.",
+    "soon": "Coming soon",
+    "ios": {
+      "name": "iPhone",
+      "body": "Blocks apps and sites through Apple’s Screen Time API.",
+      "cta": "App Store"
+    },
+    "android": {
+      "name": "Android",
+      "body": "The same app and the same blocks, on Google Play.",
+      "cta": "Google Play"
+    },
+    "chrome": {
+      "name": "Chrome and Safari",
+      "body": "Its own blocker for the computer. No phone required.",
+      "cta": "Add to your browser"
+    },
+    "macos": {
+      "name": "macOS",
+      "body": "A native desktop app is on the way."
+    }
+  },
+
+  "strictness": {
+    "label": "Four levels of friction",
+    "title": "Physical is the new top rung.",
+    "lede": "Dial in exactly how hard it is to unblock. Physical is the one you genuinely can’t cheat in a weak moment.",
+    "discLink": "How physical unlock works",
+    "levels": [
+      {
+        "level": "Easy",
+        "title": "Type a phrase",
+        "body": "A gentle nudge — enough to make you pause."
+      },
+      {
+        "level": "Medium",
+        "title": "Wait out a countdown",
+        "body": "The urge usually passes before the timer does."
+      },
+      {
+        "level": "Hard",
+        "title": "Partner code",
+        "body": "An accountability buddy holds the key."
+      },
+      {
+        "level": "Physical",
+        "title": "Tap your phone on your Disc",
+        "body": "The off-switch lives across the room. No workaround."
+      }
+    ]
+  },
+
+  "calculator": {
+    "label": "Time calculator",
+    "title": "How much time are you losing to your screen?",
+    "hoursPerDay": "hours / day",
+    "sliderLabel": "Hours per day on screen",
+    "disclaimer": "Based on reclaiming 25% of unproductive screen time.",
+    "weekly": "hours a week you get back with Impulse",
+    "yearly": "full days a year, reclaimed"
+  },
+
+  "testimonials": {
+    "label": "Reviews",
+    "title": "People love Impulse.",
+    "items": [
+      {
+        "quote": "I was spending 5+ hours on TikTok daily. After two weeks with Impulse, I’m down to 45 minutes. This app literally changed my life.",
+        "author": "Carlos M.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Finally something that actually works. The strict mode is no joke — you CAN’T cheat it. Exactly what I needed.",
+        "author": "Sarah K.",
+        "source": "App Store"
+      },
+      {
+        "quote": "Installed the Chrome extension for work and my productivity went through the roof. No more ‘just checking Twitter’ at 2pm.",
+        "author": "James R.",
+        "source": "Chrome Web Store"
+      },
+      {
+        "quote": "I love that it’s not preachy. It doesn’t guilt-trip you. It just… blocks stuff. Simple and effective.",
+        "author": "Ana P.",
+        "source": "App Store"
+      },
+      {
+        "quote": "The scheduling feature is brilliant. My phone automatically blocks social media during work hours. Set it once and forget it.",
+        "author": "David L.",
+        "source": "App Store"
+      },
+      {
+        "quote": "I tried 4 other blockers before this. Impulse is the only one with strict mode you can’t disable mid-session. THAT’S the difference.",
+        "author": "Emma T.",
+        "source": "Chrome Web Store"
+      }
+    ]
+  },
+
+  "trust": {
+    "items": [
+      {
+        "title": "Your data stays on your device",
+        "body": "Usage stats live locally on your phone or browser — never sold, never tracked."
+      },
+      {
+        "title": "Free to start, no account",
+        "body": "Download and start blocking in seconds. No sign-up wall, no credit card."
+      },
+      {
+        "title": "Built for real life",
+        "body": "Emergency access, gentle modes and groups — strict, but never cruel."
+      }
+    ]
+  },
+
+  "faq": {
+    "label": "FAQ",
+    "title": "Answers.",
+    "items": [
+      {
+        "q": "Is Impulse free?",
+        "a": "Yes. The core blocker is 100% free on iPhone, Android and Chrome, with no account and no credit card. Scheduled blocks, Quick Focus and screen-time insights cost nothing. Impulse Pro adds unlimited rules, strict mode and Focus Groups for those who want more, but you can take back hours every day without paying a cent."
+      },
+      {
+        "q": "How is Impulse different from other focus apps?",
+        "a": "Three things. It works on both your phone and your browser, so distraction can’t just hop to your laptop. It has strictness levels you genuinely can’t bypass in a weak moment, up to a physical tap. And it never guilt-trips you: it blocks what you choose, when you choose, then gets out of the way."
+      },
+      {
+        "q": "How does Impulse block apps and websites on iPhone?",
+        "a": "On iOS, Impulse uses Apple’s Screen Time API — the same secure framework Apple built for this. On the desktop it runs as a Chrome and Safari extension. You create profiles, pick what to block, then activate on a schedule, on demand with Quick Focus, or under a strict unlock."
+      },
+      {
+        "q": "What if I have a real emergency?",
+        "a": "Impulse is strict, not cruel. Emergency unlocks let you reach what you genuinely need, but they’re intentionally inconvenient, and blocks reactivate automatically afterwards, so one exception never quietly becomes a relapse."
+      },
+      {
+        "q": "Is my data private?",
+        "a": "Completely. Your usage stats and block lists stay on your device, not on our servers. No tracking, no ads, no selling your data to anyone. Your attention is the product everyone else is trying to sell. Not here."
+      },
+      {
+        "q": "Does it work on Android and on my computer?",
+        "a": "Yes. Impulse runs on iPhone and Android, plus Chrome and Safari on the desktop. The native macOS app is on the way."
+      }
+    ]
+  },
+
+  "finalCta": {
+    "titleLine1": "Less scrolling.",
+    "titleLine2": "More living.",
+    "lede": "Join 1,000+ people reclaiming 2 hours a day. Free on iPhone, Android and your browser — start in under a minute."
+  },
+
+  "footer": {
+    "tagline": "Control the impulse, not the dopamine.",
+    "support": "Support",
+    "privacy": "Privacy",
+    "disc": "Physical unlock",
+    "deleteAccount": "Delete account",
+    "rights": "All rights reserved."
+  },
+
+  "common": {
+    "downloadIos": "Download for iPhone",
+    "downloadAndroid": "Google Play",
+    "downloadChrome": "Chrome and Safari",
+    "free": "Free"
+  },
+
+  "devices": {
+    "iosInterrupt": "Impulse interruption screen on iPhone: it asks whether you want to continue, and shows 1h 28min of use today and 70 opening attempts, with the option to close the app.",
+    "extensionDashboard": "The Impulse extension dashboard: single-tab mode, buttons for strict block, time limit and open limits, and the block list showing ‘Morning Work’ Monday to Friday, 09:00 to 13:00.",
+    "extensionLimits": "New limit form in Impulse: blocked websites, unlock difficulty Easy, Medium or Hard, and daily limits for total time and maximum openings.",
+    "extensionStrict": "Unlock difficulty picker in Impulse, with Easy, Medium and Hard options.",
+    "extensionBlocked": "Impulse block screen in the browser, asking you to type a phrase before you can continue to instagram.com.",
+    "browserBar": "impulse — extension"
+  }
+}
