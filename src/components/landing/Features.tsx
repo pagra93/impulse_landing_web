@@ -100,7 +100,7 @@ export function Features() {
   const td = useTranslations("devices");
   const locale = useLocale() as Locale;
 
-  const checks = (key: "blocks" | "limits" | "mobile") => [
+  const checks = (key: "blocks" | "limits" | "mobile" | "stats") => [
     { strong: t(`${key}.check1Strong`), rest: t(`${key}.check1`) },
     { strong: t(`${key}.check2Strong`), rest: t(`${key}.check2`) },
   ];
@@ -151,11 +151,39 @@ export function Features() {
         body={t("mobile.body")}
         checks={checks("mobile")}
         media={
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-6">
             <Tilt3D rx={4} ry={-12} rz={1}>
               <PhoneFrame
                 screen={SCREENS.ios.interrupt}
                 alt={td("iosInterrupt")}
+                locale={locale}
+                width={236}
+              />
+            </Tilt3D>
+            <Tilt3D rx={4} ry={-12} rz={1} className="hidden lg:block">
+              <PhoneFrame
+                screen={SCREENS.ios.blocked}
+                alt={td("iosBlocked")}
+                locale={locale}
+                width={236}
+              />
+            </Tilt3D>
+          </div>
+        }
+      />
+
+      <Chapter
+        flip
+        kicker={t("stats.kicker")}
+        title={t("stats.title")}
+        body={t("stats.body")}
+        checks={checks("stats")}
+        media={
+          <div className="flex justify-center">
+            <Tilt3D rx={4} ry={11} rz={-1}>
+              <PhoneFrame
+                screen={SCREENS.ios.metrics}
+                alt={td("iosMetrics")}
                 locale={locale}
                 width={250}
               />

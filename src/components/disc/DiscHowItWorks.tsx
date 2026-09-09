@@ -126,8 +126,8 @@ export function DiscHowItWorks() {
             <div className="flex w-full items-center justify-between px-8 md:px-14">
               <Tilt3D rx={3} ry={-12} rz={1}>
                 <PhoneFrame
-                  screen={SCREENS.ios.interrupt}
-                  alt={td("iosInterrupt")}
+                  screen={SCREENS.ios.home}
+                  alt={td("iosHome")}
                   locale={locale}
                   width={120}
                   shadow="dark"

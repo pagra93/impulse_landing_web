@@ -100,8 +100,8 @@ export function Bridge() {
             <div className="flex justify-center md:absolute md:-bottom-4 md:right-0 md:z-[3]">
               <Tilt3D rx={3} ry={-11} rz={1}>
                 <PhoneFrame
-                  screen={SCREENS.ios.interrupt}
-                  alt={td("iosInterrupt")}
+                  screen={SCREENS.ios.focus}
+                  alt={td("iosFocus")}
                   locale={locale}
                   width={172}
                   shadow="dark"

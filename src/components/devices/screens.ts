@@ -2,7 +2,12 @@ import s0 from "../../../public/devices/extension/blocked.webp";
 import s1 from "../../../public/devices/extension/dashboard.webp";
 import s2 from "../../../public/devices/extension/limits.webp";
 import s3 from "../../../public/devices/extension/strict.webp";
-import s4 from "../../../public/devices/ios/interrupt.webp";
+import s4 from "../../../public/devices/ios/blocked.es.webp";
+import s5 from "../../../public/devices/ios/focus.es.webp";
+import s6 from "../../../public/devices/ios/groups.es.webp";
+import s7 from "../../../public/devices/ios/home.es.webp";
+import s8 from "../../../public/devices/ios/interrupt.es.webp";
+import s9 from "../../../public/devices/ios/metrics.es.webp";
 
 import type { ScreenAsset } from "./types";
 
@@ -21,6 +26,11 @@ export const SCREENS = {
     strict: s3 as ScreenAsset,
   },
   ios: {
-    interrupt: s4 as ScreenAsset,
+    blocked: { es: s4 } as ScreenAsset,
+    focus: { es: s5 } as ScreenAsset,
+    groups: { es: s6 } as ScreenAsset,
+    home: { es: s7 } as ScreenAsset,
+    interrupt: { es: s8 } as ScreenAsset,
+    metrics: { es: s9 } as ScreenAsset,
   },
 } as const;

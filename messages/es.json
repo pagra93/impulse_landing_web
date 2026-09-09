@@ -106,6 +106,15 @@
       "check1": "delante, en el momento exacto en que importa.",
       "check2Strong": "Los intentos de apertura contados.",
       "check2": "El número que ninguna otra app te enseña."
+    },
+    "stats": {
+      "kicker": "Estadísticas",
+      "title": "Mira a dónde se te va el tiempo de verdad.",
+      "body": "Tiempo de pantalla de hoy, aperturas, bloqueos cumplidos y las apps que más te comen. Sin juicios: solo los números que necesitas para decidir qué cambiar.",
+      "check1Strong": "Por horas y por app,",
+      "check1": "para que veas el patrón, no solo el total.",
+      "check2Strong": "Todo se queda en tu dispositivo.",
+      "check2": "No hay servidor que lo vea."
     }
   },
   "bridge": {
@@ -288,12 +297,16 @@
     "free": "Gratis"
   },
   "devices": {
-    "iosInterrupt": "Pantalla de interrupción de Impulse en iPhone: pregunta «¿Quieres continuar?» y muestra 1 h 28 min de uso hoy y 70 intentos de apertura, con la opción de cerrar la app.",
+    "iosInterrupt": "Pantalla de Impulse en iPhone antes de abrir una app bloqueada: pregunta si quieres continuar, indica que Amazon está bloqueada durante el modo Focus nocturno y muestra 0 de 4 intentos de apertura.",
     "extensionDashboard": "Panel de la extensión de Impulse: modo una sola pestaña, botones de bloqueo estricto, límite de tiempo y límite de aperturas, y la lista de bloqueos con «Morning Work» de lunes a viernes de 09:00 a 13:00.",
     "extensionLimits": "Formulario de límite nuevo en Impulse: webs bloqueadas, dificultad de desbloqueo Fácil, Medio o Difícil, y límites diarios de tiempo total y de aperturas máximas.",
     "extensionStrict": "Selector de dificultad de desbloqueo en Impulse, con las opciones Fácil, Medio y Difícil.",
     "extensionBlocked": "Pantalla de bloqueo de Impulse en el navegador, pidiendo escribir una frase antes de poder continuar en instagram.com.",
-    "browserBar": "impulse — extensión"
+    "browserBar": "impulse — extensión",
+    "iosBlocked": "Pantalla de bloqueo de Impulse en iPhone: Amazon está bloqueada durante el modo Focus nocturno, quedan 6 h 23 min, con un botón para cerrar.",
+    "iosFocus": "Sesión de foco activa en Impulse: 1 h 23 min 08 s restantes, bloqueos activos y un botón para detener el foco.",
+    "iosMetrics": "Métricas de Impulse en iPhone: 57 minutos de pantalla hoy, 23 aperturas, 3 bloqueos, 0 distracciones, uso por horas y las apps más usadas.",
+    "iosHome": "Inicio de Impulse en iPhone con el modo Focus inactivo, el botón de iniciar foco y los próximos bloqueos programados."
   },
   "disc": {
     "hero": {

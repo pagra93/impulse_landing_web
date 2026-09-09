@@ -106,6 +106,15 @@
       "check1": "in front of you, at the exact moment it matters.",
       "check2Strong": "Your opening attempts, counted.",
       "check2": "The number no other app shows you."
+    },
+    "stats": {
+      "kicker": "Statistics",
+      "title": "See where your time actually goes.",
+      "body": "Today’s screen time, openings, blocks kept and the apps eating the most of it. No lecturing: just the numbers you need to decide what to change.",
+      "check1Strong": "By hour and by app,",
+      "check1": "so you see the pattern, not just the total.",
+      "check2Strong": "It all stays on your device.",
+      "check2": "No server ever sees it."
     }
   },
   "bridge": {
@@ -288,12 +297,16 @@
     "free": "Free"
   },
   "devices": {
-    "iosInterrupt": "Impulse interruption screen on iPhone: it asks whether you want to continue, and shows 1h 28min of use today and 70 opening attempts, with the option to close the app.",
+    "iosInterrupt": "Impulse on iPhone before opening a blocked app: it asks whether you want to continue, notes that Amazon is blocked during the night Focus mode, and shows 0 of 4 opening attempts.",
     "extensionDashboard": "The Impulse extension dashboard: single-tab mode, buttons for strict block, time limit and open limits, and the block list showing ‘Morning Work’ Monday to Friday, 09:00 to 13:00.",
     "extensionLimits": "New limit form in Impulse: blocked websites, unlock difficulty Easy, Medium or Hard, and daily limits for total time and maximum openings.",
     "extensionStrict": "Unlock difficulty picker in Impulse, with Easy, Medium and Hard options.",
     "extensionBlocked": "Impulse block screen in the browser, asking you to type a phrase before you can continue to instagram.com.",
-    "browserBar": "impulse — extension"
+    "browserBar": "impulse — extension",
+    "iosBlocked": "Impulse block screen on iPhone: Amazon is blocked during the night Focus mode, 6h 23min remaining, with a button to close.",
+    "iosFocus": "An active focus session in Impulse: 1h 23min 08s remaining, active blocks, and a button to stop the session.",
+    "iosMetrics": "Impulse metrics on iPhone: 57 minutes of screen time today, 23 openings, 3 blocks, 0 distractions, hourly usage and the most-used apps.",
+    "iosHome": "Impulse home on iPhone with Focus mode inactive, the start-focus button and the upcoming scheduled blocks."
   },
   "disc": {
     "hero": {

@@ -63,7 +63,10 @@ export function PhoneFrame({
   const outerR = spec.screenR + spec.railW + spec.bezelW;
   const bezelR = spec.screenR + spec.bezelW;
   const railFinish = finish ?? (model === "iphone" ? "titanium" : "black");
-  const glareOpacity = typeof glare === "number" ? glare : glare ? 0.5 : 0;
+  // Lower than it looks like it should be: `screen` blending is far more
+  // visible over the app's dark navy UI than over a white one, and at 0.5 the
+  // diagonal streak reads as a smudge across the content.
+  const glareOpacity = typeof glare === "number" ? glare : glare ? 0.32 : 0;
 
   const dropShadow =
     shadow === "none"

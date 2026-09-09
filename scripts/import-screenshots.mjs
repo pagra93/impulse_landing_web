@@ -31,6 +31,9 @@ const REGISTRY = "src/components/devices/screens.ts";
 const PLATFORMS = new Set(["ios", "android", "extension", "macos"]);
 const LOCALES = new Set(["es", "en"]);
 
+/** Below this the capture is an @1x design export and will upscale visibly. */
+const MIN_PHONE_WIDTH = 1000;
+
 /** Frame aspect ratios, so a mis-cropped capture is caught here, not in review. */
 const EXPECTED_RATIO = {
   ios: 2622 / 1206, // iPhone 16/17 Pro, 402x874pt
@@ -95,6 +98,17 @@ async function main() {
           `  WARN  ${file} is ${width}x${height} (ratio ${ratio.toFixed(3)}), ` +
             `frame expects ${expected.toFixed(3)}. It will be cropped. ` +
             `Capture uncropped, and leave the status bar in.`
+        );
+      }
+
+      // The hero renders the phone at ~296 CSS px and asks for 1.4x to survive
+      // the tilt; on a 2x display that is ~830 real pixels. An @1x export from
+      // a design tool is 393px and gets upscaled, which reads as soft.
+      if (width < MIN_PHONE_WIDTH) {
+        console.warn(
+          `  WARN  ${file} is only ${width}px wide. Export at @3x ` +
+            `(1179x2556 for a 393x852 frame) — at ${width}px it upscales ` +
+            `${(830 / width).toFixed(1)}x in the hero and looks soft.`
         );
       }
     }
