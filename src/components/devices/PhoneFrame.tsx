@@ -33,6 +33,7 @@ export function PhoneFrame({
   shadow = "light",
   glare = true,
   buttons = true,
+  island = true,
   priority = false,
   sizes,
   className,
@@ -47,6 +48,12 @@ export function PhoneFrame({
   shadow?: ShadowTone;
   glare?: boolean | number;
   buttons?: boolean;
+  /**
+   * Draw the Dynamic Island. Turn it off for captures exported without a status
+   * bar — the island sits where the status bar would be, so over a screen that
+   * starts with a navigation row it covers the first line of the interface.
+   */
+  island?: boolean;
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -175,7 +182,7 @@ export function PhoneFrame({
             }}
           />
 
-          {spec.island && (
+          {island && spec.island && (
             <div
               aria-hidden="true"
               className="absolute left-1/2 -translate-x-1/2 bg-black"
@@ -214,7 +221,7 @@ export function PhoneFrame({
             </div>
           )}
 
-          {spec.punchHole && (
+          {island && spec.punchHole && (
             <span
               aria-hidden="true"
               className="absolute left-1/2 -translate-x-1/2 rounded-full"

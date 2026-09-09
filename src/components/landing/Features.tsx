@@ -120,12 +120,25 @@ export function Features() {
         body={t("blocks.body")}
         checks={checks("blocks")}
         media={
-          <BrowserFrame
-            screen={SCREENS.extension.dashboard}
-            alt={td("extensionDashboard")}
-            locale={locale}
-            url={td("browserBar")}
-          />
+          <div className="flex justify-center gap-6">
+            <Tilt3D rx={4} ry={-12} rz={1}>
+              <PhoneFrame
+                screen={SCREENS.ios.home}
+                alt={td("iosHome")}
+                locale={locale}
+                width={236}
+              />
+            </Tilt3D>
+            <Tilt3D rx={4} ry={-12} rz={1} className="hidden lg:block">
+              <PhoneFrame
+                screen={SCREENS.ios.newblock}
+                alt={td("iosNewBlock")}
+                locale={locale}
+                width={236}
+                island={false}
+              />
+            </Tilt3D>
+          </div>
         }
       />
 
@@ -136,12 +149,17 @@ export function Features() {
         body={t("limits.body")}
         checks={checks("limits")}
         media={
-          <BrowserFrame
-            screen={SCREENS.extension.limits}
-            alt={td("extensionLimits")}
-            locale={locale}
-            url={td("browserBar")}
-          />
+          <div className="flex justify-center">
+            <Tilt3D rx={4} ry={11} rz={-1}>
+              <PhoneFrame
+                screen={SCREENS.ios.newlimit}
+                alt={td("iosNewLimit")}
+                locale={locale}
+                width={250}
+                island={false}
+              />
+            </Tilt3D>
+          </div>
         }
       />
 

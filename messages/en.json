@@ -165,23 +165,23 @@
     "discLink": "How physical unlock works",
     "levels": [
       {
-        "level": "Easy",
-        "title": "Type a phrase",
-        "body": "A gentle nudge — enough to make you pause."
+        "level": "Basic",
+        "title": "Turn it off whenever you want",
+        "body": "A gentle nudge — enough to make you pause for a second."
       },
       {
         "level": "Medium",
-        "title": "Wait out a countdown",
+        "title": "A one-minute countdown",
         "body": "The urge usually passes before the timer does."
       },
       {
         "level": "Hard",
-        "title": "Partner code",
-        "body": "An accountability buddy holds the key."
+        "title": "Supervisor approval",
+        "body": "An accountability partner holds the key."
       },
       {
         "level": "Physical",
-        "title": "Tap your phone on your Disc",
+        "title": "Scan your NFC tag",
         "body": "The off-switch lives across the room. No workaround."
       }
     ]
@@ -306,7 +306,12 @@
     "iosBlocked": "Impulse block screen on iPhone: Amazon is blocked during the night Focus mode, 6h 23min remaining, with a button to close.",
     "iosFocus": "An active focus session in Impulse: 1h 23min 08s remaining, active blocks, and a button to stop the session.",
     "iosMetrics": "Impulse metrics on iPhone: 57 minutes of screen time today, 23 openings, 3 blocks, 0 distractions, hourly usage and the most-used apps.",
-    "iosHome": "Impulse home on iPhone with Focus mode inactive, the start-focus button and the upcoming scheduled blocks."
+    "iosHome": "Impulse home on iPhone with Focus mode inactive, the start-focus button and the upcoming scheduled blocks.",
+    "iosNewBlock": "New block form in Impulse for iPhone: name, apps and sites, a 22:00 to 07:00 schedule with NFC unlock, weekly frequency, and the difficulty level set to Physical.",
+    "iosNewLimit": "New limit form in Impulse for iPhone: daily time limit, a daily opening limit set to 5, weekly frequency and difficulty level.",
+    "iosDifficulty": "Focus mode settings in Impulse for iPhone, showing the Basic, Medium, Hard and Physical difficulty levels, with Physical selected and the scan-NFC-card button.",
+    "iosModes": "Mode picker in Impulse for iPhone, with Focus, Work and Sleep, each with its apps and difficulty.",
+    "iosGroups": "Commitment groups in Impulse: shared rules, team streaks and an invitation code."
   },
   "disc": {
     "hero": {

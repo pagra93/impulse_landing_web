@@ -3,7 +3,8 @@ import { ArrowRight } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import { Mark } from "@/components/brand/Mark";
-import { BrowserFrame } from "@/components/devices/BrowserFrame";
+import { PhoneFrame } from "@/components/devices/PhoneFrame";
+import { Tilt3D } from "@/components/devices/Tilt3D";
 import { SCREENS } from "@/components/devices/screens";
 import { Section, SectionLabel } from "./primitives";
 import { Reveal } from "./Reveal";
@@ -46,13 +47,18 @@ export function Strictness() {
           <p className="max-w-[52ch] text-lede text-on-dark-mid">{t("lede")}</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <BrowserFrame
-            screen={SCREENS.extension.strict}
-            alt={td("extensionStrict")}
-            locale={locale}
-            url={td("browserBar")}
-            shadow="dark"
-          />
+          <div className="flex justify-center md:justify-start">
+            <Tilt3D rx={4} ry={-12} rz={1}>
+              <PhoneFrame
+                screen={SCREENS.ios.difficulty}
+                alt={td("iosDifficulty")}
+                locale={locale}
+                width={252}
+                shadow="dark"
+                island={false}
+              />
+            </Tilt3D>
+          </div>
         </Reveal>
       </div>
 

@@ -165,23 +165,23 @@
     "discLink": "Cómo funciona el desbloqueo físico",
     "levels": [
       {
-        "level": "Fácil",
-        "title": "Escribe una frase",
-        "body": "Un empujón suave, suficiente para hacerte parar."
+        "level": "Básico",
+        "title": "Desactivar cuando quieras",
+        "body": "Un empujón suave, suficiente para hacerte parar un segundo."
       },
       {
         "level": "Medio",
-        "title": "Espera una cuenta atrás",
+        "title": "Cuenta atrás de 1 minuto",
         "body": "Las ganas suelen pasarse antes que el temporizador."
       },
       {
         "level": "Difícil",
-        "title": "Código de un compañero",
+        "title": "Aprobación del supervisor",
         "body": "Alguien que te hace rendir cuentas guarda la llave."
       },
       {
         "level": "Físico",
-        "title": "Acerca el móvil a tu disco",
+        "title": "Escanea tu tarjeta NFC",
         "body": "El interruptor vive en otra habitación. No hay atajo posible."
       }
     ]
@@ -306,7 +306,12 @@
     "iosBlocked": "Pantalla de bloqueo de Impulse en iPhone: Amazon está bloqueada durante el modo Focus nocturno, quedan 6 h 23 min, con un botón para cerrar.",
     "iosFocus": "Sesión de foco activa en Impulse: 1 h 23 min 08 s restantes, bloqueos activos y un botón para detener el foco.",
     "iosMetrics": "Métricas de Impulse en iPhone: 57 minutos de pantalla hoy, 23 aperturas, 3 bloqueos, 0 distracciones, uso por horas y las apps más usadas.",
-    "iosHome": "Inicio de Impulse en iPhone con el modo Focus inactivo, el botón de iniciar foco y los próximos bloqueos programados."
+    "iosHome": "Inicio de Impulse en iPhone con el modo Focus inactivo, el botón de iniciar foco y los próximos bloqueos programados.",
+    "iosNewBlock": "Formulario de bloqueo nuevo en Impulse para iPhone: nombre, apps y sitios, horario de 22:00 a 07:00 con desbloqueo por NFC, frecuencia por días y nivel de dificultad con Físico seleccionado.",
+    "iosNewLimit": "Formulario de límite nuevo en Impulse para iPhone: tiempo límite por día, límite de aperturas diarias fijado en 5, frecuencia por días y nivel de dificultad.",
+    "iosDifficulty": "Configuración de un modo de foco en Impulse para iPhone, con los niveles de dificultad Básico, Medio, Difícil y Físico, este último seleccionado y con el botón para escanear la tarjeta NFC.",
+    "iosModes": "Selector de modo en Impulse para iPhone, con Focus, Trabajo y Dormir, y sus apps y dificultad.",
+    "iosGroups": "Grupos de compromiso en Impulse: reglas compartidas, rachas de equipo y código de invitación."
   },
   "disc": {
     "hero": {

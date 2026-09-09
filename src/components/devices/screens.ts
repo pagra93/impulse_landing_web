@@ -3,11 +3,15 @@ import s1 from "../../../public/devices/extension/dashboard.webp";
 import s2 from "../../../public/devices/extension/limits.webp";
 import s3 from "../../../public/devices/extension/strict.webp";
 import s4 from "../../../public/devices/ios/blocked.es.webp";
-import s5 from "../../../public/devices/ios/focus.es.webp";
-import s6 from "../../../public/devices/ios/groups.es.webp";
-import s7 from "../../../public/devices/ios/home.es.webp";
-import s8 from "../../../public/devices/ios/interrupt.es.webp";
-import s9 from "../../../public/devices/ios/metrics.es.webp";
+import s5 from "../../../public/devices/ios/difficulty.es.webp";
+import s6 from "../../../public/devices/ios/focus.es.webp";
+import s7 from "../../../public/devices/ios/groups.es.webp";
+import s8 from "../../../public/devices/ios/home.es.webp";
+import s9 from "../../../public/devices/ios/interrupt.es.webp";
+import s10 from "../../../public/devices/ios/metrics.es.webp";
+import s11 from "../../../public/devices/ios/modes.es.webp";
+import s12 from "../../../public/devices/ios/newblock.es.webp";
+import s13 from "../../../public/devices/ios/newlimit.es.webp";
 
 import type { ScreenAsset } from "./types";
 
@@ -27,10 +31,14 @@ export const SCREENS = {
   },
   ios: {
     blocked: { es: s4 } as ScreenAsset,
-    focus: { es: s5 } as ScreenAsset,
-    groups: { es: s6 } as ScreenAsset,
-    home: { es: s7 } as ScreenAsset,
-    interrupt: { es: s8 } as ScreenAsset,
-    metrics: { es: s9 } as ScreenAsset,
+    difficulty: { es: s5 } as ScreenAsset,
+    focus: { es: s6 } as ScreenAsset,
+    groups: { es: s7 } as ScreenAsset,
+    home: { es: s8 } as ScreenAsset,
+    interrupt: { es: s9 } as ScreenAsset,
+    metrics: { es: s10 } as ScreenAsset,
+    modes: { es: s11 } as ScreenAsset,
+    newblock: { es: s12 } as ScreenAsset,
+    newlimit: { es: s13 } as ScreenAsset,
   },
 } as const;

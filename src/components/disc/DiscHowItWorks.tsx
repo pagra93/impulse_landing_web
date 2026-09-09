@@ -91,12 +91,17 @@ export function DiscHowItWorks() {
         title={steps[0].title}
         body={steps[0].body}
         media={
-          <BrowserFrame
-            screen={SCREENS.extension.limits}
-            alt={td("extensionLimits")}
-            locale={locale}
-            url={td("browserBar")}
-          />
+          <div className="flex justify-center">
+            <Tilt3D rx={4} ry={-12} rz={1}>
+              <PhoneFrame
+                screen={SCREENS.ios.newblock}
+                alt={td("iosNewBlock")}
+                locale={locale}
+                width={250}
+                island={false}
+              />
+            </Tilt3D>
+          </div>
         }
       />
 

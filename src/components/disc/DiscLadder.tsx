@@ -1,7 +1,8 @@
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { Mark } from "@/components/brand/Mark";
-import { BrowserFrame } from "@/components/devices/BrowserFrame";
+import { PhoneFrame } from "@/components/devices/PhoneFrame";
+import { Tilt3D } from "@/components/devices/Tilt3D";
 import { SCREENS } from "@/components/devices/screens";
 import { Section, SectionLabel } from "@/components/landing/primitives";
 import { Reveal } from "@/components/landing/Reveal";
@@ -32,12 +33,17 @@ export function DiscLadder() {
           <p className="mt-6 max-w-[50ch] text-lede text-muted">{t("lede")}</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <BrowserFrame
-            screen={SCREENS.extension.strict}
-            alt={td("extensionStrict")}
-            locale={locale}
-            url={td("browserBar")}
-          />
+          <div className="flex justify-center">
+            <Tilt3D rx={4} ry={11} rz={-1}>
+              <PhoneFrame
+                screen={SCREENS.ios.difficulty}
+                alt={td("iosDifficulty")}
+                locale={locale}
+                width={250}
+                island={false}
+              />
+            </Tilt3D>
+          </div>
         </Reveal>
       </div>
 
